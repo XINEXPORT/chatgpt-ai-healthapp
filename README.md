@@ -9,4 +9,10 @@
 
 - in your terminal, type 'npm run dev' and hit enter
 
+## Publish your changes
+
+- in your terminal, type 'npm run deploy' to push your changes to github pages
+  - you can validate this by going to the Actions tab in the repository. you should see your build processing
+- view your changes here: https://xinexport.github.io/chatgpt-ai-healthapp/
+
 
