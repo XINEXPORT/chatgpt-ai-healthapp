@@ -1,4 +1,4 @@
-# AI Healthcare Chatbot for DallasAI aka Baymax 2.0
+# CareBuddy, an AI Healthcare Chatbot for DallasAI aka Baymax 2.0
 
 ## Developer Instructions
 
