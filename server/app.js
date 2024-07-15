@@ -1,18 +1,34 @@
-import {Configuration, OpenAIApi} from 'openai';
+import { OpenAI } from 'openai';
+import dotenv from 'dotenv';
 
-const configuration = new Configuration ({
-    organization: "",
-    apiKey: "",
-})
+// Load environment variables from .env file
+dotenv.config();
 
-const openai = new OpenAIApi(configuration);
+// Debugging statement to check if the API key is loaded
+console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY);
 
-openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    message: [{
-        role:"user", 
-        content: "Hello"
-    }]
-}).then((result)=>{
-    console.log(result);
-})
+const apiKey = process.env.OPENAI_API_KEY;
+if (!apiKey) {
+    throw new Error('Missing OPENAI_API_KEY environment variable');
+}
+
+const openai = new OpenAI({
+    apiKey: apiKey,
+});
+
+async function createChatCompletion() {
+    try {
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{
+                role: "user",
+                content: "Hello"
+            }]
+        });
+        console.log(response.data.choices[0].message.content);
+    } catch (error) {
+        console.error('Error creating chat completion:', error);
+    }
+}
+
+createChatCompletion();
