@@ -9,6 +9,10 @@
 
 - in your terminal, type 'npm run dev' and hit enter
 
+- make sure to run 'npm run prettier' before pushing your changes
+
+- if you make any package installs or config changes, be sure to tell the team to do an 'npm i' when they pull the latest changes
+
 ## Publish your changes
 
 - in your terminal, type 'npm run deploy' to push your changes to github pages
