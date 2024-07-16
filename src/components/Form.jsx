@@ -23,16 +23,28 @@ const Form = () => {
         <label htmlFor="ethnicity">Ethnicity:</label>
         <br />
         <select id="ethnicity" name="ethnicity">
-          <option value="Indigenous American/Native Alaskan">Indigenous American/Native Alaskan</option>
+          <option value="Indigenous American/Native Alaskan">
+            Indigenous American/Native Alaskan
+          </option>
           <option value="Black African">Black African</option>
-          <option value="Black or African American">Black or African American</option>
+          <option value="Black or African American">
+            Black or African American
+          </option>
           <option value="East Asian">East Asian</option>
           <option value="Southeast Asian">Southeast Asian</option>
           <option value="South Asian">South Asian</option>
-          <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
-          <option value="Latine/Hispanic/Latinx or Spanish origin">Latine/Hispanic/Latinx or Spanish origin</option>
-          <option value="Middle Eastern or North African">Middle Eastern or North African</option>
-          <option value="White or European Descent">White or European Descent</option>
+          <option value="Native Hawaiian or Pacific Islander">
+            Native Hawaiian or Pacific Islander
+          </option>
+          <option value="Latine/Hispanic/Latinx or Spanish origin">
+            Latine/Hispanic/Latinx or Spanish origin
+          </option>
+          <option value="Middle Eastern or North African">
+            Middle Eastern or North African
+          </option>
+          <option value="White or European Descent">
+            White or European Descent
+          </option>
           <option value="Prefer not to say">Prefer not to say</option>
           <option value="Prefer to describe">Prefer to describe</option>
         </select>
