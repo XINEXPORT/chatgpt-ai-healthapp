@@ -4,6 +4,7 @@ const TextBox = () => {
   return (
     <div>
       <input placeholder="Enter your text here..." />
+      <input type="submit" value="Submit" />
     </div>
   );
 };
