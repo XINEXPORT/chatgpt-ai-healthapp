@@ -21,6 +21,13 @@
     url("/src/fonts/poppins-webfont/Poppins-Italic.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Inter Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("src/fonts/Inter/static/Inter-Regular.ttf") format("woff");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,9 +38,12 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: "Poppins Regular", "Poppins SemiBold", "Poppins Italic",
-    sans-serif;
-  background: #222;
+  font-family:
+    "Poppins Regular",
+    "Poppins SemiBold",
+    "Poppins Italic",
+    "Inter Regular" sans-serif;
+  background-color: #222 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,11 +53,11 @@ body {
   width: 375px;
   height: 812px;
   border-radius: 36px;
-  background: url("src/assets/dd_cinematic_mode_hw__ct87ppjhf56q_large.png")
-    no-repeat center center;
+  background-image: url("../assets/iphone-frame.png") no-repeat center center;
   margin: auto;
   background-size: contain;
   position: relative;
+  z-index: 99999;
 }
 
 .screen {
@@ -62,6 +72,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: url("../assets/iphone-frame.png") no-repeat center center;
   background: linear-gradient(-25deg, #003959, #000000);
 }
 
@@ -82,12 +93,59 @@ body {
   color: #feb47b;
 }
 
+#loading-message {
+  font-family: "Inter Regular";
+  font-size: 15px;
+  color: white;
+  display: inline;
+  text-align: center;
+  position: relative;
+  top: 90px;
+  left: 0px;
+  white-space: nowrap;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none; // Optional: to prevent interactions while fading out
+  }
+}
+
+.custom-image-spinner {
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+  top: -60px;
+  left: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  animation: image-spin 1.5s linear infinite;
+}
+
+@keyframes image-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 header {
   width: 100%;
   padding: 10px 0;
   text-align: center;
   background: #000000;
   color: white;
+  font-family: "Poppins Regular";
   font-size: 24px;
   font-weight: bold;
 }
@@ -105,8 +163,8 @@ footer {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  background: #feb47b;
   color: white;
+  font-family: "Poppins Regular";
   font-size: 16px;
 }
 
@@ -116,4 +174,5 @@ footer {
   align-items: center;
   height: 100%;
   width: 100%;
+  color: white;
 }
