@@ -2,6 +2,7 @@
 import React from "react";
 import Home from "./screens/Home.jsx";
 import Loading from "./screens/Loading.jsx";
+import PatientForm from "./screens/PatientForm.jsx";
 import "./index.scss";
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
     <div id="iphone-15-frame">
       <div className="screen">
         <div className="content">
-          <Loading />
+          {/* <Loading /> */}
+          <PatientForm/>
         </div>
         <footer></footer>
       </div>
