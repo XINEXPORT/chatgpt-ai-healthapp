@@ -10,8 +10,8 @@ const App = () => {
     <div id="iphone-15-frame">
       <div className="screen">
         <div className="content">
-          {/* <Loading /> */}
-          <PatientForm />
+          <Loading />
+          {/* <PatientForm /> */}
         </div>
         <footer></footer>
       </div>
