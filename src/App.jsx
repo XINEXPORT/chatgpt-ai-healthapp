@@ -11,7 +11,7 @@ const App = () => {
       <div className="screen">
         <div className="content">
           {/* <Loading /> */}
-          <PatientForm/>
+          <PatientForm />
         </div>
         <footer></footer>
       </div>
