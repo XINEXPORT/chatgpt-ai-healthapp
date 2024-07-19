@@ -1,6 +1,7 @@
+// src/screens/Loading.jsx
+
 import React, { useEffect, useState } from "react";
 import "../index.scss";
-import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Loading = () => {
@@ -9,20 +10,24 @@ const Loading = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true);
-    }, 4000); // 1 second delay before starting the fade-out
+    }, 4000); // 4 second delay before starting the fade-out
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
-      <div id="loading-message">
-        <p>Loading your personal healthcare companion...</p>
+    <div id="iphone-15-frame">
+      <div className="screen">
+        <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
+          <div id="loading-message">
+            <p>Loading your personal healthcare companion...</p>
+          </div>
+          <img
+            src="src/assets/baymax/loading-icon.png"
+            alt="Spinner"
+            className="custom-image-spinner"
+          />
+        </div>
       </div>
-      <img
-        src="src/assets/baymax/loading-icon.png"
-        alt="Spinner"
-        className="custom-image-spinner"
-      ></img>
     </div>
   );
 };
