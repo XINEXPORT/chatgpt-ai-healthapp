@@ -1,3 +1,5 @@
+/* src/index.scss */
+
 @font-face {
   font-family: "Poppins Regular";
   font-style: normal;
@@ -38,11 +40,8 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family:
-    "Poppins Regular",
-    "Poppins SemiBold",
-    "Poppins Italic",
-    "Inter Regular" sans-serif;
+  font-family: "Poppins Regular", "Poppins SemiBold", "Poppins Italic",
+    "Inter Regular", sans-serif;
   background-color: #222 !important;
   display: flex;
   justify-content: center;
@@ -53,7 +52,9 @@ body {
   width: 375px;
   height: 812px;
   border-radius: 36px;
-  background-image: url("../assets/iphone-frame.png") no-repeat center center;
+  background-image: url("../assets/iphone-frame.png");
+  background-repeat: no-repeat;
+  background-position: center;
   margin: auto;
   background-size: contain;
   position: relative;
@@ -72,7 +73,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: url("../assets/iphone-frame.png") no-repeat center center;
+  background-image: url("../assets/iphone-frame.png");
+  background-repeat: no-repeat;
+  background-position: center;
   background: linear-gradient(-25deg, #003959, #000000);
 }
 
@@ -100,8 +103,6 @@ body {
   display: inline;
   text-align: center;
   position: relative;
-  top: 90px;
-  left: 0px;
   white-space: nowrap;
 }
 
@@ -110,6 +111,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
   opacity: 1;
   transition: opacity 1s ease-in-out;
 
@@ -122,11 +124,7 @@ body {
 .custom-image-spinner {
   width: 4rem;
   height: 4rem;
-  position: relative;
-  top: -60px;
-  left: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-top: 20px;
   animation: image-spin 1.5s linear infinite;
 }
 
