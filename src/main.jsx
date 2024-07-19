@@ -8,20 +8,24 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-} from 'react-router-dom';
+} from "react-router-dom";
 import PatientForm from "./screens/PatientForm.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/chatgpt-ai-healthapp/" element={<App />} errorElement={<ErrorPage />}>
+    <Route
+      path="/chatgpt-ai-healthapp/"
+      element={<App />}
+      errorElement={<ErrorPage />}
+    >
       <Route index element={<PatientForm />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

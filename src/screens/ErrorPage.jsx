@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class ErrorPage extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class ErrorPage extends React.Component {
       return <h1>Something went wrong. Please try again later.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 

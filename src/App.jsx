@@ -24,9 +24,7 @@ const App = () => {
   return (
     <div id="iphone-15-frame">
       <div className="screen">
-        <header>
-          CareBuddy
-        </header>
+        <header>CareBuddy</header>
         <div className="content">
           <Outlet />
         </div>
