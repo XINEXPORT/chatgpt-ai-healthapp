@@ -1,21 +1,19 @@
+// Conversation.jsx
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "../index.scss";
 
 const Conversation = () => {
   const location = useLocation();
-  const { response } = location.state || {};
+  const { result } = location.state || {};
 
   return (
     <div className="container mt-5">
-      <h2>Conversation</h2>
-      {response ? (
+      {result ? (
         <div>
-          <h3>API Response:</h3>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+          <pre>{JSON.stringify(result, null, 2)}</pre>
         </div>
       ) : (
-        <p>No data to display</p>
+        <p>No result found. Please submit the form first.</p>
       )}
     </div>
   );

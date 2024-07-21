@@ -38,9 +38,8 @@ const Form = () => {
       });
 
       if (!response.ok) {
-        throw new Error(
-          `API request failed with status ${response.status}: ${response.statusText}`,
-        );
+        const errorText = await response.text();
+        throw new Error(`API request failed with status ${response.status}: ${errorText}`);
       }
 
       const result = await response.json();
@@ -52,18 +51,23 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const formData = {
       inputs: `Age: ${age}, Weight: ${weight}`,
     };
-
-    const result = await query(formData);
-
-    if (result) {
-      console.log(JSON.stringify(result));
-      navigate("/chatgpt-ai-healthapp/conversation");
+  
+    try {
+      const result = await query(formData);
+  
+      if (result) {
+        navigate("/chatgpt-ai-healthapp/conversation", { state: { result } });
+        console.log(result);
+      }
+    } catch (error) {
+      console.error("Error handling the form submission:", error);
     }
   };
+  
 
   return (
     <div className="container mt-5">
