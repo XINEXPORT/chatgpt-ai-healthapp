@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.scss"; // Ensure your SASS file is correctly imported
+import "../index.scss";
+
+const API_URL =
+  "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
+const API_TOKEN = "";
 
 const Form = () => {
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
+  const navigate = useNavigate();
 
   const handleAgeChange = (e) => {
     const value = e.target.value;
@@ -20,9 +26,48 @@ const Form = () => {
     }
   };
 
+  const query = async (data) => {
+    try {
+      const response = await fetch(API_URL, {
+        headers: {
+          Authorization: `Bearer ${API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `API request failed with status ${response.status}: ${response.statusText}`,
+        );
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("Error querying the API:", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      inputs: `Age: ${age}, Weight: ${weight}`,
+    };
+
+    const result = await query(formData);
+
+    if (result) {
+      console.log(JSON.stringify(result));
+      navigate("/chatgpt-ai-healthapp/conversation");
+    }
+  };
+
   return (
     <div className="container mt-5">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="fname" className="form-label text-white">
             First name:

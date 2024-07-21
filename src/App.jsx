@@ -9,10 +9,9 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading period
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // Adjust the timeout duration as needed
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
