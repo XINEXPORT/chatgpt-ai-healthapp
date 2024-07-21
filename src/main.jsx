@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import PatientForm from "./screens/PatientForm.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
+import Conversation from "./screens/Conversation.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,11 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route index element={<PatientForm />} />
+
+      <Route
+        path="/chatgpt-ai-healthapp/conversation"
+        element={<Conversation />}
+      />
     </Route>,
   ),
 );
