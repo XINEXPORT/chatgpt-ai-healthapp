@@ -1,0 +1,32 @@
+/* Custom button styles */
+.btnCustom {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: box-shadow 0.3s; /* Smooth transitions */
+  position: relative;
+  top: -50px;
+  left: 240px;
+  z-index: 1;
+
+  &:focus {
+    outline: none; /* Remove focus outline */
+  }
+}
+
+.buttonImage {
+  display: block; /* Ensure the image is block-level */
+  width: 20%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Rounded corners */
+  transition: box-shadow 0.3s; /* Smooth transitions */
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.815); /* Shadow effect on hover */
+  }
+
+  &:active {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.815); /* Shadow effect on active */
+  }
+}
