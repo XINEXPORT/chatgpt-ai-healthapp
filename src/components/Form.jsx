@@ -4,97 +4,109 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.scss";
 
 const API_URL =
-  "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-  const API_TOKEN = process.env.VITE_API_TOKEN;
+  "https://api-inference.huggingface.co/models/openai-community/gpt2";
+const API_KEY = process.env.VITE_API_TOKEN;
 
 const Form = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
+  const [goal, setGoal] = useState("");
+  const [ethnicity, setEthnicity] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
+  const handleFirstNameChange = (e) => setFirstName(e.target.value);
+  const handleLastNameChange = (e) => setLastName(e.target.value);
   const handleAgeChange = (e) => {
     const value = e.target.value;
     if (value >= 0) {
       setAge(value);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Age cannot be negative.");
     }
   };
-
   const handleWeightChange = (e) => {
     const value = e.target.value;
     if (value >= 0) {
       setWeight(value);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Weight cannot be negative.");
     }
   };
+  const handleGoalChange = (e) => setGoal(e.target.value);
+  const handleEthnicityChange = (e) => setEthnicity(e.target.value);
 
-  const query = async (data) => {
+  const queryAPI = async (prompt) => {
     try {
       const response = await fetch(API_URL, {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-          "Content-Type": "application/json",
-        },
         method: "POST",
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        body: JSON.stringify({
+          inputs: prompt,
+          max_tokens: 150,
+          temperature: 0.7,
+        }),
       });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(
-          `API request failed with status ${response.status}: ${errorText}`,
-        );
-      }
+      const data = await response.json();
 
-      const result = await response.json();
-      return result;
+      if (data && data.length > 0 && data[0].generated_text) {
+        return data[0].generated_text.trim();
+      } else {
+        console.error("Unexpected response format:", data);
+        return "Error: Unexpected response format.";
+      }
     } catch (error) {
       console.error("Error querying the API:", error);
+      return "Error querying the API.";
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = {
-      inputs: `Age: ${age}, Weight: ${weight}`,
-    };
-
-    try {
-      const result = await query(formData);
-
-      if (result) {
-        navigate("/chatgpt-ai-healthapp/conversation", { state: { result } });
-        console.log(result);
-      }
-    } catch (error) {
-      console.error("Error handling the form submission:", error);
+    if (age < 0 || weight < 0) {
+      setErrorMessage("Age and weight cannot be negative.");
+      return;
     }
+    const prompt = `Provide weight loss tips for a person with the following details:\nFirst Name: ${firstName}\nLast Name: ${lastName}\nAge: ${age}\nWeight: ${weight}\nGoal: ${goal}\nEthnicity: ${ethnicity}`;
+    const responseText = await queryAPI(prompt);
+    navigate("/chatgpt-ai-healthapp/conversation", { state: { responseText } });
   };
 
   return (
     <div className="container mt-5">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="fname" className="form-label text-white">
-            First name:
+          <label htmlFor="firstName" className="form-label text-white">
+            First Name:
           </label>
           <input
             type="text"
             className="form-control"
-            id="fname"
-            name="fname"
-            defaultValue="John"
+            id="firstName"
+            name="firstName"
+            value={firstName}
+            onChange={handleFirstNameChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="lname" className="form-label text-white">
-            Last name:
+          <label htmlFor="lastName" className="form-label text-white">
+            Last Name:
           </label>
           <input
             type="text"
             className="form-control"
-            id="lname"
-            name="lname"
-            defaultValue="Doe"
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={handleLastNameChange}
           />
         </div>
         <div className="mb-3">
@@ -124,10 +136,38 @@ const Form = () => {
           />
         </div>
         <div className="mb-3">
+          <label htmlFor="goal" className="form-label text-white">
+            Goal:
+          </label>
+          <select
+            id="goal"
+            name="goal"
+            className="form-select"
+            value={goal}
+            onChange={handleGoalChange}
+          >
+            <option value="">Select your goal</option>
+            <option value="Lose 5lbs">Lose 5lbs</option>
+            <option value="Lose 10lbs">Lose 10lbs</option>
+            <option value="Lose 15lbs">Lose 15lbs</option>
+            <option value="Lose 20lbs">Lose 20lbs</option>
+            <option value="Maintain current weight">
+              Maintain current weight
+            </option>
+          </select>
+        </div>
+        <div className="mb-3">
           <label htmlFor="ethnicity" className="form-label text-white">
             Ethnicity:
           </label>
-          <select id="ethnicity" name="ethnicity" className="form-select">
+          <select
+            id="ethnicity"
+            name="ethnicity"
+            className="form-select"
+            value={ethnicity}
+            onChange={handleEthnicityChange}
+          >
+            <option value="">Select your ethnicity</option>
             <option value="Indigenous American/Native Alaskan">
               Indigenous American/Native Alaskan
             </option>
@@ -154,45 +194,7 @@ const Form = () => {
             <option value="Prefer to describe">Prefer to describe</option>
           </select>
         </div>
-        <div className="mb-3">
-          <label className="form-label text-white">Sex:</label>
-          <div className="d-flex align-items-center">
-            <input
-              type="radio"
-              className="form-check-input me-1"
-              id="male"
-              name="sex"
-              value="male"
-            />
-            <label htmlFor="male" className="form-check-label text-white">
-              Male
-            </label>
-          </div>
-          <div className="d-flex align-items-center">
-            <input
-              type="radio"
-              className="form-check-input me-1"
-              id="female"
-              name="sex"
-              value="female"
-            />
-            <label htmlFor="female" className="form-check-label text-white">
-              Female
-            </label>
-          </div>
-          <div className="d-flex align-items-center">
-            <input
-              type="radio"
-              className="form-check-input me-1"
-              id="non-binary"
-              name="sex"
-              value="non-binary"
-            />
-            <label htmlFor="non-binary" className="form-check-label text-white">
-              Non-binary
-            </label>
-          </div>
-        </div>
+        {errorMessage && <div className="text-danger mb-3">{errorMessage}</div>}
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

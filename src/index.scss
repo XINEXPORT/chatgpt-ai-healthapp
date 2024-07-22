@@ -117,7 +117,7 @@ body {
 
   &.fade-out {
     opacity: 0;
-    pointer-events: none; // Optional: to prevent interactions while fading out
+    pointer-events: none;
   }
 }
 
@@ -141,7 +141,6 @@ header {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  background: #000000;
   color: white;
   font-family: "Poppins Regular";
   font-size: 24px;
@@ -182,4 +181,22 @@ footer {
 
 .form-check-label.text-white {
   color: white;
+}
+
+.form-check-inline {
+  display: flex;
+  align-items: center;
+}
+
+.form-check-input {
+  margin-right: 5px;
+}
+
+//Conversation
+.convo-text {
+  color: white;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 100%;
 }
