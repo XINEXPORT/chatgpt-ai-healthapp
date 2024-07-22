@@ -5,7 +5,7 @@ import "../index.scss";
 
 const API_URL =
   "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-const API_TOKEN = "";
+  const API_TOKEN = process.env.VITE_API_TOKEN;
 
 const Form = () => {
   const [age, setAge] = useState("");
