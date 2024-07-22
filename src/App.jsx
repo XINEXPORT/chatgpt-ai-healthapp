@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Loading from "./screens/Loading.jsx";
+import Welcome from "./screens/Welcome.jsx";
 import "./index.scss";
 
 const App = () => {
@@ -23,7 +24,6 @@ const App = () => {
   return (
     <div id="iphone-15-frame">
       <div className="screen">
-        <header>CareBuddy</header>
         <div className="content">
           <Outlet />
         </div>

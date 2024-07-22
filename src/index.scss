@@ -1,5 +1,6 @@
 /* src/index.scss */
 
+
 @font-face {
   font-family: "Poppins Regular";
   font-style: normal;
@@ -59,6 +60,7 @@ body {
   background-size: contain;
   position: relative;
   z-index: 99999;
+  overflow: hidden;
 }
 
 .screen {
@@ -73,9 +75,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: url("../assets/iphone-frame.png");
+  background-image: url("src/assets/iphone-frame.png");
   background-repeat: no-repeat;
   background-position: center;
+  color: white;
   background: linear-gradient(-25deg, #003959, #000000);
 }
 
@@ -85,21 +88,14 @@ body {
 }
 
 .welcome-message {
-  font-family: "Poppins Regular";
-  font-size: 1.5em;
-  color: #ffffff;
-}
-
-.hello-message {
   font-family: "Poppins SemiBold";
-  font-size: 2em;
-  color: #feb47b;
+  font-size: 21px;
+  color: #ffffff;
 }
 
 #loading-message {
   font-family: "Inter Regular";
   font-size: 15px;
-  color: white;
   display: inline;
   text-align: center;
   position: relative;
@@ -111,20 +107,28 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  position: fixed; /* Fixed position */
+  top: 0; /* Start at top */
+  left: 0; /* Start at left */
   opacity: 1;
   transition: opacity 1s ease-in-out;
 
   &.fade-out {
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Optional: to prevent interactions while fading out */
   }
 }
 
 .custom-image-spinner {
   width: 4rem;
   height: 4rem;
-  margin-top: 20px;
+  position: relative;
+  top: -50px;
+  left: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   animation: image-spin 1.5s linear infinite;
 }
 
@@ -183,20 +187,88 @@ footer {
   color: white;
 }
 
-.form-check-inline {
-  display: flex;
-  align-items: center;
+.baymax-waving {
+  position: relative;
+  top: 150px;
+  left: -140px;
+  animation: slideUp 1s;
 }
 
-.form-check-input {
-  margin-right: 5px;
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-//Conversation
-.convo-text {
-  color: white;
-  border-radius: 20px;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.6);
-  max-width: 100%;
+.message {
+  opacity: 0; /* Start hidden */
+  animation: slideRight 2s forwards;
+  width: 90%;
+  position: relative;
+  left: 40px;
+}
+
+.message1 {
+  position: relative;
+  top: 50px;
+  animation-delay: 1s;
+  padding-top: 10px;
+}
+
+.message2 {
+  position: relative;
+  top: 70px;
+  animation-delay: 4s;
+}
+
+.message3 {
+  position: relative;
+  top: 90px;
+  animation-delay: 7s;
+  margin-bottom: -20px;;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.continue-tutorial-message {
+  position:relative;
+  font-family: "Inter Regular";
+  top: -84px;
+  left: 70px;
+  font-size: 13px;
+  text-shadow: 5px 3px 6px rgb(0, 0, 0);
+}
+
+.button {
+  opacity: 0;
+  animation: slideLeft 1s forwards;
+}
+
+.button-container{
+  animation-delay: 10s;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

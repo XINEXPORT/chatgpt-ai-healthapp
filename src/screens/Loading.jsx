@@ -18,14 +18,14 @@ const Loading = () => {
     <div id="iphone-15-frame">
       <div className="screen">
         <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
-          <div id="loading-message">
-            <p>Loading your personal healthcare companion...</p>
-          </div>
-          <img
+        <img
             src="src/assets/baymax/loading-icon.png"
             alt="Spinner"
             className="custom-image-spinner"
           />
+          <div id="loading-message">
+            <p>Loading your personal healthcare companion...</p>
+          </div>
         </div>
       </div>
     </div>
