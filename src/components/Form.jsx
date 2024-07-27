@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.scss";
+import axios from "axios";
 
-const API_URL =
-  "https://api-inference.huggingface.co/models/openai-community/gpt2";
-const API_KEY = process.env.VITE_API_TOKEN;
+const MODEL_NAME = "gpt-4-1106-preview"; // Use the model name appropriate for your use case
 
 const Form = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,8 +16,10 @@ const Form = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleFirstNameChange = (e) => setFirstName(e.target.value);
-  const handleLastNameChange = (e) => setLastName(e.target.value);
+  const handleInputChange = (setter) => (e) => {
+    setter(e.target.value);
+  };
+
   const handleAgeChange = (e) => {
     const value = e.target.value;
     if (value >= 0) {
@@ -28,6 +29,7 @@ const Form = () => {
       setErrorMessage("Age cannot be negative.");
     }
   };
+
   const handleWeightChange = (e) => {
     const value = e.target.value;
     if (value >= 0) {
@@ -37,30 +39,42 @@ const Form = () => {
       setErrorMessage("Weight cannot be negative.");
     }
   };
-  const handleGoalChange = (e) => setGoal(e.target.value);
-  const handleEthnicityChange = (e) => setEthnicity(e.target.value);
 
   const queryAPI = async (prompt) => {
     try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-          inputs: prompt,
+      const response = await axios.post(
+        "https://api.openai.com/v1/chat/completions",
+        {
+          model: MODEL_NAME,
+          messages: [
+            {
+              role: "system",
+              content: "You are a nutrition coach.",
+            },
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
           max_tokens: 150,
-          temperature: 0.7,
-        }),
-      });
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.VITE_OPENAI_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+        },
+      );
 
-      const data = await response.json();
-
-      if (data && data.length > 0 && data[0].generated_text) {
-        return data[0].generated_text.trim();
+      if (
+        response.data &&
+        response.data.choices &&
+        response.data.choices[0].message &&
+        response.data.choices[0].message.content
+      ) {
+        return response.data.choices[0].message.content.trim();
       } else {
-        console.error("Unexpected response format:", data);
+        console.error("Unexpected response format:", response);
         return "Error: Unexpected response format.";
       }
     } catch (error) {
@@ -75,7 +89,7 @@ const Form = () => {
       setErrorMessage("Age and weight cannot be negative.");
       return;
     }
-    const prompt = `Provide weight loss tips for a person with the following details:\nFirst Name: ${firstName}\nLast Name: ${lastName}\nAge: ${age}\nWeight: ${weight}\nGoal: ${goal}\nEthnicity: ${ethnicity}`;
+    const prompt = `I am a ${age} year-old, ${ethnicity} weighing ${weight} lbs and ${firstName} ${lastName}. My goal is to ${goal}. How do I achieve this?`;
     const responseText = await queryAPI(prompt);
     navigate("/chatgpt-ai-healthapp/conversation", { state: { responseText } });
   };
@@ -93,7 +107,7 @@ const Form = () => {
             id="firstName"
             name="firstName"
             value={firstName}
-            onChange={handleFirstNameChange}
+            onChange={handleInputChange(setFirstName)}
           />
         </div>
         <div className="mb-3">
@@ -106,7 +120,7 @@ const Form = () => {
             id="lastName"
             name="lastName"
             value={lastName}
-            onChange={handleLastNameChange}
+            onChange={handleInputChange(setLastName)}
           />
         </div>
         <div className="mb-3">
@@ -144,7 +158,7 @@ const Form = () => {
             name="goal"
             className="form-select"
             value={goal}
-            onChange={handleGoalChange}
+            onChange={handleInputChange(setGoal)}
           >
             <option value="">Select your goal</option>
             <option value="Lose 5lbs">Lose 5lbs</option>
@@ -165,7 +179,7 @@ const Form = () => {
             name="ethnicity"
             className="form-select"
             value={ethnicity}
-            onChange={handleEthnicityChange}
+            onChange={handleInputChange(setEthnicity)}
           >
             <option value="">Select your ethnicity</option>
             <option value="Indigenous American/Native Alaskan">

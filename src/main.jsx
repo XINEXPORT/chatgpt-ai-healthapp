@@ -23,12 +23,14 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route index element={<Welcome />} />
-
-      <Route path="/chatgpt-ai-healthapp/tutorial" element={<Tutorial/>} />
-
+      <Route path="/chatgpt-ai-healthapp/tutorial" element={<Tutorial />} />
       <Route
         path="/chatgpt-ai-healthapp/conversation"
         element={<Conversation />}
+      />
+      <Route
+        path="/chatgpt-ai-healthapp/patientform"
+        element={<PatientForm />}
       />
     </Route>,
   ),
