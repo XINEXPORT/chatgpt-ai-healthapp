@@ -18,7 +18,7 @@ const Loading = () => {
     <div id="iphone-15-frame">
       <div className="screen">
         <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
-        <img
+          <img
             src="src/assets/baymax/loading-icon.png"
             alt="Spinner"
             className="custom-image-spinner"
