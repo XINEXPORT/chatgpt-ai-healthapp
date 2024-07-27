@@ -1,11 +1,7 @@
 import axios from "axios";
 import dotenv from "dotenv";
 
-// Load environment variables from .env file
 dotenv.config();
-
-// Debugging statement to check if the API key is loaded
-console.log("OPENAI_API_KEY:", process.env.VITE_OPENAI_API_KEY);
 
 const apiKey = process.env.VITE_OPENAI_API_KEY;
 if (!apiKey) {
