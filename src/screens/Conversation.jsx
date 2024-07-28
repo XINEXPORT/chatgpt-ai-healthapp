@@ -1,5 +1,3 @@
-// File: src/components/Conversation.jsx
-
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -74,14 +72,21 @@ const Conversation = () => {
     setUserInput("");
   };
 
+  //text formatter
+  const formatResponseText = (text) => {
+    return text
+      .split("\n")
+      .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+  };
+
   return (
-    <div className="container mt-5" role="main">
+    <div className="container mt-4" role="main">
       <h1 id="form-title" className="text-white">
         CareBuddy Advice
       </h1>
       {newResponseText ? (
-        <div className="convo-text" aria-live="polite">
-          <p>{newResponseText}</p>
+        <div className="convo-text response-container" aria-live="polite">
+          {formatResponseText(newResponseText)}
         </div>
       ) : (
         <p aria-live="polite">

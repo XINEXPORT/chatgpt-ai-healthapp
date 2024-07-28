@@ -155,7 +155,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 8px;
   text-align: center;
 }
 
@@ -274,4 +274,19 @@ footer {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+//conversation.jsx
+.response-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.response-text {
+  white-space: pre-wrap;
 }

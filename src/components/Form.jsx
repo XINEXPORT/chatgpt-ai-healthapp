@@ -139,7 +139,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="height" className="form-label text-white">
-            Height:
+            Height in ft:
           </label>
           <input
             type="text"
