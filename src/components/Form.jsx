@@ -3,16 +3,18 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.scss";
 import axios from "axios";
+import ArrowButton from "../components/ArrowButton/ArrowButton";
 
-const MODEL_NAME = "gpt-4-1106-preview"; // Use the model name appropriate for your use case
+const MODEL_NAME = "gpt-4-1106-preview";
 
 const Form = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
-  const [goal, setGoal] = useState("");
+  const [height, setHeight] = useState("");
   const [ethnicity, setEthnicity] = useState("");
+  const [gender, setGender] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
@@ -40,63 +42,24 @@ const Form = () => {
     }
   };
 
-  const queryAPI = async (prompt) => {
-    try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: MODEL_NAME,
-          messages: [
-            {
-              role: "system",
-              content: "You are a nutrition coach.",
-            },
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-          max_tokens: 150,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.VITE_OPENAI_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-        },
-      );
-
-      if (
-        response.data &&
-        response.data.choices &&
-        response.data.choices[0].message &&
-        response.data.choices[0].message.content
-      ) {
-        return response.data.choices[0].message.content.trim();
-      } else {
-        console.error("Unexpected response format:", response);
-        return "Error: Unexpected response format.";
-      }
-    } catch (error) {
-      console.error("Error querying the API:", error);
-      return "Error querying the API.";
+  const handleHeightChange = (e) => {
+    const value = e.target.value;
+    if (value) {
+      setHeight(value);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Height cannot be empty.");
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleNextClick = (e) => {
     e.preventDefault();
-    if (age < 0 || weight < 0) {
-      setErrorMessage("Age and weight cannot be negative.");
-      return;
-    }
-    const prompt = `I am a ${age} year-old, ${ethnicity} weighing ${weight} lbs and ${firstName} ${lastName}. My goal is to ${goal}. How do I achieve this?`;
-    const responseText = await queryAPI(prompt);
-    navigate("/chatgpt-ai-healthapp/conversation", { state: { responseText } });
+    navigate("/chatgpt-ai-healthapp/form2");
   };
 
   return (
     <div className="container mt-5">
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="mb-3">
           <label htmlFor="firstName" className="form-label text-white">
             First Name:
@@ -137,6 +100,23 @@ const Form = () => {
           />
         </div>
         <div className="mb-3">
+          <label htmlFor="gender" className="form-label text-white">
+            Gender:
+          </label>
+          <select
+            id="gender"
+            name="gender"
+            className="form-select"
+            value={gender}
+            onChange={handleInputChange(setGender)}
+          >
+            <option value="">Select your gender</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+        <div className="mb-3">
           <label htmlFor="weight" className="form-label text-white">
             Weight:
           </label>
@@ -150,25 +130,17 @@ const Form = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="goal" className="form-label text-white">
-            Goal:
+          <label htmlFor="height" className="form-label text-white">
+            Height:
           </label>
-          <select
-            id="goal"
-            name="goal"
-            className="form-select"
-            value={goal}
-            onChange={handleInputChange(setGoal)}
-          >
-            <option value="">Select your goal</option>
-            <option value="Lose 5lbs">Lose 5lbs</option>
-            <option value="Lose 10lbs">Lose 10lbs</option>
-            <option value="Lose 15lbs">Lose 15lbs</option>
-            <option value="Lose 20lbs">Lose 20lbs</option>
-            <option value="Maintain current weight">
-              Maintain current weight
-            </option>
-          </select>
+          <input
+            type="text"
+            className="form-control"
+            id="height"
+            name="height"
+            value={height}
+            onChange={handleHeightChange}
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="ethnicity" className="form-label text-white">
@@ -209,8 +181,12 @@ const Form = () => {
           </select>
         </div>
         {errorMessage && <div className="text-danger mb-3">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleNextClick}
+        >
+          Next
         </button>
       </form>
     </div>
