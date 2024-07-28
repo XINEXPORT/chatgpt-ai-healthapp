@@ -12,8 +12,8 @@ const Form2 = () => {
   const [medications, setMedications] = useState("");
   const [healthConditions, setHealthConditions] = useState("");
   const [familyHistory, setFamilyHistory] = useState("");
-  const [goal, setGoal] = useState(""); // Added state for goal
-  const [mealsPerDay, setMealsPerDay] = useState(""); // Added state for meals per day
+  const [goal, setGoal] = useState("");
+  const [mealsPerDay, setMealsPerDay] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
@@ -72,8 +72,15 @@ const Form2 = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <form onSubmit={handleConvoClick}>
+    <div className="container mt-5" role="main">
+      <form
+        onSubmit={handleConvoClick}
+        role="form"
+        aria-labelledby="form-title"
+      >
+        <h1 id="form-title" className="text-white">
+          Health Information Form
+        </h1>
         <div className="mb-3">
           <label htmlFor="bmi" className="form-label text-white">
             BMI:
@@ -85,6 +92,7 @@ const Form2 = () => {
             name="bmi"
             value={bmi}
             onChange={handleInputChange(setBmi)}
+            aria-label="Enter your BMI"
           />
         </div>
         <div className="mb-3">
@@ -98,6 +106,7 @@ const Form2 = () => {
             value={medications}
             onChange={handleInputChange(setMedications)}
             rows="3"
+            aria-label="Enter your current medications"
           />
         </div>
         <div className="mb-3">
@@ -111,6 +120,7 @@ const Form2 = () => {
             value={healthConditions}
             onChange={handleInputChange(setHealthConditions)}
             rows="3"
+            aria-label="Enter your known health conditions"
           />
         </div>
         <div className="mb-3">
@@ -124,6 +134,7 @@ const Form2 = () => {
             value={familyHistory}
             onChange={handleInputChange(setFamilyHistory)}
             rows="3"
+            aria-label="Enter your family health history"
           />
         </div>
         <div className="mb-3">
@@ -136,6 +147,7 @@ const Form2 = () => {
             className="form-select"
             value={mealsPerDay}
             onChange={handleInputChange(setMealsPerDay)}
+            aria-label="Select how many meals you eat per day"
           >
             <option value="">Select an option</option>
             <option value="0-1">0-1</option>
@@ -155,6 +167,7 @@ const Form2 = () => {
             className="form-select"
             value={goal}
             onChange={handleInputChange(setGoal)}
+            aria-label="Select your goal"
           >
             <option value="">Select your goal</option>
             <option value="Lose 5lbs">Lose 5lbs</option>
@@ -167,7 +180,11 @@ const Form2 = () => {
           </select>
         </div>
         {errorMessage && <div className="text-danger mb-3">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-primary"
+          aria-label="Submit your information"
+        >
           Submit
         </button>
       </form>

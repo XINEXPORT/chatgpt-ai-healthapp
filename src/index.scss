@@ -78,7 +78,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   color: white;
-  background: linear-gradient(-25deg, #003959, #000000);
+  background: linear-gradient(-25deg, #002e4d, #000000); /* Updated color */
 }
 
 .welcome-container {
@@ -184,6 +184,10 @@ footer {
 
 .form-check-label.text-white {
   color: white;
+}
+
+#form-title {
+  font-size: 20px;
 }
 
 .baymax-waving {
