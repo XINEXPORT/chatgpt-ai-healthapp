@@ -1,3 +1,5 @@
+// File: src/components/Conversation.jsx
+
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -73,15 +75,20 @@ const Conversation = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" role="main">
+      <h1 id="form-title" className="text-white">
+        CareBuddy Advice
+      </h1>
       {newResponseText ? (
-        <div className="convo-text">
+        <div className="convo-text" aria-live="polite">
           <p>{newResponseText}</p>
         </div>
       ) : (
-        <p>No response found. Please submit the form first.</p>
+        <p aria-live="polite">
+          No response found. Please submit the form first.
+        </p>
       )}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} aria-labelledby="form-title">
         <div className="mb-3">
           <label htmlFor="userInput" className="form-label text-white">
             Your Question:
@@ -92,10 +99,19 @@ const Conversation = () => {
             id="userInput"
             value={userInput}
             onChange={handleInputChange}
+            aria-label="Enter your question"
           />
         </div>
-        {errorMessage && <div className="text-danger mb-3">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary">
+        {errorMessage && (
+          <div className="text-danger mb-3" aria-live="assertive">
+            {errorMessage}
+          </div>
+        )}
+        <button
+          type="submit"
+          className="btn btn-primary"
+          aria-label="Submit your question"
+        >
           Submit
         </button>
       </form>

@@ -58,8 +58,11 @@ const Form = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <form>
+    <div className="container mt-5" role="main">
+      <form role="form" aria-labelledby="form-title">
+        <h1 id="form-title" className="text-white">
+          Personal Information Form
+        </h1>
         <div className="mb-3">
           <label htmlFor="firstName" className="form-label text-white">
             First Name:
@@ -71,6 +74,7 @@ const Form = () => {
             name="firstName"
             value={firstName}
             onChange={handleInputChange(setFirstName)}
+            aria-label="Enter your first name"
           />
         </div>
         <div className="mb-3">
@@ -84,6 +88,7 @@ const Form = () => {
             name="lastName"
             value={lastName}
             onChange={handleInputChange(setLastName)}
+            aria-label="Enter your last name"
           />
         </div>
         <div className="mb-3">
@@ -97,6 +102,7 @@ const Form = () => {
             name="age"
             value={age}
             onChange={handleAgeChange}
+            aria-label="Enter your age"
           />
         </div>
         <div className="mb-3">
@@ -109,6 +115,7 @@ const Form = () => {
             className="form-select"
             value={gender}
             onChange={handleInputChange(setGender)}
+            aria-label="Select your gender"
           >
             <option value="">Select your gender</option>
             <option value="Female">Female</option>
@@ -127,6 +134,7 @@ const Form = () => {
             name="weight"
             value={weight}
             onChange={handleWeightChange}
+            aria-label="Enter your weight"
           />
         </div>
         <div className="mb-3">
@@ -140,6 +148,7 @@ const Form = () => {
             name="height"
             value={height}
             onChange={handleHeightChange}
+            aria-label="Enter your height"
           />
         </div>
         <div className="mb-3">
@@ -152,6 +161,7 @@ const Form = () => {
             className="form-select"
             value={ethnicity}
             onChange={handleInputChange(setEthnicity)}
+            aria-label="Select your ethnicity"
           >
             <option value="">Select your ethnicity</option>
             <option value="Indigenous American/Native Alaskan">
@@ -180,11 +190,16 @@ const Form = () => {
             <option value="Prefer to describe">Prefer to describe</option>
           </select>
         </div>
-        {errorMessage && <div className="text-danger mb-3">{errorMessage}</div>}
+        {errorMessage && (
+          <div className="text-danger mb-3" aria-live="polite">
+            {errorMessage}
+          </div>
+        )}
         <button
           type="button"
           className="btn btn-primary"
           onClick={handleNextClick}
+          aria-label="Proceed to the next step"
         >
           Next
         </button>
