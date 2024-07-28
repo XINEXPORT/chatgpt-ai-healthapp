@@ -72,7 +72,7 @@ const Form2 = () => {
   };
 
   return (
-    <div className="container mt-5" role="main">
+    <div className="container mt-4" role="main">
       <form
         onSubmit={handleConvoClick}
         role="form"
