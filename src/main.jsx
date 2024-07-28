@@ -14,6 +14,7 @@ import ErrorPage from "./screens/ErrorPage.jsx";
 import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial.jsx";
+import Form2 from "./screens/Form2.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +24,9 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route index element={<Welcome />} />
+
       <Route path="/chatgpt-ai-healthapp/tutorial" element={<Tutorial />} />
+
       <Route
         path="/chatgpt-ai-healthapp/conversation"
         element={<Conversation />}
@@ -32,6 +35,7 @@ const router = createBrowserRouter(
         path="/chatgpt-ai-healthapp/patientform"
         element={<PatientForm />}
       />
+      <Route path="/chatgpt-ai-healthapp/form2" element={<Form2 />} />
     </Route>,
   ),
 );

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.scss";
 import axios from "axios";
 
-const MODEL_NAME = "gpt-4-1106-preview"; // Use the model name appropriate for your use case
+const MODEL_NAME = "gpt-4-1106-preview";
 
 const Conversation = () => {
   const location = useLocation();
