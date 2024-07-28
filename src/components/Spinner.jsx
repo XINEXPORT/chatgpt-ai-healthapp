@@ -13,8 +13,8 @@ const Loading = () => {
   }, []);
 
   return (
-    <div id="iphone-15-frame">
-      <div className="screen">
+    <div>
+      <div>
         <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
           <img
             src="src/assets/baymax/loading-icon.png"
@@ -22,7 +22,7 @@ const Loading = () => {
             className="custom-image-spinner"
           />
           <div id="loading-message">
-            <p>Loading your personal healthcare companion...</p>
+            <p>CareBuddy is thinking...</p>
           </div>
         </div>
       </div>
