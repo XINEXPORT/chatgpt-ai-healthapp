@@ -1,0 +1,12 @@
+/* Custom button styles */
+.btnCustom {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: box-shadow 0.3s; /* Smooth transitions */
+
+  &:focus {
+    outline: none; /* Remove focus outline */
+  }
+}

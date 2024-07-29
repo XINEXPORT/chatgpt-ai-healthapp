@@ -1,8 +1,8 @@
 import React from "react";
-import styles from './ArrowButton.module.scss';
-import buttonImage from './right-arrow.png'; // Adjust the path to your image
+import styles from './HomeButton.module.scss';
+import buttonImage from './Home.png'; // Adjust the path to your image
 
-const ArrowButton = ({ onClick }) => {
+const HomeButton = ({ onClick }) => {
   return (
     <button className={styles.btnCustom} onClick={onClick}>
       <img src={buttonImage} alt="Custom Button" className={styles.buttonImage} />
@@ -10,4 +10,4 @@ const ArrowButton = ({ onClick }) => {
   );
 };
 
-export default ArrowButton;
+export default HomeButton;

@@ -38,6 +38,7 @@ const Welcome = () => {
         <ArrowButton onClick={handleClick}></ArrowButton>
         <div className="continue-tutorial-message">Continue to tutorial</div>
       </div>
+      <div className="glow"></div>
     </div>
   );
 };
