@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 
-import './iPhone15Pro.module.scss';
+import "./iPhone15Pro.module.scss";
 
 const IPhone15Pro = ({ children }) => {
   return (
@@ -19,7 +19,7 @@ const IPhone15Pro = ({ children }) => {
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IPhone15Pro
+export default IPhone15Pro;

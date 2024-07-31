@@ -25,14 +25,14 @@ const App = () => {
     <div id="iphone-15-container">
       <div className="iphone-15-frame">
         <div className="screen">
-        <div className="lensmain">
-          <div className="camera1"></div>
-          <div className="camera2"></div>
-          <div className="content">
-            <Outlet />
+          <div className="lensmain">
+            <div className="camera1"></div>
+            <div className="camera2"></div>
+            <div className="content">
+              <Outlet />
+            </div>
           </div>
-        </div>
-        <footer></footer>
+          <footer></footer>
         </div>
       </div>
     </div>

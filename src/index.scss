@@ -41,8 +41,6 @@
     url("/src/fonts/poppins-webfont/Poppins-Italic.woff") format("woff");
 }
 
-
-
 @font-face {
   font-family: "Inter Regular";
   font-style: normal;
@@ -74,7 +72,6 @@ body {
 #iphone-15-container {
   position: relative;
   margin: auto; // Center the container
-
 }
 
 .iphone-15-frame {
@@ -89,7 +86,7 @@ body {
   overflow: hidden;
   background: black;
   border-radius: 50px;
-  border-style:solid;
+  border-style: solid;
   border-color: #666;
   color: white;
 }
@@ -108,6 +105,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   color: white;
+  overflow: hidden;
   background: linear-gradient(-25deg, #003959, #000000);
 }
 
@@ -122,17 +120,17 @@ body {
   margin-left: 10px;
   align-items: center;
   border-radius: 20px;
-  padding-top:5px;
+  padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .lensmain:hover::before {
   width: 200px;
-  margin:-40;
+  margin: -40;
 }
 
 .camera1 {
-  background: radial-gradient(#3f3978,#0c0e29,#283964);
+  background: radial-gradient(#3f3978, #0c0e29, #283964);
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -142,13 +140,13 @@ body {
 }
 
 .camera2 {
-  background: radial-gradient(#3f3978,#0c0e29,#283964);
+  background: radial-gradient(#3f3978, #0c0e29, #283964);
   width: 15px;
   height: 15px;
   border-radius: 50%;
   position: relative;
   left: 100px;
-  top: -11px
+  top: -11px;
 }
 
 .welcome-container {
@@ -232,7 +230,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -270,12 +268,9 @@ footer {
     z-index: 1;
   }
 
-  .button-image {
-    position: relative;
-    top: 200px;
-  }
-  
   .button-container {
+    display: flex;
+    align-items: center;
     z-index: 1;
   }
 }
@@ -350,7 +345,7 @@ footer {
     position: absolute;
     float: right;
   }
-  .home-text5{
+  .home-text5 {
     width: 244px;
     height: 360px;
     top: 100px;
@@ -367,7 +362,7 @@ footer {
   }
 
   .different-color-and-font {
-    background: linear-gradient(-77deg, #9BC3FF, #0066FF);
+    background: linear-gradient(-77deg, #9bc3ff, #0066ff);
     background-clip: text;
     color: transparent;
     font-family: "Poppins SemiBold";
@@ -394,7 +389,11 @@ footer {
     height: 95px;
     display: flex;
     position: absolute;
-    background: linear-gradient(180deg, rgba(29, 91, 143, 1) 0%, rgba(29, 91, 143, 0) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(29, 91, 143, 1) 0%,
+      rgba(29, 91, 143, 0) 100%
+    );
     align-items: flex-start;
     flex-shrink: 1;
     border-radius: 40px;
@@ -514,10 +513,6 @@ footer {
   color: white;
 }
 
-#form-title {
-  font-size: 20px;
-}
-
 .baymax-waving {
   position: relative;
   top: 170px;
@@ -564,7 +559,7 @@ footer {
   position: relative;
   top: 120px;
   animation-delay: 7s;
-  margin-bottom: -20px;;
+  margin-bottom: -20px;
 }
 
 @keyframes slideRight {
@@ -610,4 +605,47 @@ footer {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.glow {
+  /* Glow */
+
+  position: absolute;
+  width: 247px;
+  height: 247px;
+  left: calc(50% - 247px / 2 - 0.5px);
+  top: 655px;
+
+  background: #3389bb;
+  filter: blur(100px);
+  z-index: 0;
+
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.message-bubble {
+  display: inline-flex;
+  max-width: 90%;
+  width: 345px;
+  height: 120px;
+  padding: 10px 15px;
+  background-color: rgba(50, 137, 187, 1);
+  color: white;
+  font-family: "Poppins Semibold", sans-serif;
+  font-size: 16px;
+  border-radius: 24px;
+  text-align: left;
+  line-height: 1.5;
+  word-wrap: break-word;
+  margin: 10px 0;
 }

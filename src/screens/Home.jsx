@@ -1,43 +1,41 @@
-import React from 'react'
+import React from "react";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
 import UpArrowButton from "../components/UpArrowButton/UpArrowButton.jsx";
 
-import HomeButton from '../components/HomeButton/HomeButton.jsx';
+import HomeButton from "../components/HomeButton/HomeButton.jsx";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
   const textareaRef = useRef(null);
 
   const handleClickHome = () => {
-    navigate('/chatgpt-ai-healthapp/home');
+    navigate("/chatgpt-ai-healthapp/home");
   };
 
-  const sendMessage = () => {
+  const sendMessage = () => {};
 
-  };
-
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isArrowVisible, setIsArrowVisible] = useState(false);
 
   const handleMessageChange = (e) => {
     const newValue = e.target.value;
     setMessage(newValue);
-    setIsArrowVisible(newValue.trim() !== '');
+    setIsArrowVisible(newValue.trim() !== "");
   };
-  
+
   useEffect(() => {
     adjustTextareaHeight(); // Adjust height on initial render
   }, []);
 
   const adjustTextareaHeight = () => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto'; // Reset height
+      textareaRef.current.style.height = "auto"; // Reset height
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set new height
     }
   };
@@ -72,15 +70,21 @@ const Home = () => {
           className="home-friendlyrobotassistantwaving"
         />
         <span className="home-text5">
-          <span>Hi <span className="different-font">Vaishag</span>,
-            Your <span className="different-color-and-font">Personal Healthcare </span>
+          <span>
+            Hi <span className="different-font">Vaishag</span>, Your{" "}
+            <span className="different-color-and-font">
+              Personal Healthcare{" "}
+            </span>
             Companion is Here!
-            <span className="different-font"> Informed answers,
-              Friendly
-              Conversation </span>
-            and <span className="different-font">Personalized
-              Assistance</span> are
-            assured by me.</span>
+            <span className="different-font">
+              {" "}
+              Informed answers, Friendly Conversation{" "}
+            </span>
+            and <span className="different-font">
+              Personalized Assistance
+            </span>{" "}
+            are assured by me.
+          </span>
         </span>
         <span className="home-text4">
           <span>How can I help you?</span>
@@ -102,25 +106,27 @@ const Home = () => {
               alt="ChatMessage1347"
               className="home-chat-message"
             />
-            <HomeButton className="home-home1" onClick={handleClickHome}/>
+            <HomeButton className="home-home1" onClick={handleClickHome} />
           </div>
         </div>
-          <div className="message-box">
+        <div className="message-box">
           <textarea
-                ref={textareaRef}
-                className="home-text-field"
-                placeholder="Message Me"
-                value={message}
-                onChange={handleMessageChange}
-              />
-            <span className="home-right-arrow" style={{ opacity: isArrowVisible ? 1 : 0.5 }}>
-              <UpArrowButton onClick={sendMessage}></UpArrowButton>
-            </span>
-          </div>
+            ref={textareaRef}
+            className="home-text-field"
+            placeholder="Message Me"
+            value={message}
+            onChange={handleMessageChange}
+          />
+          <span
+            className="home-right-arrow"
+            style={{ opacity: isArrowVisible ? 1 : 0.5 }}
+          >
+            <UpArrowButton onClick={sendMessage}></UpArrowButton>
+          </span>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

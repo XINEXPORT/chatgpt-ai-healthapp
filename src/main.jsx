@@ -28,7 +28,7 @@ const router = createBrowserRouter(
 
       <Route path="/chatgpt-ai-healthapp/tutorial" element={<Tutorial />} />
 
-      <Route path="/chatgpt-ai-healthapp/home" element={<Home/>} />
+      <Route path="/chatgpt-ai-healthapp/home" element={<Home />} />
 
       <Route
         path="/chatgpt-ai-healthapp/conversation"
