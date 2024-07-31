@@ -13,16 +13,22 @@ const Loading = () => {
   }, []);
 
   return (
-    <div id="iphone-15-frame">
-      <div className="screen">
-        <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
-          <img
-            src="src/assets/baymax/loading-icon.png"
-            alt="Spinner"
-            className="custom-image-spinner"
-          />
-          <div id="loading-message">
-            <p>Loading your personal healthcare companion...</p>
+    <div id="iphone-15-container">
+      <div className="iphone-15-frame">
+        <div className="screen">
+          <div className="lensmain">
+            <div className="camera1"></div>
+            <div className="camera2"></div>
+            <div className={`loading-container ${fadeOut ? "fade-out" : ""}`}>
+              <img
+                src="src/assets/baymax/loading-icon.png"
+                alt="Spinner"
+                className="custom-image-spinner"
+              />
+              <div id="loading-message">
+                <p>Loading your personal healthcare companion...</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

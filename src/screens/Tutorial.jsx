@@ -1,19 +1,21 @@
 import React from "react";
 import ArrowButton from "../components/ArrowButton/ArrowButton.jsx";
 import { useNavigate } from "react-router-dom";
+import LMessageBubble from "../components/LMessageBubble/LMessageBubble.jsx";
 
 const Tutorial = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/chatgpt-ai-healthapp/patientform");
+    navigate("/chatgpt-ai-healthapp/home");
   };
 
   return (
     <div className="Tutorial">
-      <h1>Tutorial</h1>
-      <div>Continue to Form</div>
-      <ArrowButton onClick={handleClick} />
+      <div className="button button-container">
+        <ArrowButton onClick={handleClick}></ArrowButton>
+        <div className="continue-home-message">Continue to home</div>
+      </div>
     </div>
   );
 };

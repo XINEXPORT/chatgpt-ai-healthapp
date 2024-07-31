@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./index.module.scss";
+import styles from "./ArrowButton.module.scss";
 import buttonImage from "./right-arrow.png"; // Adjust the path to your image
 
 const ArrowButton = ({ onClick }) => {
