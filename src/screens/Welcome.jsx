@@ -47,6 +47,7 @@ const Welcome = () => {
           Continue to tutorial
         </p>
       </div>
+      <div className="glow"></div>
     </div>
   );
 };

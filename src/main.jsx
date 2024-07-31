@@ -15,6 +15,7 @@ import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial.jsx";
 import Form2 from "./screens/Form2.jsx";
+import Home from "./screens/Home.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,8 @@ const router = createBrowserRouter(
       <Route index element={<Welcome />} />
 
       <Route path="/chatgpt-ai-healthapp/tutorial" element={<Tutorial />} />
+
+      <Route path="/chatgpt-ai-healthapp/home" element={<Home/>} />
 
       <Route
         path="/chatgpt-ai-healthapp/conversation"
