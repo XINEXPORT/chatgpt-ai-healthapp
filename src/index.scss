@@ -250,31 +250,42 @@ footer {
   height: 100%;
   width: 100%;
   color: white;
-  position: absolute;
-
-  .continue-home-message {
-    position: relative;
-    font-family: "Inter Regular";
-    top: 500px;
-    left: 70px;
-    font-size: 13px;
-    text-shadow: 5px 3px 6px rgb(0, 0, 0);
-  }
-
-  .button {
-    position: relative;
-    opacity: 0;
-    animation: slideLeft 1s forwards;
-    z-index: 1;
-  }
-
-  .button-container {
-    display: flex;
-    align-items: center;
-    z-index: 1;
-  }
+  position: relative;
 }
 
+.continue-home-message {
+  font-family: "Inter Regular";
+  font-size: 13px;
+  text-shadow: 5px 3px 6px rgb(0, 0, 0);
+}
+
+.button {
+  position: relative;
+  opacity: 0;
+  animation: slideLeft 1s forwards;
+  z-index: 1;
+}
+
+.button-image {
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.button-container iframe {
+  margin-top: 80px;
+  width: 35vh;
+  height: 50vh;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+//Home.jsx
 .Home {
   display: flex;
   justify-content: center;
