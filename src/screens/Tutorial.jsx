@@ -3,7 +3,7 @@ import React from "react";
 import ArrowButton from "../components/ArrowButton/ArrowButton.jsx";
 import { useNavigate } from "react-router-dom";
 import LMessageBubble from "../components/LMessageBubble/LMessageBubble.jsx";
-import "../index.scss";
+import "./Tutorial.scss";
 
 const Tutorial = () => {
   const navigate = useNavigate();
@@ -15,14 +15,13 @@ const Tutorial = () => {
   return (
     <div className="Tutorial">
       <div className="button-container">
-        <div className="button-container">
-          <iframe
-            src="https://www.youtube.com/embed/uEeBXUUOBiI?si=jK61N0A0h4sOL_lC"
-            allowFullScreen
-          ></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/uEeBXUUOBiI?si=jK61N0A0h4sOL_lC"
+          title="YouTube video tutorial"
+        />
+        <div className="button">
+          <button onClick={handleClick}>Next</button>
         </div>
-        <ArrowButton onClick={handleClick}></ArrowButton>
-        <div className="continue-home-message">Continue to home</div>
       </div>
     </div>
   );

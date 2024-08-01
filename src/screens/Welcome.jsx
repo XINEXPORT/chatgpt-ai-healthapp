@@ -42,8 +42,8 @@ const Welcome = () => {
         aria-label="Baymax Waving"
       />
       <div className="button button-container">
-        <ArrowButton onClick={handleClick} />
-        <p id="continue-tutorial" className="continue-tutorial-message">
+        <button onClick={handleClick}>Next</button>
+        <p id="continue-tutorial " className="continue-tutorial-message">
           Continue to tutorial
         </p>
       </div>

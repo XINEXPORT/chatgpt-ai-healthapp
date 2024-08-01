@@ -1,0 +1,50 @@
+/* Tutorial.scss */
+.Tutorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+/* ArrowButton.scss */
+/* Custom button styles */
+.btnCustom {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  position: absolute; /* Use absolute positioning within relative container */
+  top: 10px; /* Adjust top position for visibility */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center button */
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.buttonImage {
+  display: block;
+  width: 50px; /* Set a fixed size for consistency */
+  height: 50px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.815);
+  }
+
+  &:active {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.815);
+  }
+}
