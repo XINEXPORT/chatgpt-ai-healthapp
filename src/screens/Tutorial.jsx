@@ -3,7 +3,7 @@ import React from "react";
 import ArrowButton from "../components/ArrowButton/ArrowButton.jsx";
 import { useNavigate } from "react-router-dom";
 import LMessageBubble from "../components/LMessageBubble/LMessageBubble.jsx";
-import "./Tutorial.scss";
+import "../index.scss";
 
 const Tutorial = () => {
   const navigate = useNavigate();
