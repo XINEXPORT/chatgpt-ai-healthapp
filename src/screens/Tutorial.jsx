@@ -15,10 +15,15 @@ const Tutorial = () => {
 
   return (
     <div className="Tutorial">
-      <div className="video-tutorial-container">
+      <h1 id={styles.tutorialHeading} aria-labelledby="tutorial-heading">
+          Tutorial
+        </h1>
+      <div className={styles.videoTutorialContainer}>
         <iframe
-          src="https://www.youtube.com/embed/uEeBXUUOBiI?si=jK61N0A0h4sOL_lC"
+          src="https://www.youtube.com/embed/uEeBXUUOBiI?si=jK61N0A0h4sOL_lC&autoplay=1&mute=1"
+          allow="autoplay"
           title="YouTube video tutorial"
+          className={styles.tutorialVideo}
         />
       </div>
       <div className={styles.buttonContainer}>
