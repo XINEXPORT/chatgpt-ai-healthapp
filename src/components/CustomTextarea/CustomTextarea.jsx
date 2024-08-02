@@ -35,7 +35,6 @@ const CustomTextarea = () => {
           borderColor: '#000',
           backgroundColor: '#000',
           color: 'white',
-          fontSize: '14px',
           paddingRight: '40px',
           resize: 'none'
         }}
