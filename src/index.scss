@@ -240,7 +240,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  // padding: 20px;
   text-align: center;
 }
 
@@ -276,14 +276,14 @@ footer {
   z-index: 1;
 }
 
-  .button-image {
-    position: relative;
-    top: 200px;
-  }
-  
-  .button-container {
-    z-index: 1;
-  }
+.button-image {
+  position: relative;
+  top: 200px;
+}
+
+.button-container {
+  z-index: 1;
+}
 
 .Home {
   display: flex;
@@ -355,7 +355,7 @@ footer {
     position: absolute;
     float: right;
   }
-  .home-text5{
+  .home-text5 {
     width: 244px;
     height: 360px;
     top: 100px;
@@ -372,7 +372,7 @@ footer {
   }
 
   .different-color-and-font {
-    background: linear-gradient(-77deg, #9BC3FF, #0066FF);
+    background: linear-gradient(-77deg, #9bc3ff, #0066ff);
     background-clip: text;
     color: transparent;
     font-family: "Poppins SemiBold";
@@ -399,7 +399,11 @@ footer {
     height: 95px;
     display: flex;
     position: absolute;
-    background: linear-gradient(180deg, rgba(29, 91, 143, 1) 0%, rgba(29, 91, 143, 0) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(29, 91, 143, 1) 0%,
+      rgba(29, 91, 143, 0) 100%
+    );
     align-items: flex-start;
     flex-shrink: 1;
     border-radius: 40px;
