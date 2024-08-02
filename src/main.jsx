@@ -7,12 +7,12 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Form from "./screens/Form.jsx";
+import Form from "./screens/Form/Form.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
 import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial.jsx";
-import Form2 from "./screens/Form2.jsx";
+import Form2 from "./screens/Form2/Form2.jsx";
 import Home from "./screens/Home.jsx";
 
 const router = createBrowserRouter(
@@ -32,10 +32,7 @@ const router = createBrowserRouter(
         path="/chatgpt-ai-healthapp/conversation"
         element={<Conversation />}
       />
-      <Route
-        path="/chatgpt-ai-healthapp/form"
-        element={<Form />}
-      />
+      <Route path="/chatgpt-ai-healthapp/form" element={<Form />} />
       <Route path="/chatgpt-ai-healthapp/form2" element={<Form2 />} />
     </Route>,
   ),

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import HomeButton from '../components/HomeButton/HomeButton.jsx';
-import styles from './Home.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
+import React from "react";
+import { Helmet } from "react-helmet";
+import HomeButton from "../components/HomeButton/HomeButton.jsx";
+import styles from "./Home.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import CustomTextarea from "../components/CustomTextarea/CustomTextarea.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -54,22 +54,28 @@ const Home = () => {
           className={styles.friendlyrobotassistantwaving}
         />
         <span className={styles.text5}>
-          <span>Hi <span className={styles.differentFont}>Vaishag</span>,
-            Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
+          <span>
+            Hi <span className={styles.differentFont}>Vaishag</span>, Your{" "}
+            <span className={styles.differentColorAndFont}>
+              Personal Healthcare{" "}
+            </span>
             Companion is Here!
-            <span className={styles.differentFont}> Informed answers,
-              Friendly
-              Conversation </span>
-            and <span className={styles.differentFont}>Personalized
-              Assistance</span> are
-            assured by me.</span>
+            <span className={styles.differentFont}>
+              {" "}
+              Informed answers, Friendly Conversation{" "}
+            </span>
+            and{" "}
+            <span className={styles.differentFont}>
+              Personalized Assistance
+            </span>{" "}
+            are assured by me.
+          </span>
         </span>
         <span className={styles.text4}>
           <span>How can I help you?</span>
         </span>
         <div className={styles.messageBox}>
-          <CustomTextarea
-          />
+          <CustomTextarea />
         </div>
       </div>
     </div>
