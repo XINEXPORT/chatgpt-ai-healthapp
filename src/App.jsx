@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Loading from "./screens/Loading.jsx";
-import styles from "./screens/Home.module.scss";
+import styles from "./screens//Home/Home.module.scss";
 import Welcome from "./screens/Welcome.jsx";
 import "./index.scss";
 import NavBar from "./components/NavBar/NavBar.jsx";
