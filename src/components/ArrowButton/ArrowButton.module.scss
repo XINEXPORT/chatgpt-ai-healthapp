@@ -3,8 +3,11 @@
   background-color: transparent; /* Transparent background */
   border: none; /* Remove border */
   padding: 0; /* Remove padding */
+  width: 40px; // Adjust to desired width
+  height: 40px; // Adjust to desired height
   cursor: pointer; /* Pointer cursor on hover */
   transition: box-shadow 0.3s; /* Smooth transitions */
+  flex-shrink: 0;
 
   &:focus {
     outline: none; /* Remove focus outline */
@@ -13,10 +16,11 @@
 
 .buttonImage {
   display: block; /* Ensure the image is block-level */
-  width: 50%;
+  width: 100%;
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Rounded corners */
   transition: box-shadow 0.3s; /* Smooth transitions */
+  flex-shrink: 0;
 
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.815); /* Shadow effect on hover */

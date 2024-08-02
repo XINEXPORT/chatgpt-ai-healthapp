@@ -1,8 +1,47 @@
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#tutorialHeading {
+    font-family: "Poppins SemiBold";
+    text-align: center;
+    position: absolute;
+}
+
+.videoTutorialContainer {
+    position: absolute;
+    top: 60px;
+}
+
 .buttonContainer {
+    display: flex;
+    margin-top: auto;
+    animation: slideLeft 1s forwards;
     position: relative;
-    top: 590px;
+    flex-shrink: 0;
+    bottom: -600px;
+    left: -50px;
 }
 
 .arrowButton {
-    animation: slideLeft 1s forwards;
+    position: absolute;
+    top: -95px;
+    left: 230px;
+}
+
+.continueFormMessage {
+    position: relative;
+    top: -84px;
+    left: 30px;
+    font-size: 13px;
+    text-shadow: 5px 3px 6px rgb(0, 0, 0);
+    font-family: "Inter Regular";
 }

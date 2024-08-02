@@ -29,7 +29,6 @@ const CustomTextarea = () => {
         style={{
           boxSizing: 'content-box',
           width: '290px',
-          fontSize: '16px',
           padding: '12px',
           borderRadius: '20px',
           borderColor: '#000',
