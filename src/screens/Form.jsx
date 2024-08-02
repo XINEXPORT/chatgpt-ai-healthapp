@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.scss";
+import "./Form.scss";
 import axios from "axios";
 import ArrowButton from "../components/ArrowButton/ArrowButton";
 
 const MODEL_NAME = "gpt-4-1106-preview";
 
 const Form = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState(""); // Combined name state
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
@@ -18,8 +17,8 @@ const Form = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleInputChange = (setter) => (e) => {
-    setter(e.target.value);
+  const handleInputChange = (e) => {
+    setName(e.target.value);
   };
 
   const handleAgeChange = (e) => {
@@ -58,37 +57,23 @@ const Form = () => {
   };
 
   return (
-    <div className="container mt-5" role="main">
+    <div className="form-container" role="main">
       <form role="form" aria-labelledby="form-title">
         <h1 id="form-title" className="text-white">
           Personal Information Form
         </h1>
         <div className="mb-3">
-          <label htmlFor="firstName" className="form-label text-white">
-            First Name:
+          <label htmlFor="name" className="form-label text-white">
+            Name:
           </label>
           <input
             type="text"
             className="form-control"
-            id="firstName"
-            name="firstName"
-            value={firstName}
-            onChange={handleInputChange(setFirstName)}
-            aria-label="Enter your first name"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="lastName" className="form-label text-white">
-            Last Name:
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="lastName"
-            name="lastName"
-            value={lastName}
-            onChange={handleInputChange(setLastName)}
-            aria-label="Enter your last name"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleInputChange}
+            aria-label="Enter your full name"
           />
         </div>
         <div className="mb-3">
@@ -114,7 +99,7 @@ const Form = () => {
             name="gender"
             className="form-select"
             value={gender}
-            onChange={handleInputChange(setGender)}
+            onChange={(e) => setGender(e.target.value)}
             aria-label="Select your gender"
           >
             <option value="">Select your gender</option>
@@ -160,32 +145,20 @@ const Form = () => {
             name="ethnicity"
             className="form-select"
             value={ethnicity}
-            onChange={handleInputChange(setEthnicity)}
+            onChange={(e) => setEthnicity(e.target.value)}
             aria-label="Select your ethnicity"
           >
             <option value="">Select your ethnicity</option>
-            <option value="Indigenous American/Native Alaskan">
-              Indigenous American/Native Alaskan
-            </option>
+            <option value="Indigenous American/Native Alaskan">Indigenous American/Native Alaskan</option>
             <option value="Black African">Black African</option>
-            <option value="Black or African American">
-              Black or African American
-            </option>
+            <option value="Black or African American">Black or African American</option>
             <option value="East Asian">East Asian</option>
             <option value="Southeast Asian">Southeast Asian</option>
             <option value="South Asian">South Asian</option>
-            <option value="Native Hawaiian or Pacific Islander">
-              Native Hawaiian or Pacific Islander
-            </option>
-            <option value="Latine/Hispanic/Latinx or Spanish origin">
-              Latine/Hispanic/Latinx or Spanish origin
-            </option>
-            <option value="Middle Eastern or North African">
-              Middle Eastern or North African
-            </option>
-            <option value="White or European Descent">
-              White or European Descent
-            </option>
+            <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
+            <option value="Latine/Hispanic/Latinx or Spanish origin">Latine/Hispanic/Latinx or Spanish origin</option>
+            <option value="Middle Eastern or North African">Middle Eastern or North African</option>
+            <option value="White or European Descent">White or European Descent</option>
             <option value="Prefer not to say">Prefer not to say</option>
             <option value="Prefer to describe">Prefer to describe</option>
           </select>

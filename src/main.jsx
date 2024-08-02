@@ -1,5 +1,3 @@
-// src/index.js or src/index.jsx
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -9,7 +7,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import PatientForm from "./screens/PatientForm.jsx";
+import Form from "./screens/Form.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
 import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
@@ -35,8 +33,8 @@ const router = createBrowserRouter(
         element={<Conversation />}
       />
       <Route
-        path="/chatgpt-ai-healthapp/patientform"
-        element={<PatientForm />}
+        path="/chatgpt-ai-healthapp/form"
+        element={<Form />}
       />
       <Route path="/chatgpt-ai-healthapp/form2" element={<Form2 />} />
     </Route>,

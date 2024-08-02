@@ -9,7 +9,7 @@ const Tutorial = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/chatgpt-ai-healthapp/home");
+    navigate("/chatgpt-ai-healthapp/form");
   };
 
   return (
