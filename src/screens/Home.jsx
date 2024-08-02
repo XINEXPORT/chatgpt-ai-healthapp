@@ -1,18 +1,13 @@
 import React from 'react'
-
 import { Helmet } from 'react-helmet'
-
-import UpArrowButton from "../components/UpArrowButton/UpArrowButton.jsx";
-
 import HomeButton from '../components/HomeButton/HomeButton.jsx';
-
+import styles from './Home.module.scss';
 import { useNavigate } from 'react-router-dom';
-
 import { useState, useEffect, useRef } from 'react';
+import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
-  const textareaRef = useRef(null);
 
   const handleClickHome = () => {
     navigate('/chatgpt-ai-healthapp/home');
@@ -30,93 +25,54 @@ const Home = () => {
     setMessage(newValue);
     setIsArrowVisible(newValue.trim() !== '');
   };
-  
-  useEffect(() => {
-    adjustTextareaHeight(); // Adjust height on initial render
-  }, []);
-
-  const adjustTextareaHeight = () => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto'; // Reset height
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set new height
-    }
-  };
 
   return (
-    <div className="Home">
+    <div className={styles.Home}>
       <Helmet>
         <title>exported project</title>
       </Helmet>
-      <div className="home-home">
+      <div className={styles.homeContainer}>
         <img
           src="src/assets/Home/Rectangle11.png"
           alt="Rectangle111235"
-          className="home-rectangle11"
+          className={styles.rectangle11}
         />
         <img
           src="src/assets/Home/Ellipse4.png"
           alt="Ellipse4113"
-          className="home-ellipse4"
+          className={styles.ellipse4}
         />
-        <div className="home-group3">
-          <span className="home-text">
+        <div className={styles.group3}>
+          <span className={styles.text}>
             <span>Welcome Back,</span>
           </span>
-          <span className="home-text2">
+          <span className={styles.text2}>
             <span>Vaishag P Biju</span>
           </span>
         </div>
         <img
           src="src/assets/Home/friendly robot assistant waving.png"
           alt="friendlyrobotassistantwaving1132"
-          className="home-friendlyrobotassistantwaving"
+          className={styles.friendlyrobotassistantwaving}
         />
-        <span className="home-text5">
-          <span>Hi <span className="different-font">Vaishag</span>,
-            Your <span className="different-color-and-font">Personal Healthcare </span>
+        <span className={styles.text5}>
+          <span>Hi <span className={styles.differentFont}>Vaishag</span>,
+            Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
             Companion is Here!
-            <span className="different-font"> Informed answers,
+            <span className={styles.differentFont}> Informed answers,
               Friendly
               Conversation </span>
-            and <span className="different-font">Personalized
+            and <span className={styles.differentFont}>Personalized
               Assistance</span> are
             assured by me.</span>
         </span>
-        <span className="home-text4">
+        <span className={styles.text4}>
           <span>How can I help you?</span>
         </span>
-        <div className="home-tab">
-          <div className="home-icons">
-            <img
-              src="src/assets/Home/Bookmark.png"
-              alt="Bookmark1240"
-              className="home-bookmark"
-            />
-            <img
-              src="src/assets/Home/Settings.png"
-              alt="Settings1241"
-              className="home-settings"
-            />
-            <img
-              src="src/assets/Home/Chat Message.png"
-              alt="ChatMessage1347"
-              className="home-chat-message"
-            />
-            <HomeButton className="home-home1" onClick={handleClickHome}/>
-          </div>
+        <div className={styles.messageBox}>
+          <CustomTextarea
+          />
         </div>
-          <div className="message-box">
-          <textarea
-                ref={textareaRef}
-                className="home-text-field"
-                placeholder="Message Me"
-                value={message}
-                onChange={handleMessageChange}
-              />
-            <span className="home-right-arrow" style={{ opacity: isArrowVisible ? 1 : 0.5 }}>
-              <UpArrowButton onClick={sendMessage}></UpArrowButton>
-            </span>
-          </div>
       </div>
     </div>
   )
