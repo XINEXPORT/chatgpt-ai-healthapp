@@ -1,5 +1,3 @@
-// src/screens/Loading.jsx
-
 import React, { useEffect, useState } from "react";
 import "../index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";

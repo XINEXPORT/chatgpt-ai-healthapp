@@ -1,36 +1,51 @@
-import { OpenAI } from "openai";
+import axios from "axios";
 import dotenv from "dotenv";
 
-// Load environment variables from .env file
 dotenv.config();
 
-// Debugging statement to check if the API key is loaded
-console.log("OPENAI_API_KEY:", process.env.OPENAI_API_KEY);
-
-const apiKey = process.env.OPENAI_API_KEY;
+const apiKey = process.env.VITE_OPENAI_API_KEY;
 if (!apiKey) {
-  throw new Error("Missing OPENAI_API_KEY environment variable");
+  throw new Error("Missing VITE_OPENAI_API_KEY environment variable");
 }
 
-const openai = new OpenAI({
-  apiKey: apiKey,
+const axiosInstance = axios.create({
+  baseURL: "https://api.openai.com/v1",
+  headers: {
+    Authorization: `Bearer ${apiKey}`,
+    "Content-Type": "application/json",
+  },
 });
 
-async function createChatCompletion() {
+export const queryChatAPI = async (prompt, model = "gpt-4-1106-preview") => {
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+    const response = await axiosInstance.post("/chat/completions", {
+      model,
       messages: [
         {
+          role: "system",
+          content: "You are a nutrition coach.",
+        },
+        {
           role: "user",
-          content: "Hello",
+          content: prompt,
         },
       ],
+      max_tokens: 150,
     });
-    console.log(response.data.choices[0].message.content);
-  } catch (error) {
-    console.error("Error creating chat completion:", error);
-  }
-}
 
-createChatCompletion();
+    if (
+      response.data &&
+      response.data.choices &&
+      response.data.choices[0].message &&
+      response.data.choices[0].message.content
+    ) {
+      return response.data.choices[0].message.content.trim();
+    } else {
+      console.error("Unexpected response format:", response);
+      return "Error: Unexpected response format.";
+    }
+  } catch (error) {
+    console.error("Error querying the API:", error);
+    return "Error querying the API.";
+  }
+};

@@ -10,20 +10,18 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleClickHome = () => {
-    navigate('/chatgpt-ai-healthapp/home');
+    navigate("/chatgpt-ai-healthapp/home");
   };
 
-  const sendMessage = () => {
+  const sendMessage = () => {};
 
-  };
-
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isArrowVisible, setIsArrowVisible] = useState(false);
 
   const handleMessageChange = (e) => {
     const newValue = e.target.value;
     setMessage(newValue);
-    setIsArrowVisible(newValue.trim() !== '');
+    setIsArrowVisible(newValue.trim() !== "");
   };
 
   return (
@@ -75,8 +73,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

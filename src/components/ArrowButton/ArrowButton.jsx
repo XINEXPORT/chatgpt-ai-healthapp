@@ -1,11 +1,19 @@
 import React from "react";
-import styles from './ArrowButton.module.scss';
-import buttonImage from './right-arrow.png'; // Adjust the path to your image
+import styles from "./ArrowButton.module.scss";
+import buttonImage from "./right-arrow.png"; // Adjust the path to your image
 
 const ArrowButton = ({ onClick }) => {
   return (
-    <button className={styles.btnCustom} onClick={onClick}>
-      <img src={buttonImage} alt="Custom Button" className={styles.buttonImage} />
+    <button
+      className={styles.btnCustom}
+      onClick={onClick}
+      aria-label="Right arrow button"
+    >
+      <img
+        src={buttonImage}
+        alt="Custom Button"
+        className={styles.buttonImage}
+      />
     </button>
   );
 };
