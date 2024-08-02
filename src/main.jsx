@@ -13,7 +13,7 @@ import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial.jsx";
 import Form2 from "./screens/Form2/Form2.jsx";
-import Home from "./screens/Home.jsx";
+import Home from "./screens/Home/Home.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
