@@ -1,4 +1,4 @@
-import generateId from "../utils/idGenerator.js";
+import generateId from "./idGenerator.js";
 
 let favorites = [
     { id: 1, title: "Nutrition Basics"},
