@@ -42,10 +42,10 @@ const Home = () => {
         />
         <div className={styles.group3}>
           <span className={styles.text}>
-            <span>Welcome Back,</span>
+            <span>Welcome,</span>
           </span>
           <span className={styles.text2}>
-            <span>Vaishag P Biju</span>
+            <span>Christine</span>
           </span>
         </div>
         <img
@@ -55,7 +55,7 @@ const Home = () => {
         />
         <span className={styles.text5}>
           <span>
-            Hi <span className={styles.differentFont}>Vaishag</span>, Your{" "}
+            Hi <span className={styles.differentFont}>Christine</span>, Your{" "}
             <span className={styles.differentColorAndFont}>
               Personal Healthcare{" "}
             </span>
