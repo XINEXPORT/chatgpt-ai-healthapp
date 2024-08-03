@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import HomeButton from '../components/HomeButton/HomeButton.jsx';
+import HomeButton from '../../components/HomeButton/HomeButton.jsx';
 import styles from './Home.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
+import CustomTextarea from '../../components/CustomTextarea/CustomTextarea.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
