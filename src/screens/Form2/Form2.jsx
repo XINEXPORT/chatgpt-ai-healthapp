@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.scss";
+import "./Form2.scss";
 import axios from "axios";
-import Spinner from "../components/Spinner"; // Import the Spinner component
-import ArrowButton from "../components/ArrowButton/ArrowButton.jsx";
+import Spinner from "../../components/Spinner.jsx";
+import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
 
 const MODEL_NAME = "gpt-4-1106-preview";
 
@@ -16,7 +16,7 @@ const Form2 = () => {
   const [goal, setGoal] = useState("");
   const [mealsPerDay, setMealsPerDay] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // State to manage loading screen visibility
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (setter) => (e) => {
@@ -78,9 +78,9 @@ const Form2 = () => {
   };
 
   return (
-    <div className="container mt-4" role="main">
+    <div className="" role="main">
       {isLoading ? (
-        <Spinner /> // Show Spinner component when isLoading is true
+        <Spinner />
       ) : (
         <form
           onSubmit={handleConvoClick}
@@ -88,7 +88,7 @@ const Form2 = () => {
           aria-labelledby="form-title"
         >
           <h1 id="form-title" className="text-white">
-            Health Information Form
+            Your Health Information
           </h1>
           <div className="mb-3">
             <label htmlFor="bmi" className="form-label text-white">

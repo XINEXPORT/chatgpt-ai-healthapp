@@ -1,0 +1,12 @@
+.btnCustom {
+    background-color: transparent; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer;
+    transition: box-shadow 0.3s; 
+  
+    &:focus {
+      outline: none; 
+    }
+  }
+  

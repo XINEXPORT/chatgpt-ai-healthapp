@@ -7,13 +7,14 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Form from "./screens/Form.jsx";
+import Form from "./screens/Form/Form.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
 import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial.jsx";
-import Form2 from "./screens/Form2.jsx";
-import Home from "./screens/Home.jsx";
+import Form2 from "./screens/Form2/Form2.jsx";
+import Home from "./screens/Home/Home.jsx";
+import Favorites from "./screens/Favorites/Favorites.jsx";
 import ConversationTest from "./screens/ConversationTest.jsx";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -35,6 +36,8 @@ const router = createBrowserRouter(
       <Route path="/chatgpt-ai-healthapp/form" element={<Form />} />
 
       <Route path="/chatgpt-ai-healthapp/form2" element={<Form2 />} />
+      <Route path="/chatgpt-ai-healthapp/favorites" element={<Favorites />} />
+
     </Route>,
   ),
 );

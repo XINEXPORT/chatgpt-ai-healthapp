@@ -134,8 +134,7 @@
     font-size: 19px;
     line-height: 45px;
     animation: slideRight 2s forwards;
-    text-shadow:
-      2px 2px 3px rgb(36, 36, 36),
+    text-shadow: 2px 2px 3px rgb(36, 36, 36);
   }
 
   .differentFont {
@@ -143,7 +142,7 @@
   }
 
   .differentColorAndFont {
-    background: linear-gradient(-77deg, #9BC3FF, #0066FF);
+    background: linear-gradient(-77deg, #9bc3ff, #0066ff);
     background-clip: text;
     color: transparent;
     font-family: "Poppins SemiBold";
@@ -164,6 +163,59 @@
     font-stretch: normal;
     text-decoration: none;
     animation: slideUp 1s;
+  }
+
+  .navBar {
+    top: 670px;
+    left: 10px;
+    width: 375px;
+    height: 95px;
+    display: flex;
+    position: absolute;
+    background: linear-gradient(
+      180deg,
+      rgba(29, 91, 143, 1) 0%,
+      rgba(29, 91, 143, 0) 100%
+    );
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-radius: 40px;
+    animation: fadeIn 1s forwards;
+  }
+
+  .icons {
+    top: 37px;
+    left: 42px;
+    width: 306.122314453125px;
+    height: 31px;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+
+  .bookmark {
+    top: 0px;
+    left: 172.0000457763672px;
+    position: absolute;
+  }
+
+  .settings {
+    top: 0px;
+    left: 267.00006103515625px;
+    position: absolute;
+  }
+
+  .chatMessage {
+    top: 1px;
+    left: 86px;
+    position: absolute;
+  }
+
+  .homeButton {
+    top: 1px;
+    left: 0px;
+    position: absolute;
   }
 
   .messageBox {

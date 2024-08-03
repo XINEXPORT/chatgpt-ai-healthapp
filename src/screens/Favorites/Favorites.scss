@@ -1,0 +1,36 @@
+  .profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .favorites {
+    padding:20px;
+    text-align: left;
+}
+  
+  .favorites h2 {
+      font-size: 30px;
+      padding-bottom: 20px;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+  .favorite-list {
+    background: rgba(1, 4, 5, 0.6);;
+    list-style: none;
+    padding: 15px;
+    border-radius: 1rem;
+    width: 340px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #555;
+    
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  
