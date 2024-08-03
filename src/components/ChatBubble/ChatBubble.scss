@@ -1,0 +1,45 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.chatBubble {
+  width: 300px;
+  margin: 8px;
+  padding: 7px;
+  border-radius: 20px;
+  background-color: #3389BB;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+  display: inline-block;
+  animation: fadeIn 1s forwards;
+  
+
+  p {
+    margin: 5px;
+    line-height: 1.8;
+    color: white;
+    font-size: 13px;
+    font-family: "Poppins Regular";
+    text-align: left;
+  }
+
+  &.user {
+    background-color: #3389BB; // Light green background for user messages
+    align-self: flex-end;
+    position: relative;
+    left: 15px;
+  }
+
+  &.assistant {
+    background-color: #1D5B8F; // White background for assistant messages
+    align-self: flex-start;
+    position: relative;
+    left: -15px;
+  }
+}
