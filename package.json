@@ -18,7 +18,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/base": "^5.0.0-beta.40",
     "@mui/material": "^5.16.6",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
     "bootstrap-vue": "^2.23.1",
     "css-loader": "^7.1.2",

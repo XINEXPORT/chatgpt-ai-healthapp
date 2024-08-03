@@ -1,4 +1,5 @@
 /* src/index.scss */
+@import './effects/CrossFadeScreens.scss';
 
 @font-face {
   font-family: "Poppins Regular";
@@ -357,6 +358,7 @@ footer {
   animation-delay: 10s;
   position: relative;
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .button {

@@ -1,27 +1,18 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import HomeButton from '../components/HomeButton/HomeButton.jsx';
-import styles from './Home.module.scss';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useQueryContext } from '../App';
 import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
+import styles from './Home.module.scss';
 
 const Home = () => {
+  const { setQueryResponse } = useQueryContext();
   const navigate = useNavigate();
+  const [chatHistory, setChatHistory] = useState([]);
 
-  const handleClickHome = () => {
-    navigate("/chatgpt-ai-healthapp/home");
-  };
-
-  const sendMessage = () => {};
-
-  const [message, setMessage] = useState("");
-  const [isArrowVisible, setIsArrowVisible] = useState(false);
-
-  const handleMessageChange = (e) => {
-    const newValue = e.target.value;
-    setMessage(newValue);
-    setIsArrowVisible(newValue.trim() !== "");
+  const handleUserMessage = (userMessage) => {
+    setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true }]);
+    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [...chatHistory, { message: userMessage, isUser: true }] } });
   };
 
   return (
@@ -69,6 +60,9 @@ const Home = () => {
         </span>
         <div className={styles.messageBox}>
           <CustomTextarea
+            setQueryResponse={setQueryResponse}
+            handleUserMessage={handleUserMessage}
+            navigate={navigate}
           />
         </div>
       </div>
@@ -77,3 +71,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
