@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import UpArrowButton from "../UpArrowButton/UpArrowButton.jsx";
+import Spinner from "../Spinner.jsx";
 import styles from './CustomTextarea.module.scss';
 import '../../index.scss';
 import axios from "axios";
@@ -80,6 +81,12 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      handleSubmit(e);
+    }
+  };
+
   const handleMessageChange = (e) => {
     const newValue = e.target.value;
     setUserInput(newValue);
@@ -107,12 +114,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         display: "inline-block",
       }}
     >
+      {isLoading && <Spinner className={styles.spinner}/>}
       <TextareaAutosize
         aria-label="textarea"
         maxRows={4}
         placeholder="Message Me"
         value={userInput}
         onChange={handleMessageChange}
+        onKeyDown={handleKeyPress}
         onBlur={handleBlur}
         className={styles.textarea}
         style={{
@@ -145,7 +154,6 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
       >
         <UpArrowButton onClick={handleSubmit} />
       </span>
-      {isLoading && <p>Loading...</p>}
     </div>
   );
 };

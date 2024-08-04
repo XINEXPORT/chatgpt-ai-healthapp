@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./SmallSpinner.module.scss";
 
-const Loading = () => {
+const SmallSpinner = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
@@ -29,4 +30,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default SmallSpinner;

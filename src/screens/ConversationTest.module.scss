@@ -1,3 +1,18 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins Regular", "Poppins SemiBold", "Poppins Italic",
+    "Inter Regular", sans-serif;
+  background-color: #222 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
 .chatContainer {
     display: flex;
     flex-direction: column;
@@ -48,7 +63,7 @@
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    transform: translateX(98%);
+    padding-left: 335px;
     flex-shrink: 0;
     bottom: 120px; /* Height of the navbar */
     left: 0;
