@@ -9,7 +9,7 @@ import axios from "axios";
 
 const MODEL_NAME = "gpt-4-1106-preview";
 
-const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
+const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleTyping }) => {
   const [userInput, setUserInput] = useState('');
   const [isArrowVisible, setIsArrowVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
           messages: [
             {
               role: "system",
-              content: "You are a nutrition coach. Please provide concise and specific responses that will fit 100 tokens.",
+              content: "You are a nutrition coach. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.",
             },
             {
               role: "user",
@@ -44,6 +44,7 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
           },
         }
       );
+
 
       return response.data.choices[0].message.content;
     } catch (error) {
@@ -66,6 +67,7 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
       const newResponse = await queryAPI(userInput);
       setQueryResponse(newResponse);
       setUserInput('');  // Clear the input field
+      handleTyping(false); // User stopped typing
       if (location.pathname === '/chatgpt-ai-healthapp/home') {
         navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [{ message: userInput, isUser: true }] } });
       }
@@ -80,8 +82,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
     const newValue = e.target.value;
     setUserInput(newValue);
     setIsArrowVisible(newValue.trim() !== '');
+    handleTyping(newValue.trim() !== '');
   };
 
+  const handleBlur = () => {
+    if (userInput.trim() === '') {
+      handleTyping(false);
+    }
+  };
   return (
     <div
       style={{
@@ -97,10 +105,11 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
         placeholder="Message Me"
         value={userInput}
         onChange={handleMessageChange}
+        onBlur={handleBlur}
         className={styles.textarea}
         style={{
-          boxSizing: 'content-box',
-          width: '290px',
+          boxSizing: 'border-box',
+          width: '340px',
           padding: '12px',
           borderRadius: '20px',
           borderColor: '#000',
@@ -108,7 +117,10 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate }) => {
           color: 'white',
           fontSize: '14px',
           paddingRight: '40px',
-          resize: 'none'
+          resize: 'none',
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: 1
         }}
       />
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
