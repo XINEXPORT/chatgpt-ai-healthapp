@@ -12,9 +12,6 @@ import '../../index.scss';
 import axios from "axios";
 
 const MODEL_NAME = "gpt-4-1106-preview";
-import axios from "axios";
-
-const MODEL_NAME = "gpt-4-1106-preview";
 
 const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleTyping }) => {
   const [userInput, setUserInput] = useState('');
@@ -114,19 +111,10 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         display: "inline-block",
       }}
     >
-    <div
-      style={{
-        position: "relative",
-        top: "-30px",
-        left: "-24px",
-        display: "inline-block",
-      }}
-    >
       <TextareaAutosize
         aria-label="textarea"
         maxRows={4}
         placeholder="Message Me"
-        value={userInput}
         value={userInput}
         onChange={handleMessageChange}
         onBlur={handleBlur}
