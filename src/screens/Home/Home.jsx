@@ -1,27 +1,24 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import HomeButton from '../../components/HomeButton/HomeButton.jsx';
-import styles from './Home.module.scss';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useQueryContext } from '../../App';
+import styles from './Home.module.scss';
+import "../../effects/FadeInFadeOut.scss";
 import CustomTextarea from '../../components/CustomTextarea/CustomTextarea.jsx';
 
 const Home = () => {
+  const { setQueryResponse } = useQueryContext();
   const navigate = useNavigate();
+  const [chatHistory, setChatHistory] = useState([]);
 
-  const handleClickHome = () => {
-    navigate("/chatgpt-ai-healthapp/home");
+  const handleUserMessage = (userMessage) => {
+    setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true }]);
   };
 
-  const sendMessage = () => {};
+  const [isTyping, setIsTyping] = useState(false);
 
-  const [message, setMessage] = useState("");
-  const [isArrowVisible, setIsArrowVisible] = useState(false);
-
-  const handleMessageChange = (e) => {
-    const newValue = e.target.value;
-    setMessage(newValue);
-    setIsArrowVisible(newValue.trim() !== "");
+  const handleTyping = (typing) => {
+    setIsTyping(typing);
   };
 
   return (
@@ -30,45 +27,51 @@ const Home = () => {
         <title>exported project</title>
       </Helmet>
       <div className={styles.homeContainer}>
-        <img
-          src="src/assets/Home/Rectangle11.png"
-          alt="Rectangle111235"
-          className={styles.rectangle11}
-        />
-        <img
-          src="src/assets/Home/Ellipse4.png"
-          alt="Ellipse4113"
-          className={styles.ellipse4}
-        />
-        <div className={styles.group3}>
-          <span className={styles.text}>
-            <span>Welcome Back,</span>
+        <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>
+          <img
+            src="src/assets/Home/Rectangle11.png"
+            alt="Rectangle111235"
+            className={styles.rectangle11}
+          />
+          <img
+            src="src/assets/Home/Ellipse4.png"
+            alt="Ellipse4113"
+            className={styles.ellipse4}
+          />
+          <div className={styles.group3}>
+            <span className={styles.text}>
+              <span>Welcome Back,</span>
+            </span>
+            <span className={styles.text2}>
+              <span>Vaishag P Biju</span>
+            </span>
+          </div>
+          <img
+            src="src/assets/Home/friendly robot assistant waving.png"
+            alt="friendlyrobotassistantwaving1132"
+            className={styles.friendlyrobotassistantwaving}
+          />
+          <span className={styles.text5}>
+            <span>Hi <span className={styles.differentFont}>Vaishag</span>,
+              Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
+              Companion is Here!
+              <span className={styles.differentFont}> Informed answers,
+                Friendly
+                Conversation </span>
+              and <span className={styles.differentFont}>Personalized
+                Assistance</span> are
+              assured by me.</span>
           </span>
-          <span className={styles.text2}>
-            <span>Vaishag P Biju</span>
+          <span className={styles.text4}>
+            <span>How can I help you?</span>
           </span>
         </div>
-        <img
-          src="src/assets/Home/friendly robot assistant waving.png"
-          alt="friendlyrobotassistantwaving1132"
-          className={styles.friendlyrobotassistantwaving}
-        />
-        <span className={styles.text5}>
-          <span>Hi <span className={styles.differentFont}>Vaishag</span>,
-            Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
-            Companion is Here!
-            <span className={styles.differentFont}> Informed answers,
-              Friendly
-              Conversation </span>
-            and <span className={styles.differentFont}>Personalized
-              Assistance</span> are
-            assured by me.</span>
-        </span>
-        <span className={styles.text4}>
-          <span>How can I help you?</span>
-        </span>
         <div className={styles.messageBox}>
           <CustomTextarea
+            setQueryResponse={setQueryResponse}
+            handleUserMessage={handleUserMessage}
+            navigate={navigate}
+            handleTyping={handleTyping}
           />
         </div>
       </div>

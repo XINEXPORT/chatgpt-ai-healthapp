@@ -11,7 +11,21 @@
   );
   border-radius: 40px;
   position: relative;
+  bottom: 0;
 }
+
+.icons {
+  display: flex;
+  justify-content: space-evenly; /* Distribute the icons evenly */
+  align-items: center;
+  width: 100%; /* Ensure the container takes full width of the nav bar */
+}
+
+.icon {
+  width: 30px; 
+  height: 30px;
+}
+
 
 .icons {
   display: flex;
