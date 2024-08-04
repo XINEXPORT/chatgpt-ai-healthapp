@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextareaAutosize from "@mui/material/TextareaAutosize";
-import React, { useState } from "react";
-import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import UpArrowButton from "../UpArrowButton/UpArrowButton.jsx";
 import styles from './CustomTextarea.module.scss';
 import '../../index.scss';
@@ -137,36 +133,21 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
       />
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <button type="submit" disabled={isLoading} style={{ display: 'none' }}></button>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <button type="submit" disabled={isLoading} style={{ display: 'none' }}></button>
       <span
         style={{
           position: "absolute",
           right: "10px",
           top: "9px",
           cursor: "pointer",
-          position: "absolute",
-          right: "10px",
-          top: "9px",
-          cursor: "pointer",
           opacity: isArrowVisible ? 1 : 0.3,
-          transition: "opacity 0.3s ease-in-out",
           transition: "opacity 0.3s ease-in-out",
         }}
       >
         <UpArrowButton onClick={handleSubmit} />
-        <UpArrowButton onClick={handleSubmit} />
       </span>
-      {isLoading && <p>Loading...</p>}
       {isLoading && <p>Loading...</p>}
     </div>
   );
-};
-
-CustomTextarea.propTypes = {
-  setQueryResponse: PropTypes.func.isRequired,
-  handleUserMessage: PropTypes.func.isRequired,
-  navigate: PropTypes.func.isRequired,
 };
 
 CustomTextarea.propTypes = {
