@@ -1,7 +1,6 @@
 .chatContainer {
     display: flex;
     flex-direction: column;
-    height: 72vh; // Set desired height
 }
 
 .chatHistory {
@@ -10,7 +9,7 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    max-height: 54vh;
+    max-height: 63vh;
 
     .chatBubble {
         margin-bottom: 100px;
@@ -45,11 +44,14 @@
 }
 
 .messageBox {
-    top: 625px;
-    left: -80px;
     display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
+    position: fixed;
+    align-items: center;
+    box-sizing: border-box;
+    transform: translateX(98%);
+    flex-shrink: 0;
+    bottom: 120px; /* Height of the navbar */
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
 }

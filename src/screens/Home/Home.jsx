@@ -12,9 +12,7 @@ const Home = () => {
   const [chatHistory, setChatHistory] = useState([]);
 
   const handleUserMessage = (userMessage) => {
-    const updatedChatHistory = [...chatHistory, { message: userMessage, isUser: true }];
-    setChatHistory(updatedChatHistory);
-    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: updatedChatHistory } });
+    setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true }]);
   };
 
   const [isTyping, setIsTyping] = useState(false);

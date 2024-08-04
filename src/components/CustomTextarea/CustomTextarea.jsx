@@ -61,13 +61,15 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
       return;
     }
     setErrorMessage('');
+    setUserInput('');  // Clear the input field
     setIsLoading(true);
     try {
       handleUserMessage(userInput);  // Add user's message to the chat history
       const newResponse = await queryAPI(userInput);
+      if (location.pathname === '/chatgpt-ai-healthapp/home') {
+        handleTyping(false); // User stopped typing
+      }
       setQueryResponse(newResponse);
-      setUserInput('');  // Clear the input field
-      handleTyping(false); // User stopped typing
       if (location.pathname === '/chatgpt-ai-healthapp/home') {
         navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [{ message: userInput, isUser: true }] } });
       }
@@ -82,14 +84,19 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
     const newValue = e.target.value;
     setUserInput(newValue);
     setIsArrowVisible(newValue.trim() !== '');
-    handleTyping(newValue.trim() !== '');
+    if (location.pathname === '/chatgpt-ai-healthapp/home') {
+      handleTyping(newValue.trim() !== '');
+    }
   };
 
   const handleBlur = () => {
-    if (userInput.trim() === '') {
-      handleTyping(false);
+    if (location.pathname === '/chatgpt-ai-healthapp/home') {
+      if (userInput.trim() === '') {
+        handleTyping(false);
+      }
     }
   };
+
   return (
     <div
       style={{
