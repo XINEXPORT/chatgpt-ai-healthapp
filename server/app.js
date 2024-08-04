@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 ViteExpress.config({ printViteDevServerHost: true });
 
 // ROUTES
-app.get(`/chatgpt-ai-healthapp/api/favorite`, getFavorites);
-app.post(`/chatgpt-ai-healthapp/api/favorite`, addFavorites);
+app.get(`/api/favorite`, getFavorites);
+app.post(`/api/favorite`, addFavorites);
 
 // 404 Error Handling
 app.use((req, res, next) => {
@@ -28,4 +28,4 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}${apiBasePath}`));
+ViteExpress.listen(app, port, () => console.log(`Server is listening on http://localhost:${port}`));
