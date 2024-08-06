@@ -5,6 +5,7 @@ import Loading from "./screens/Loading.jsx";
 import NavBar from './components/NavBar/NavBar.jsx';
 import "./index.scss";
 import "./effects/CrossFadeScreens.scss";
+import { PatientInfoProvider } from './PatientInfoContext';
 
 // Create a context for managing query responses
 const QueryContext = createContext();
@@ -34,38 +35,39 @@ const App = () => {
   const noNavBarRoutes = [
     '/chatgpt-ai-healthapp/',
     '/chatgpt-ai-healthapp/tutorial',
-    '/chatgpt-ai-healthapp/form',
-    '/chatgpt-ai-healthapp/form2'
+    '/chatgpt-ai-healthapp/patient-info'
   ];
 
   return (
     <QueryContext.Provider value={{ queryResponse, setQueryResponse }}>
-      <div id="iphone-15-container">
-        <div className="iphone-15-frame">
-          <div className="screen">
-            <div className="lensmain">
-              <div className="camera1"></div>
-              <div className="camera2"></div>
-              <div className="content">
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={500}
-                    classNames="fade"
-                  >
-                    <Outlet />
-                  </CSSTransition>
-                </TransitionGroup>
+      <PatientInfoProvider>
+        <div id="iphone-15-container">
+          <div className="iphone-15-frame">
+            <div className="screen">
+              <div className="lensmain">
+                <div className="camera1"></div>
+                <div className="camera2"></div>
+                <div className="content">
+                  <TransitionGroup>
+                    <CSSTransition
+                      key={location.key}
+                      timeout={500}
+                      classNames="fade"
+                    >
+                      <Outlet />
+                    </CSSTransition>
+                  </TransitionGroup>
+                </div>
               </div>
+              {!noNavBarRoutes.includes(location.pathname) && (
+                <div className="nav-bar-container">
+                  <NavBar />
+                </div>
+              )}
             </div>
-            {!noNavBarRoutes.includes(location.pathname) && (
-              <div className="nav-bar-container">
-                <NavBar />
-              </div>
-            )}
           </div>
         </div>
-      </div>
+      </PatientInfoProvider>
     </QueryContext.Provider>
   );
 };

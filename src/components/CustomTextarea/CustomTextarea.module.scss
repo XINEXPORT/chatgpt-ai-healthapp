@@ -13,9 +13,9 @@
 
 /* Custom scrollbar styles */
 .textarea::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
   /* Width of the scrollbar */
-  height: 20px;
+  position: relative;
 }
 
 .textarea::-webkit-scrollbar-track {
@@ -37,3 +37,12 @@
   /* Color of the thumb on hover */
   cursor: pointer;
 }
+
+.spinner {
+  position: absolute; /* Position it absolutely */
+  top: -35px;
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center within parent */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+

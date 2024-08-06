@@ -6,7 +6,9 @@ import { Helmet } from 'react-helmet';
 import styles from './ConversationTest.module.scss';
 import ChatBubble from '../components/ChatBubble/ChatBubble.jsx';
 import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
+import SmallSpinner from '../components/SmallSpinner/SmallSpinner.jsx';
 import axios from 'axios'; // Import axios
+
 
 const ConversationTest = () => {
     const location = useLocation();
@@ -17,17 +19,18 @@ const ConversationTest = () => {
     useEffect(() => {
         if (queryResponse) {
             setChatHistory((prevHistory) => {
+                // Check if the response already exists to prevent duplication
                 const lastMessage = prevHistory[prevHistory.length - 1];
                 if (lastMessage && lastMessage.message === queryResponse && !lastMessage.isUser) {
-                    return prevHistory; // Prevent duplicate responses
+                    return prevHistory; // Do not update if the last message is the same response
                 }
-                const newChatHistory = [...prevHistory, { message: queryResponse, isUser: false, isBookmarked: false }];
+                return [...prevHistory, { message: queryResponse, isUser: false }];
 
-                return newChatHistory;
             });
             setQueryResponse(''); // Reset queryResponse to prevent duplicate handling
         }
     }, [queryResponse, setQueryResponse]);
+
 
     useEffect(() => {
         chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
@@ -62,7 +65,8 @@ const ConversationTest = () => {
     return (
         <div className={styles.ConversationTest}>
             <Helmet>
-                <title>CareBuddy</title>
+                <title>CareBuddy - Conversation</title>
+
             </Helmet>
             <div className={styles.chatContainer}>
                 <h1 className={styles.header}>Conversation</h1>
@@ -93,6 +97,9 @@ const ConversationTest = () => {
                         setQueryResponse={setQueryResponse}
                     />
                 </div>
+            </div>
+            <div className={styles.baymaxBlinking}>
+                <img src="src/assets/baymax/baymax-blinking.gif" alt="baymax blinking gif"></img>
             </div>
         </div>
     );
