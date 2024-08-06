@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { usePatientInfoContext } from "../../PatientInfoContext";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import UpArrowButton from "../UpArrowButton/UpArrowButton.jsx";
+import SmallSpinner from "../SmallSpinner/SmallSpinner.jsx";
 import styles from './CustomTextarea.module.scss';
 import '../../index.scss';
 import axios from "axios";
@@ -14,12 +16,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
   const [isArrowVisible, setIsArrowVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const { patientInfo } = usePatientInfoContext();
 
   const location = useLocation();
 
   const API_KEY = process.env.VITE_OPENAI_API_KEY;
 
   const queryAPI = async (input) => {
+    console.log("Patient Info in API call: ", patientInfo); // Log the patient info
     try {
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
@@ -28,14 +32,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
           messages: [
             {
               role: "system",
-              content: "You are a nutrition coach. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.",
+              content: `You are a personal healthcare assistant. The user's information is as follows: ${JSON.stringify(patientInfo)}. Make sure to inform your responses based on the user's information. Make sure not to be repetitive, and use the previous responses as context for the conversation. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.`,
             },
             {
               role: "user",
               content: input,
             },
           ],
-          max_tokens: 100,
+          max_tokens: 300,
         },
         {
           headers: {
@@ -44,7 +48,6 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
           },
         }
       );
-
 
       return response.data.choices[0].message.content;
     } catch (error) {
@@ -55,19 +58,19 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsArrowVisible(false); // Hide the arrow button if needed
+    setIsArrowVisible(false);
     if (userInput.trim() === '') {
       setErrorMessage('Input cannot be empty.');
       return;
     }
     setErrorMessage('');
-    setUserInput('');  // Clear the input field
+    setUserInput('');
     setIsLoading(true);
     try {
-      handleUserMessage(userInput);  // Add user's message to the chat history
+      handleUserMessage(userInput);
       const newResponse = await queryAPI(userInput);
       if (location.pathname === '/chatgpt-ai-healthapp/home') {
-        handleTyping(false); // User stopped typing
+        handleTyping(false);
       }
       setQueryResponse(newResponse);
       if (location.pathname === '/chatgpt-ai-healthapp/home') {
@@ -80,9 +83,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      handleSubmit(e);
+    }
+  };
+
   const handleMessageChange = (e) => {
     const newValue = e.target.value;
-    setUserInput(newValue);
     setUserInput(newValue);
     setIsArrowVisible(newValue.trim() !== '');
     if (location.pathname === '/chatgpt-ai-healthapp/home') {
@@ -107,24 +115,29 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         display: "inline-block",
       }}
     >
+      <div className={styles.spinner}>
+        {isLoading && <SmallSpinner />}
+      </div>
       <TextareaAutosize
         aria-label="textarea"
         maxRows={4}
         placeholder="Message Me"
         value={userInput}
         onChange={handleMessageChange}
+        onKeyDown={handleKeyPress}
         onBlur={handleBlur}
         className={styles.textarea}
         style={{
           boxSizing: 'border-box',
           width: '340px',
-          padding: '12px',
+          padding: '18px',
           borderRadius: '20px',
           borderColor: '#000',
           backgroundColor: '#000',
+          opacity: '60%',
           color: 'white',
           fontSize: '14px',
-          paddingRight: '40px',
+          paddingRight: '43px',
           resize: 'none',
           display: "flex",
           flexDirection: "column",
@@ -137,7 +150,7 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         style={{
           position: "absolute",
           right: "10px",
-          top: "9px",
+          top: "13px",
           cursor: "pointer",
           opacity: isArrowVisible ? 1 : 0.3,
           transition: "opacity 0.3s ease-in-out",
@@ -145,7 +158,6 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
       >
         <UpArrowButton onClick={handleSubmit} />
       </span>
-      {isLoading && <p>Loading...</p>}
     </div>
   );
 };

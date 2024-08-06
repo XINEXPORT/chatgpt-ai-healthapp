@@ -17,6 +17,7 @@ import Home from "./screens/Home/Home.jsx";
 import Favorites from "./screens/Favorites/Favorites.jsx";
 import ConversationTest from "./screens/ConversationTest.jsx";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import PatientInformation from "./screens/PatientInformation/PatientInformation.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,9 +34,8 @@ const router = createBrowserRouter(
 
       <Route path="/chatgpt-ai-healthapp/conversation" element={<ConversationTest />} />
       
-      <Route path="/chatgpt-ai-healthapp/form" element={<Form />} />
+      <Route path="/chatgpt-ai-healthapp/patient-info" element={<PatientInformation />} />
 
-      <Route path="/chatgpt-ai-healthapp/form2" element={<Form2 />} />
       <Route path="/chatgpt-ai-healthapp/favorites" element={<Favorites />} />
 
     </Route>,

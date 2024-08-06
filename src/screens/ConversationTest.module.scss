@@ -1,3 +1,18 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins Regular", "Poppins SemiBold", "Poppins Italic",
+    "Inter Regular", sans-serif;
+  background-color: #222 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
 .chatContainer {
     display: flex;
     flex-direction: column;
@@ -9,7 +24,7 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    max-height: 63vh;
+    max-height: 58vh;
 
     .chatBubble {
         margin-bottom: 100px;
@@ -48,10 +63,31 @@
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    transform: translateX(98%);
+    padding-left: 24px;
     flex-shrink: 0;
-    bottom: 120px; /* Height of the navbar */
-    left: 0;
+    bottom: 110px; /* Height of the navbar */
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
 }
+
+.spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Change this to fixed or absolute as needed */
+    padding-top: 500px;
+    left: 415px;
+  }
+
+  .baymaxBlinking {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    height: 20px;
+    position: absolute;
+    top: 550px;
+    left: -120px;
+  }
+  
+
