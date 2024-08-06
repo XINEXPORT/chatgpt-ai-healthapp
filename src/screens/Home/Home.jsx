@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className={styles.Home}>
       <Helmet>
-        <title>exported project</title>
+        <title>CareBuddy</title>
       </Helmet>
       <div className={styles.homeContainer}>
         <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>
