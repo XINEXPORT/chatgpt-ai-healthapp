@@ -2,9 +2,36 @@
     0% {
       transform: rotate(0deg);
     }
-  
     100% {
       transform: rotate(360deg);
     }
   }
-
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+  }
+  
+  .customImageSpinner {
+    width: 70%;
+    animation: image-spin 1s linear infinite;
+  }
+  
+  .fadeOut {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  
+  #loadingMessage {
+    margin-top: 10px;
+    font-family: "Inter Regular";
+    color: white;
+    font-size: 12px; /* Adjust font size here */
+    white-space: nowrap; /* Ensure the text does not wrap */
+  }
+  
+  

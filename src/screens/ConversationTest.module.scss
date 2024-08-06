@@ -63,10 +63,19 @@ body {
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 335px;
+    padding-left: 26px;
     flex-shrink: 0;
     bottom: 120px; /* Height of the navbar */
-    left: 0;
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
 }
+
+.spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Change this to fixed or absolute as needed */
+    padding-top: 500px;
+    left: 415px;
+  }

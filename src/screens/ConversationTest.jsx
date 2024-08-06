@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import styles from './ConversationTest.module.scss';
 import ChatBubble from '../components/ChatBubble/ChatBubble.jsx';
 import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
+import SmallSpinner from '../components/SmallSpinner/SmallSpinner.jsx';
 
 const ConversationTest = () => {
     const location = useLocation();
@@ -15,18 +16,18 @@ const ConversationTest = () => {
 
     useEffect(() => {
         if (queryResponse) {
-          setChatHistory((prevHistory) => {
-            // Check if the response already exists to prevent duplication
-            const lastMessage = prevHistory[prevHistory.length - 1];
-            if (lastMessage && lastMessage.message === queryResponse && !lastMessage.isUser) {
-              return prevHistory; // Do not update if the last message is the same response
-            }
-            return [...prevHistory, { message: queryResponse, isUser: false }];
-          });
-          setQueryResponse(''); // Reset queryResponse to prevent duplicate handling
+            setChatHistory((prevHistory) => {
+                // Check if the response already exists to prevent duplication
+                const lastMessage = prevHistory[prevHistory.length - 1];
+                if (lastMessage && lastMessage.message === queryResponse && !lastMessage.isUser) {
+                    return prevHistory; // Do not update if the last message is the same response
+                }
+                return [...prevHistory, { message: queryResponse, isUser: false }];
+            });
+            setQueryResponse(''); // Reset queryResponse to prevent duplicate handling
         }
-      }, [queryResponse, setQueryResponse]);
-      
+    }, [queryResponse, setQueryResponse]);
+
 
     useEffect(() => {
         chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;

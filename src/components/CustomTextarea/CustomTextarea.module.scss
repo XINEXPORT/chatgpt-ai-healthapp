@@ -39,7 +39,10 @@
 }
 
 .spinner {
-  position: relative;
-  top: 200px;
-  width: 50%;
+  position: absolute; /* Position it absolutely */
+  top: -35px;
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center within parent */
+  z-index: 1000; /* Ensure it stays above other content */
 }
+

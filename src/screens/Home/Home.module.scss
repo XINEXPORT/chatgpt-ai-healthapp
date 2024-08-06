@@ -249,7 +249,7 @@ body {
     padding-left: 335px;
     flex-shrink: 0;
     bottom: 120px; /* Height of the navbar */
-    left: 0;
+    padding-left: 52px;
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
   }
