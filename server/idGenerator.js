@@ -3,7 +3,7 @@
 // Normally, this would be done by the database, but we don't have a database.
 // Also, the first ID generated will be 4 because our test data already has IDs 0, 1, 2, and 3.
 
-let id = 8;
+let id = 3;
 
 function generateId() {
   id += 1;

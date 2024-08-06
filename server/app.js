@@ -13,8 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 ViteExpress.config({ printViteDevServerHost: true });
 
-// ROUTES
-app.get(`/api/favorite`, getFavorites);
+app.get(`/api/favorite`, getFavorites); 
 app.post(`/api/favorite`, addFavorites);
 
 // 404 Error Handling
