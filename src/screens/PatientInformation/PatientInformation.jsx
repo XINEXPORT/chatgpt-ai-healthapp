@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { questions } from "./questionsConfig"; // Import the questions from the configuration file
 import { usePatientInfoContext } from "../../PatientInfoContext";;
 import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx"; // Import your ChatBubble component
+import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
 import CustomTextarea from "../../components/CustomTextarea/CustomTextarea.jsx"; // Import your CustomTextarea component
 import styles from './PatientInformation.module.scss'; // Import your styles
 
@@ -12,6 +14,11 @@ const PatientInformation = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [responses, setResponses] = useState(patientInfo);
     const chatContainerRef = useRef(null);
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+      navigate("/chatgpt-ai-healthapp/home");
+    };
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -102,6 +109,14 @@ const PatientInformation = () => {
                         </div>
                     </div>
                 )}
+            </div>
+            <div className={styles.buttonContainer}>
+                <div className={styles.arrowButton}>
+                    <ArrowButton onClick={handleClick}></ArrowButton>
+                </div>
+                <span className={styles.continueMessage}>
+                    Continue to Home
+                </span>
             </div>
         </div>
     );

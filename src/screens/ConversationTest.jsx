@@ -40,7 +40,7 @@ const ConversationTest = () => {
     return (
         <div className={styles.ConversationTest}>
             <Helmet>
-                <title>exported project</title>
+                <title>CareBuddy - Conversation</title>
             </Helmet>
             <div className={styles.chatContainer}>
                 <h1 className={styles.header}>Conversation</h1>
@@ -55,6 +55,9 @@ const ConversationTest = () => {
                         setQueryResponse={setQueryResponse}
                     />
                 </div>
+            </div>
+            <div className={styles.baymaxBlinking}>
+                <img src="src/assets/baymax/baymax-blinking.gif" alt="baymax blinking gif"></img>
             </div>
         </div>
     );

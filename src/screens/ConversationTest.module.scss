@@ -24,7 +24,7 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    max-height: 63vh;
+    max-height: 58vh;
 
     .chatBubble {
         margin-bottom: 100px;
@@ -63,9 +63,9 @@ body {
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 26px;
+    padding-left: 24px;
     flex-shrink: 0;
-    bottom: 120px; /* Height of the navbar */
+    bottom: 110px; /* Height of the navbar */
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
 }
@@ -79,3 +79,14 @@ body {
     padding-top: 500px;
     left: 415px;
   }
+
+  .baymaxBlinking {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    height: 20px;
+    position: absolute;
+    top: 550px;
+    left: -120px;
+  }
+  

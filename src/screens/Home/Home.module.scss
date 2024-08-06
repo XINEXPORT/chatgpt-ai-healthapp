@@ -136,6 +136,7 @@ body {
     line-height: normal;
     font-stretch: normal;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .friendlyrobotassistantwaving {
@@ -147,15 +148,15 @@ body {
   }
 
   .text5 {
-    width: 244px;
+    width: 245px;
     height: 360px;
-    top: 100px;
+    top: 110px;
     left: 30px;
     position: absolute;
     text-align: left;
     font-family: "Poppins Regular";
     font-size: 19px;
-    line-height: 45px;
+    line-height: 40px;
     animation: slideRight 2s forwards;
     text-shadow: 2px 2px 3px rgb(36, 36, 36);
   }
@@ -173,7 +174,7 @@ body {
   }
 
   .text4 {
-    top: 560px;
+    top: 550px;
     position: absolute;
     left: 72px;
     width: 250px;
@@ -248,7 +249,7 @@ body {
     box-sizing: border-box;
     padding-left: 335px;
     flex-shrink: 0;
-    bottom: 120px; /* Height of the navbar */
+    bottom: 110px; /* Height of the navbar */
     padding-left: 52px;
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;

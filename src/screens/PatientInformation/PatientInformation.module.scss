@@ -1,3 +1,15 @@
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .PatientInformation {
     display: flex;
     flex-direction: column;
@@ -84,4 +96,29 @@
 
 .submitButton:hover {
     background-color: #84c266;
+}
+
+.buttonContainer {
+    display: flex;
+    margin-top: auto;
+    animation: slideLeft 1s forwards;
+    position: relative;
+    flex-shrink: 0;
+    top: -100px;
+    left: 70px;
+}
+
+.arrowButton {
+    position: absolute;
+    top: -95px;
+    left: 230px;
+}
+
+.continueMessage {
+    position: relative;
+    top: -84px;
+    left: 110px;
+    font-size: 13px;
+    text-shadow: 5px 3px 6px rgb(0, 0, 0);
+    font-family: "Inter Regular";
 }

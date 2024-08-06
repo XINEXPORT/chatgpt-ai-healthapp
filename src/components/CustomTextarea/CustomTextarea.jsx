@@ -32,14 +32,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
           messages: [
             {
               role: "system",
-              content: `You are a nutrition coach. The user's information is as follows: ${JSON.stringify(patientInfo)}. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.`,
+              content: `You are a personal healthcare assistant. The user's information is as follows: ${JSON.stringify(patientInfo)}. Make sure to inform your responses based on the user's information. Make sure not to be repetitive, and use the previous responses as context for the conversation. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.`,
             },
             {
               role: "user",
               content: input,
             },
           ],
-          max_tokens: 100,
+          max_tokens: 300,
         },
         {
           headers: {
@@ -130,13 +130,14 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         style={{
           boxSizing: 'border-box',
           width: '340px',
-          padding: '12px',
+          padding: '18px',
           borderRadius: '20px',
           borderColor: '#000',
           backgroundColor: '#000',
+          opacity: '60%',
           color: 'white',
           fontSize: '14px',
-          paddingRight: '40px',
+          paddingRight: '43px',
           resize: 'none',
           display: "flex",
           flexDirection: "column",
@@ -149,7 +150,7 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
         style={{
           position: "absolute",
           right: "10px",
-          top: "9px",
+          top: "13px",
           cursor: "pointer",
           opacity: isArrowVisible ? 1 : 0.3,
           transition: "opacity 0.3s ease-in-out",

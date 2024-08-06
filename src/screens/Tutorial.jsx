@@ -10,7 +10,7 @@ const Tutorial = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/chatgpt-ai-healthapp/form");
+    navigate("/chatgpt-ai-healthapp/patient-info");
   };
 
   return (
