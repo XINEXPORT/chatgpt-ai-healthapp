@@ -5,12 +5,49 @@ CareBuddy is an AI Healthcare chat companion that can recommend lifestyle tips a
 
 CareBuddy tailors its responses by analyzing a user's personal information, creating a more personalized interaction. It offers a conversation-like patient evaluation form to gather detailed information about the user, a chat page for seamless interaction, and a Favorites list feature that allows users to save their favorite responses.
 
+## Watch our video to learn about the development process and see CareBuddy in action!
+
 # Contributors
-- Aryan Murthy
-- Christine Hoang
-- Eric Rupaclaba
-- Hamna Tameez
-- Litesh Permulla
+Meet the team behind CareBuddy
+<table>
+  <tr>
+    <td align="center" width="200">
+      <a href="https://www.linkedin.com/in/hamna-tameez-6495b2292/">
+        <img src="" width="100px;" alt="Profile Picture"/><br />
+        <sub><b>Hamna Tameez</b></sub>
+      </a><br />
+    </td>
+    <td align="center" width="200">
+      <a href="https://www.linkedin.com/in/christine-hoang-profile/">
+        <img src="" width="100px;" alt="Profile Picture"/><br />
+        <sub><b>Christine Hoang</b></sub>
+      </a><br />
+    </td>
+    <td align="center" width="200">
+      <a href="https://www.linkedin.com/in/aryanmurthy/">
+        <img src="" width="100px;" alt="Profile Picture"/><br />
+        <sub><b>Aryan Murthy Illa</b></sub>
+      </a><br />
+    </td>
+    <td align="center" width="200">
+      <a href="https://www.linkedin.com/in/erubal/">
+        <img src="" width="100px;" alt="Profile Picture"/><br />
+        <sub><b>Eric Rubalcaba</b></sub>
+      </a><br />
+      <td align="center" width="200">
+      <a href="https://www.linkedin.com/in/perumalla-litesh/">
+        <img src="" width="100px;" alt="Profile Picture"/><br />
+        <sub><b>Perumalla Litesh</b></sub>
+      </a><br />
+    </td>
+    </tr>
+    <tr>
+    </td>
+      </a><br />
+      </a><br />
+    </td>
+    </tr>
+</table>
 
 # Technologies
 ~~~
@@ -21,7 +58,7 @@ Frontend Development:
     MaterialUI
 
 Backend Development:
-    Node.js: Enables server-side development
+    Node.js: Enables server-side development for Conversation, Patient Information, and Favorites screens
     Express.js: Allows for backend logic and API services
     Axios: A reliable and simple to use web service
     Vite: A fast web application build tool that allows for rapid development
@@ -36,7 +73,7 @@ Design and Project Management Tools:
     Github: Used for version control to assist with code management, increase collaboration, and reduce miscommunication by using branching strategy and performing Pull Request reviews
 ~~~
 
-## Developer Instructions
+# Developer Instructions
 
 - git clone the repository in your directory
   ![image](https://github.com/user-attachments/assets/4d805a50-a9f6-449b-be61-77ed2b5179ce)
@@ -54,7 +91,7 @@ Design and Project Management Tools:
 - if you make any package installs or config changes, be sure to tell the team to do an 'npm i' when they pull the latest changes
 
 
-## Publish your changes
+## Publish Your changes
 
 - in your terminal, type 'npm run deploy' to push your changes to github pages
   - you can validate this by going to the Actions tab in the repository. you should see your build processing
