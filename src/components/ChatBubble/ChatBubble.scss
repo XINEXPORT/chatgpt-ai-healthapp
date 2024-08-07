@@ -9,8 +9,8 @@
 }
 
 .chatBubble {
-  width: 300px;
-  max-width: auto;
+  width: 260px;
+  max-width: fit-content;
   margin: 8px;
   padding: 7px;
   border-radius: 20px;
@@ -29,18 +29,23 @@
     font-family: "Poppins Regular";
     text-align: left;
   }
-
   &.user {
-    background-color: #00446e; // Light green background for user messages
+    background-color: #00446e; // Different background for user messages
     align-self: flex-end;
+    margin-left: auto; // Align to the right
+    left: unset; // Remove any left positioning
+    right: 0; // Ensure it's aligned to the right
     position: relative;
-    left: 15px;
+    left: 40px;
   }
 
   &.assistant {
-    background-color: #1D5B8F; // White background for assistant messages
+    background-color: #1D5B8F; // Background for assistant messages
     align-self: flex-start;
+    margin-right: auto; // Align to the left
+    right: unset; // Remove any right positioning
+    left: 0; // Ensure it's aligned to the left
     position: relative;
-    left: -15px;
+    left: -40px;
   }
 }
