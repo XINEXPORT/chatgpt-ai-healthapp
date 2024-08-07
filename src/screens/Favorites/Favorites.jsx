@@ -31,7 +31,7 @@ const Favorites = () => {
       <div className="profile-section">
       </div>
       <div className="favorites">
-        <h2>Christine's Favorites</h2>
+        <h2>Guest's Favorites</h2>
         {error && <div className="error-message">{error}</div>}
         <ul className="favorite-list">
           {Array.isArray(favorites) ? (
