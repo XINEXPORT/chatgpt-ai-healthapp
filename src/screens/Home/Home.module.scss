@@ -247,10 +247,9 @@ body {
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 335px;
     flex-shrink: 0;
-    bottom: 110px; /* Height of the navbar */
-    padding-left: 52px;
+    bottom: 120px; /* Height of the navbar */
+    padding-left: 51px;
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
   }

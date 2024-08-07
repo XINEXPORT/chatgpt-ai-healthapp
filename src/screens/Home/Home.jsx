@@ -23,9 +23,10 @@ const Home = () => {
     setIsTyping(typing);
   };
 
-  const patientName = patientInfo.name || 'Guest';
+  // Ensure patientInfo is an object and handle the case where patientInfo.name might be undefined
+  const patientName = patientInfo?.name || 'Guest';
   const firstName = patientName.split(' ')[0]; // Get the first name
-  
+
   return (
     <div className={styles.Home}>
       <Helmet>
@@ -84,3 +85,4 @@ const Home = () => {
 };
 
 export default Home;
+

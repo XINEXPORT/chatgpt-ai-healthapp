@@ -63,11 +63,19 @@ body {
     position: fixed;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 24px;
+    padding-left: 22px;
     flex-shrink: 0;
-    bottom: 110px; /* Height of the navbar */
+    bottom: 120px; /* Height of the navbar */
     z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
+}
+
+.saveButton {
+    position: absolute;
+    left: 270px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 10px;
 }
 
 .spinner {
