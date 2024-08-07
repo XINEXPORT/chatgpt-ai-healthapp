@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <div className={styles.Home}>
       <Helmet>
-        <title>CareBuddy - Home</title>
+        <title>CareBuddy</title>
       </Helmet>
       <div className={styles.homeContainer}>
         <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>

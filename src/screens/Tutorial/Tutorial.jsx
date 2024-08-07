@@ -1,9 +1,8 @@
-// Tutorial.jsx
 import React from "react";
-import ArrowButton from "../components/ArrowButton/ArrowButton.jsx";
+import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
 import { useNavigate } from "react-router-dom";
-import LMessageBubble from "../components/LMessageBubble/LMessageBubble.jsx";
-import "../index.scss";
+import LMessageBubble from "../../components/LMessageBubble/LMessageBubble.jsx";
+import "../../index.scss";
 import styles from './Tutorial.module.scss';
 
 const Tutorial = () => {
@@ -16,14 +15,15 @@ const Tutorial = () => {
   return (
     <div className="Tutorial">
       <h1 id={styles.tutorialHeading} aria-labelledby="tutorial-heading">
-          Tutorial
-        </h1>
+        Tutorial
+      </h1>
       <div className={styles.videoTutorialContainer}>
         <iframe
-          src="https://www.youtube.com/embed/uEeBXUUOBiI?si=jK61N0A0h4sOL_lC&autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/uEeBXUUOBiI?autoplay=1"
           allow="autoplay"
           title="YouTube video tutorial"
           className={styles.tutorialVideo}
+          allowFullScreen
         />
       </div>
       <div className={styles.buttonContainer}>

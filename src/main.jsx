@@ -11,7 +11,7 @@ import Form from "./screens/Form/Form.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
 import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
-import Tutorial from "./screens/Tutorial.jsx";
+import Tutorial from "./screens/Tutorial/Tutorial.jsx";
 import Form2 from "./screens/Form2/Form2.jsx";
 import Home from "./screens/Home/Home.jsx";
 import Favorites from "./screens/Favorites/Favorites.jsx";
