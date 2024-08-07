@@ -15,25 +15,25 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 # Technologies
 ~~~
 Frontend Development:
-    React (Javasscript)
+    React (Javascript): Enables fast web application development while ensuring high-quality user experience
     Sass Stylesheets
     Bootstrap
     MaterialUI
 
 Backend Development:
-    Node.js
-    Express.js
-    Axios
-    Vite
+    Node.js: Enables server-side development
+    Express.js: Allows for backend logic and API services
+    Axios: A reliable and simple to use web service
+    Vite: A fast web application build tool that allows for rapid development
 
 External APIs:
-    OpenAI
+    OpenAI: OpenAI is integrated in the Conversation and Patient Information screens
 
 Design and Project Management Tools:
-    Figma
-    NotionDB
-    Prettier
-    Github
+    Figma: Utilized for UI/UX design to create a visually striking cross-platform mobile application inspired by the movie, Big Hero 6
+    NotionDB: For agile project management and ticket tracking ensuring transparent work responsibiltiies and smooth development
+    Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
+    Github: Used for version control to assist with code management, increase collaboration, and reduce miscommunication by using branching strategy and performing Pull Request reviews
 ~~~
 
 ## Developer Instructions
