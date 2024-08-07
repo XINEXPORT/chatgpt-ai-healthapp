@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { usePatientInfoContext } from '../../PatientInfoContext';
 import "./Favorites.scss";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [error, setError] = useState(null);
+  const { patientInfo } = usePatientInfoContext();
+
+  const patientName = patientInfo?.name || 'Guest';
+  const firstName = patientName.split(' ')[0]; // Get the first name
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -31,7 +36,7 @@ const Favorites = () => {
       <div className="profile-section">
       </div>
       <div className="favorites">
-        <h2>Guest's Favorites</h2>
+        <h2>{firstName}'s Favorites</h2>
         {error && <div className="error-message">{error}</div>}
         <ul className="favorite-list">
           {Array.isArray(favorites) ? (

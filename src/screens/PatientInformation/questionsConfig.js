@@ -18,5 +18,6 @@ export const questions = [
       "Prefer not to say",
       "Prefer to describe"
     ] },
+    { id: "medications", question: "What are your current medications?", type: "text" },
   ];
   
