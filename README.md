@@ -48,6 +48,7 @@ Design and Project Management Tools:
 - open a 2nd terminal and cd server
   - type node app.js <- this will start the server
 
+## Committing Changes
 - make sure to run 'npm run prettier' before pushing your changes
 
 - if you make any package installs or config changes, be sure to tell the team to do an 'npm i' when they pull the latest changes
