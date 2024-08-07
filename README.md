@@ -15,7 +15,7 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 # Technologies
 ~~~
 Frontend Development:
-    React Javasscript)
+    React (Javasscript)
     Sass Stylesheets
     Bootstrap
     MaterialUI
@@ -32,6 +32,7 @@ External APIs:
 Design and Project Management Tools:
     Figma
     NotionDB
+    Prettier
     Github
 ~~~
 
