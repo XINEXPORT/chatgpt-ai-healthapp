@@ -10,6 +10,7 @@
 
 .chatBubble {
   width: 300px;
+  max-width: auto;
   margin: 8px;
   padding: 7px;
   border-radius: 20px;
@@ -30,7 +31,7 @@
   }
 
   &.user {
-    background-color: #3389BB; // Light green background for user messages
+    background-color: #00446e; // Light green background for user messages
     align-self: flex-end;
     position: relative;
     left: 15px;

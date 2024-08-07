@@ -44,12 +44,28 @@
   }
 }
 
-.Home {
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins Regular", "Poppins SemiBold", "Poppins Italic",
+    "Inter Regular", sans-serif;
+  background-color: #222 !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
   width: 100%;
+  overflow: hidden;
   color: white;
 
   .homeContainer {
@@ -58,9 +74,16 @@
     left: -130px;
     display: flex;
     position: absolute;
-    box-sizing: content-box;
+    box-sizing: border-box;
     align-items: flex-start;
+    flex-grow: 1;
     flex-shrink: 0;
+  }
+
+  .aboveMessageBox {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 120px; /* Enough space for navbar and message box */
   }
 
   .rectangle11 {
@@ -113,6 +136,7 @@
     line-height: normal;
     font-stretch: normal;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .friendlyrobotassistantwaving {
@@ -124,15 +148,15 @@
   }
 
   .text5 {
-    width: 244px;
+    width: 245px;
     height: 360px;
-    top: 100px;
+    top: 110px;
     left: 30px;
     position: absolute;
     text-align: left;
     font-family: "Poppins Regular";
     font-size: 19px;
-    line-height: 45px;
+    line-height: 40px;
     animation: slideRight 2s forwards;
     text-shadow: 2px 2px 3px rgb(36, 36, 36);
   }
@@ -150,19 +174,19 @@
   }
 
   .text4 {
-    top: 500px;
+    top: 550px;
+    position: absolute;
     left: 72px;
     width: 250px;
     color: rgba(255, 255, 255, 1);
     height: auto;
-    position: absolute;
     font-size: 24px;
     text-align: left;
     font-family: "Poppins SemiBold";
     line-height: 40px;
     font-stretch: normal;
     text-decoration: none;
-    animation: slideUp 1s;
+    margin-bottom: 20px; /* Space between text4 and messageBox */
   }
 
   .navBar {
@@ -219,12 +243,14 @@
   }
 
   .messageBox {
-    top: 580px;
-    left: 50px;
     display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
+    position: fixed;
+    align-items: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    bottom: 120px; /* Height of the navbar */
+    padding-left: 51px;
+    z-index: 1000; /* Ensure it stays above other content */
     animation: slideUp 1s;
   }
 }
