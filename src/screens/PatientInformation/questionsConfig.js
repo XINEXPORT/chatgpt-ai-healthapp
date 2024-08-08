@@ -19,5 +19,6 @@ export const questions = [
       "Prefer to describe"
     ] },
     { id: "medications", question: "What are your current medications?", type: "text" },
+    { id: "health conditions", question: "What are your current health conditions, if any?", type: "text" },
   ];
   
