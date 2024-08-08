@@ -20,8 +20,8 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
   - [User Manuals](#user-manuals)
   - [Future Plans](#future-plans)
 - [Developer Instructions](#developer-instructions)
-- [Committing Changes](#committing-changes)
-- [Publish Your Changes](#publish-your-changes)
+  - [Committing Changes](#committing-changes)
+  - [Publish Your Changes](#publish-your-changes)
 
 ## Contributors
 
