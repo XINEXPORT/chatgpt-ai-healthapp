@@ -93,6 +93,7 @@ Design and Project Management Tools:
 
 ## About CareBuddy
 <details>
+  <br>
   <summary>Architecture Design</summary>
 CareBuddy is designed with a microservices architecture, separating the frontend, backend, and data processing components to enhance scalability and maintainability. The backend is built with Node.js and Express.js, while the frontend leverages React for a dynamic user experience.
 
@@ -104,6 +105,7 @@ Key components include:
 </details>
 
 <details>
+  <br>
 <summary>UI/UX Design</summary>
 The UI/UX design focuses on intuitive navigation and accessibility, crafted using Figma for prototyping. The design incorporates principles of simplicity and user-friendliness, inspired by the aesthetics of Big Hero 6 to create an engaging interface.
 
@@ -115,11 +117,13 @@ Key design elements include:
 </details>
 
 <details>
+  <br>
   <summary>User Manual</summary>
 The user manuals provide step-by-step guides for both users and developers. These manuals cover features such as the chat interface, patient evaluation form, and managing favorites. Access the user manuals [here](#).
 </details>
 
 <details>
+  <br>
   <summary>Future Development</summary>
 Our future plans include:
 
