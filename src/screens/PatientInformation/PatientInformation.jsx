@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { questions } from "./questionsConfig"; // Import the questions from the configuration file
-import { usePatientInfoContext } from "../../PatientInfoContext";;
+import { usePatientInfoContext } from "../../PatientInfoContext";
 import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx"; // Import your ChatBubble component
 import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
-import CustomTextarea from "../../components/CustomTextarea/CustomTextarea.jsx"; // Import your CustomTextarea component
 import styles from './PatientInformation.module.scss'; // Import your styles
-
 
 const PatientInformation = () => {
     const { patientInfo, setPatientInfo } = usePatientInfoContext();
@@ -17,7 +15,7 @@ const PatientInformation = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-      navigate("/chatgpt-ai-healthapp/home");
+        navigate("/chatgpt-ai-healthapp/home");
     };
 
     const handleInputChange = (e) => {
@@ -35,7 +33,14 @@ const PatientInformation = () => {
                 { message: currentAnswer, isUser: true },
             ]);
 
-            setPatientInfo((prevInfo) => ({ ...prevInfo, [currentQuestion.id]: currentAnswer }));
+            const updatedInfo = { ...patientInfo, [currentQuestion.id]: currentAnswer };
+
+            if (updatedInfo.weight && updatedInfo.height) {
+                const bmi = calculateBMI(updatedInfo.weight, updatedInfo.height);
+                updatedInfo.bmi = bmi;
+            }
+
+            setPatientInfo(updatedInfo);
 
             if (currentQuestionIndex < questions.length - 1) {
                 const nextQuestion = questions[currentQuestionIndex + 1].question;
@@ -46,6 +51,30 @@ const PatientInformation = () => {
             }
 
             setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        }
+    };
+
+    const calculateBMI = (weight, height) => {
+        const weightInKg = convertPoundsToKg(weight); // Convert weight to kilograms
+        const heightInMeters = convertHeightToMeters(height); // Convert height to meters
+        return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
+    };
+
+    const convertPoundsToKg = (weight) => {
+        return weight * 0.453592;
+    };
+
+    const convertHeightToMeters = (height) => {
+        const regex = /^(\d+)'(\d+)?["']?$/; // Updated regex to handle different formats
+        const match = height.match(regex);
+        if (match) {
+            const feet = parseInt(match[1], 10);
+            const inches = match[2] ? parseInt(match[2], 10) : 0;
+            const totalInches = (feet * 12) + inches;
+            const heightInMeters = totalInches * 0.0254;
+            return heightInMeters;
+        } else {
+            throw new Error("Invalid height format");
         }
     };
 

@@ -2,7 +2,7 @@ export const questions = [
     { id: "name", question: "What is your name?", type: "text" },
     { id: "age", question: "What is your age?", type: "number" },
     { id: "gender", question: "What is your gender?", type: "select", options: ["Female", "Male", "Prefer not to say"] },
-    { id: "weight", question: "What is your weight?", type: "number" },
+    { id: "weight", question: "What is your weight in pounds?", type: "number" },
     { id: "height", question: "What is your height in ft?", type: "text" },
     { id: "ethnicity", question: "What is your ethnicity?", type: "select", options: [
       "Indigenous American/Native Alaskan",
