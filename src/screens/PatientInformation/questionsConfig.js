@@ -19,6 +19,8 @@ export const questions = [
       "Prefer to describe"
     ] },
     { id: "medications", question: "What are your current medications?", type: "text" },
-    { id: "health conditions", question: "What are your current health conditions, if any?", type: "text" },
+    { id: "health conditions", question: "What are your current health conditions?", type: "text" },
+    { id: "family health history", question: "Please enter your family health history.", type: "text" },
+    { id: "meals per day", question: "How many meals do you eat per day?", type: "select", options: ["0-1", "1-3", "4+", "Prefer small snacks throughout the day", "Prefer not to say"] },
+    { id: "health goals", question: "What are your current health goals (ex: Lose 10 pounds, increase stamina, etc.)?", type: "text" },
   ];
-  
