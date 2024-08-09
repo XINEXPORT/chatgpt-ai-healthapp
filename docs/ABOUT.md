@@ -9,7 +9,7 @@ The team wanted to make an app for individuals experiencing diifculties followin
 - React was our chosen front-end framework because of the team's familiairity with Javascript.
 - We chose various CSS styling components, such as Sassy Stylesheets, Bootstrap, and MaterialUI to have an abundant resources of front-end library components, such as forms, buttons, and auto sizing text boxes.
 - We created a chat form for the user to help CareBuddy provide customized responses.
-- The majority of the LLM interaction is occuring on the Conversation screen through GET and POST requests facilitated by the Axios http client
+- The majority of the LLM interaction is occuring on the Conversation screen through REST GET and POST API requests facilitated by the Axios http client
 
 ## Back-End
 - CareBuddy is designed using a View-Controller architecture to enable rapid development and simplicity.
