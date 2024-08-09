@@ -31,3 +31,7 @@ Access the user manuals [here](#).
 
 - **Enhanced AI Capabilities**:
   - Integrate healthcare LLM models and utilize RAG to custom-tailor the responses based on the user's search history and favorites.
+
+- **UI Enhancements and Branding**:
+  -  Allow for a light and dark Mode toggle in the screens
+  -  Swap out the CareBuddy mascot to avoid copyright infringement
