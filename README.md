@@ -14,7 +14,8 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 
 - [Contributors](#contributors)
 - [Technologies](#technologies)
-- [About CareBuddy](#about-carebuddy)
+- [About CareBuddy](./ABOUT.md)
+
   - [Architecture Design](#architecture-design)
   - [UI/UX Design](#uiux-design)
   - [User Manuals](#user-manuals)
