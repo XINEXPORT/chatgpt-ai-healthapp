@@ -64,7 +64,6 @@ Meet the team behind CareBuddy
   </tr>
 </table>
 
----
 
 ## Technologies
 ~~~
