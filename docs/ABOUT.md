@@ -23,12 +23,16 @@ Key design elements include:
 ## User Manual
 The user manuals provide step-by-step guides for both users and developers. These manuals cover features such as the chat interface, patient evaluation form, and managing favorites. Access the user manuals [here](#).
 
-
-
 ## Future Development
-Our future plans include:
+- **Scalability & Optimization**: 
+  - We would like to deploy this website to AWS and implement a database, such as PostgreSQL.
+  - We would like to expand this into a patient monitoring system that will complete the feedback loop to the provider.
+    - We believe sending the patient’s data back to the practitioner will better inform the physician about what care to recommend to the patient.
+  - Create additional features, such as CareBuddy being able to schedule appointments for the patient and frequently send the patient's progress to the practitioner.
+  - Refactor the codebase to utilize React Native, Swift, or Flutter to ensure a modern, scalable mobile architecture.
 
-- **Advanced AI Capabilities**: Integrating more advanced AI models for personalized health assessments and the adoption of RAG to customize the LLM responses to the user.
-- **Enhanced Data Security**: Implementing advanced security measures to protect user data, such as implementing OAUTH.
-- **Mobile App Development**: Refactor the code to utilize React Native, Swift, or Flutter to ensure scalable mobile architecture.
+- **Compliant Security**:
+  - Integrate User OAuthentication to be compliant with website security standards.
 
+- **Enhanced AI Capabilities**:
+  - Integrate healthcare LLM models and utilize RAG to custom-tailor the responses based on the user's needs.
