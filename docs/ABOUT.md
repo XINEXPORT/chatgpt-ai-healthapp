@@ -35,4 +35,4 @@ The user manuals provide step-by-step guides for both users and developers. Thes
   - Integrate User OAuthentication to be compliant with website security standards.
 
 - **Enhanced AI Capabilities**:
-  - Integrate healthcare LLM models and utilize RAG to custom-tailor the responses based on the user's needs.
+  - Integrate healthcare LLM models and utilize RAG to custom-tailor the responses based on the user's search history and favorites.
