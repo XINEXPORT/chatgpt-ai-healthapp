@@ -28,7 +28,7 @@ Meet the team behind CareBuddy
         <img src="https://media.licdn.com/dms/image/v2/D4E03AQHDLVJ-b6FbvA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722898425036?e=1728518400&v=beta&t=Md3IC5q2-NKAN4W_RLSIucwKTAAiLDLcMFjFH9RGIX8" width="200px;" alt="Profile Picture"/><br />
         <img src="./docs/QR/hamna.png" alt="Alt text" width="200px"/> <br/>
         <sub><b>Hamna Tameez</b></sub>
-      </a><br />
+      </a><br />git 
     </td>
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/christine-hoang-profile/">
@@ -47,6 +47,8 @@ Meet the team behind CareBuddy
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/erubal/">
         <img src="https://media.licdn.com/dms/image/v2/D4E03AQFuphPhsrkZ9g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1641338203973?e=1728518400&v=beta&t=unqbYh_qu7aHySlPQ98twybfvypl2hcXSRgC5TkoY88" width="200px;" alt="Profile Picture"/><br />
+        <br/>
+        <img src="./docs/QR/eric.jpg" alt="Alt text" width="200px"/> <br/>
         <sub><b>Eric Rubalcaba</b></sub>
       </a><br />
     </td>
