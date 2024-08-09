@@ -6,7 +6,9 @@ The team wanted to make an app for individuals experiencing diifculties followin
 - We chose a premade mobile app template from Figma
 
 ## Front-End
-- 
+- React was our chosen front-end framework because of the team's familiairity with Javascript.
+- We chose various CSS styling components, such as Sassy Stylesheets, Bootstrap, and MaterialUI to have an abundant resources of front-end library components, such as forms, buttons, and auto sizing text boxes.
+- We created a chat form for the user to complete to help CareBuddy provide customized responses based on the user's information. 
 
 ## Back-End
 - CareBuddy is designed using a View-Controller architecture to enable rapid development and simplicity.
