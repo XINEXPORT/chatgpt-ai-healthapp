@@ -8,8 +8,6 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 
 ## Watch our video to learn about the development process and see CareBuddy in action!
 
----
-
 ## Table of Contents
 
 - [Contributors](#contributors)
