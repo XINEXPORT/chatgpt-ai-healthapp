@@ -15,11 +15,6 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 - [Contributors](#contributors)
 - [Technologies](#technologies)
 - [About CareBuddy](./docs/ABOUT.md)
-
-  - [Architecture Design](#architecture-design)
-  - [UI/UX Design](#uiux-design)
-  - [User Manuals](#user-manuals)
-  - [Future Plans](#future-plans)
 - [Developer Instructions](#developer-instructions)
   - [Committing Changes](#committing-changes)
   - [Publish Your Changes](#publish-your-changes)
@@ -89,51 +84,6 @@ Design and Project Management Tools:
     Github: Used for version control to assist with code management, increase collaboration, and reduce miscommunication by using branching strategy and performing Pull Request reviews
 ~~~
 
-
----
-
-## About CareBuddy
-<details>
-  <br>
-  <summary>Architecture Design</summary>
-CareBuddy is designed with a microservices architecture, separating the frontend, backend, and data processing components to enhance scalability and maintainability. The backend is built with Node.js and Express.js, while the frontend leverages React for a dynamic user experience.
-
-Key components include:
-
-- **Frontend**: Built with React to provide a seamless user interface.
-- **Backend**: Developed using Node.js and Express.js to handle API requests and data processing.
-- **Data Storage**: Utilizes a NoDB design to enable rapid development while retaining the integrity of the application
-</details>
-
-<details>
-  <br>
-<summary>UI/UX Design</summary>
-The UI/UX design focuses on intuitive navigation and accessibility, crafted using Figma for prototyping. The design incorporates principles of simplicity and user-friendliness, inspired by the aesthetics of Big Hero 6 to create an engaging interface.
-
-Key design elements include:
-
-- **Responsive Design**: Ensures compatibility across various mobile devices and screen sizes.
-- **Interactive Elements**: Enhances user engagement through interactive components and user char design.
-- **Consistent Branding**: Maintains a cohesive look and feel throughout the application.
-</details>
-
-<details>
-  <br>
-  <summary>User Manual</summary>
-The user manuals provide step-by-step guides for both users and developers. These manuals cover features such as the chat interface, patient evaluation form, and managing favorites. Access the user manuals [here](#).
-</details>
-
-<details>
-  <br>
-  <summary>Future Development</summary>
-Our future plans include:
-
-- **Advanced AI Capabilities**: Integrating more advanced AI models for personalized health assessments and the adoption of RAG to customize the LLM responses to the user.
-- **Enhanced Data Security**: Implementing advanced security measures to protect user data, such as implementing OAUTH.
-- **Mobile App Development**: Refactor the code to utilize React Native, Swift, or Flutter to ensure scalable mobile architecture.
-<details>
----
-
 ## Developer Instructions
 
 - Clone the repository to your directory:
@@ -148,7 +98,6 @@ Our future plans include:
 
   - Type `node app.js` to start the server.
 
----
 
 ## Committing Changes
 
@@ -156,7 +105,6 @@ Our future plans include:
 
 - If you make any package installs or config changes, inform the team to do an `npm i` when they pull the latest changes.
 
----
 
 ## Publish Your Changes
 
@@ -164,6 +112,5 @@ Our future plans include:
   - You can validate this by going to the Actions tab in the repository. You should see your build processing.
 - View your changes here: [CareBuddy Live Site](https://xinexport.github.io/chatgpt-ai-healthapp/)
 
----
 
 
