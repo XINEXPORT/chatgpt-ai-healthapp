@@ -88,7 +88,7 @@ Design and Project Management Tools:
     Figma: Utilized for UI/UX design to create a visually striking cross-platform mobile application inspired by the movie, Big Hero 6
     NotionDB: For agile project management and ticket tracking ensuring transparent work responsibiltiies and smooth development
     Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
-    Github: Used for version control to assist with code management, increase collaboration, and reduce miscommunication by using branching strategy and performing Pull Request reviews
+    Github: Used for version control to assist with code management, increase collaboration, and reduce errors by using branching strategy and performing Pull Request reviews
 ~~~
 
 ## Developer Instructions
