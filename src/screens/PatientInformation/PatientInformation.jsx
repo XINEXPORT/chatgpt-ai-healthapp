@@ -8,9 +8,12 @@ import styles from './PatientInformation.module.scss'; // Import your styles
 
 const PatientInformation = () => {
     const { patientInfo, setPatientInfo } = usePatientInfoContext();
-    const [chatHistory, setChatHistory] = useState([{ message: questions[0].question, isUser: false }]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [chatHistory, setChatHistory] = useState([
+        { message: "Hi there! I'm going to ask you a few questions to get to know you better.", isUser: false }
+    ]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1); // Start with -1 to handle intro message
     const [responses, setResponses] = useState(patientInfo);
+    const [questionsFinished, setQuestionsFinished] = useState(false); // Track if all questions are finished
     const chatContainerRef = useRef(null);
     const navigate = useNavigate();
 
@@ -24,8 +27,26 @@ const PatientInformation = () => {
     };
 
     const handleNextClick = () => {
+        processAnswerAndMoveToNextQuestion();
+    };
+
+    const handleSkipClick = () => {
+        processAnswerAndMoveToNextQuestion(true);
+    };
+
+    const processAnswerAndMoveToNextQuestion = (skip = false) => {
+        if (currentQuestionIndex === -1) {
+            // After intro message, move to the first question
+            setChatHistory((prevHistory) => [
+                ...prevHistory,
+                { message: questions[0].question, isUser: false }
+            ]);
+            setCurrentQuestionIndex(0);
+            return;
+        }
+
         const currentQuestion = questions[currentQuestionIndex];
-        const currentAnswer = responses[currentQuestion.id];
+        const currentAnswer = skip ? "Skipped" : responses[currentQuestion.id];
 
         if (currentAnswer) {
             setChatHistory((prevHistory) => [
@@ -48,9 +69,11 @@ const PatientInformation = () => {
                     ...prevHistory,
                     { message: nextQuestion, isUser: false },
                 ]);
+                setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+            } else {
+                setCurrentQuestionIndex(questions.length); // Move index out of bounds to hide the input
+                setQuestionsFinished(true); // Mark questions as finished
             }
-
-            setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         }
     };
 
@@ -127,26 +150,39 @@ const PatientInformation = () => {
                 {currentQuestionIndex < questions.length && (
                     <div className={styles.chatBubbleContainer}>
                         <div className={styles.inputContainer}>
-                            {renderInput(questions[currentQuestionIndex])}
-                            <button
-                                type="button"
-                                className={styles.submitButton}
-                                onClick={handleNextClick}
-                            >
-                                Submit
-                            </button>
+                            {currentQuestionIndex >= 0 && renderInput(questions[currentQuestionIndex])}
+                            <div className={styles.buttonsContainer}>
+                                {currentQuestionIndex >= 6 && (
+                                    <button
+                                        type="button"
+                                        className={styles.skipButton}
+                                        onClick={handleSkipClick}
+                                    >
+                                        Skip
+                                    </button>
+                                )}
+                                <button
+                                    type="button"
+                                    className={styles.submitButton}
+                                    onClick={handleNextClick}
+                                >
+                                    {currentQuestionIndex === -1 ? "Start" : "Submit"}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
             </div>
-            <div className={styles.buttonContainer}>
-                <div className={styles.arrowButton}>
-                    <ArrowButton onClick={handleClick}></ArrowButton>
+            {questionsFinished && (
+                <div className={styles.buttonContainer}>
+                    <div className={styles.arrowButton}>
+                        <ArrowButton onClick={handleClick}></ArrowButton>
+                    </div>
+                    <span className={styles.continueMessage}>
+                        Continue to Home
+                    </span>
                 </div>
-                <span className={styles.continueMessage}>
-                    Continue to Home
-                </span>
-            </div>
+            )}
         </div>
     );
 };
