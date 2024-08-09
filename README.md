@@ -26,6 +26,7 @@ Meet the team behind CareBuddy
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/hamna-tameez-6495b2292/">
         <img src="https://media.licdn.com/dms/image/v2/D4E03AQHDLVJ-b6FbvA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722898425036?e=1728518400&v=beta&t=Md3IC5q2-NKAN4W_RLSIucwKTAAiLDLcMFjFH9RGIX8" width="200px;" alt="Profile Picture"/><br />
+        <br/>
         <img src="./docs/QR/hamna.png" alt="Alt text" width="200px"/> <br/>
         <sub><b>Hamna Tameez</b></sub>
       </a><br />git 
@@ -33,13 +34,15 @@ Meet the team behind CareBuddy
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/christine-hoang-profile/">
         <img src="https://media.licdn.com/dms/image/D5603AQGExGf0D4scgQ/profile-displayphoto-shrink_800_800/0/1710947655283?e=1728518400&v=beta&t=mmMEX9OtvH4iWwNNt7o6g3T-hbD9VgHOnLrUx5xfHnU" width="200px;" alt="Profile Picture"/><br />
-          <img src="./docs/QR/christine.jpg" alt="Alt text" width="200px"/> <br/>
+        <br/>
+        <img src="./docs/QR/christine.jpg" alt="Alt text" width="200px"/> <br/>
         <sub><b>Christine Hoang</b></sub>
       </a><br />
     </td>
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/aryanmurthy/">
         <img src="https://media.licdn.com/dms/image/D5603AQHTxAV4aDNfoQ/profile-displayphoto-shrink_800_800/0/1722981888880?e=1728518400&v=beta&t=n2UDf__26q6uf6W1t92Ef4ZX7RbPBLhDDya7-QxZNk4" width="200px;" alt="Profile Picture"/><br />
+        <br/>
         <img src="./docs/QR/aryan.jpg" alt="Alt text" width="200px"/> <br/>
         <sub><b>Aryan Murthy Illa</b></sub>
       </a><br />
@@ -55,6 +58,7 @@ Meet the team behind CareBuddy
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/perumalla-litesh/">
         <img src="https://media.licdn.com/dms/image/D4D35AQHqnzK_nEhEPg/profile-framedphoto-shrink_800_800/0/1684505665712?e=1723658400&v=beta&t=9AnFe5QqcCLJ5E8aVEtsxglfzacDJvxvqwqPFwCmTVw" width="200px;" alt="Profile Picture"/><br />
+        <br/>
         <img src="./docs/QR/litesh.jpg" alt="Alt text" width="200px"/> <br/>
         <sub><b>Perumalla Litesh</b></sub>
       </a><br />
@@ -62,7 +66,6 @@ Meet the team behind CareBuddy
   </tr>
 </table>
 
----
 
 ## Technologies
 ~~~
