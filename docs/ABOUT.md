@@ -1,5 +1,5 @@
 # CareBuddy Design
-CareBuddy is designed using a scaled down version of a traditional MVC (Model, View, Controller) design.
+The team wanted to make an app for individuals experiencing diifculties following healthcare routines.
 
 ## UI/UX
 - Our design was inspired by the movie Big Hero 6, a story about a young boy befriending a nurse robot.
@@ -9,11 +9,12 @@ CareBuddy is designed using a scaled down version of a traditional MVC (Model, V
 - 
 
 ## Back-End
-- We chose to use **Express.js** and **Node.js** to integrate back-end services to create GET and POST Endpoints so that we had the ability to save and store the user's Favorites.
-- We decided to use **OpenAI** after comparing a sampling of popular AI APIs, such as Amazon Bedrock, Azure Cognitive Services, Meta's LLAMA2, BERT on HuggingFace.com, and Groc Cloud.
-	- OpenAI had the easiest integration documentation, simplest API schemas, accurate responses, and affordable pricing options.
-- Our decision to not use a database was influenced by our time constraints and priority to develop the core features without being concerned with the technical aspects of integrating and mapping database models.
- - We effectively used in-built React utilities to allow short term storage for data which allowed us to demonstrate the core functionality of CareBuddy.
+- CareBuddy is designed using a View-Controller architecture to enable rapid development and simplicity.
+	- This design decision was influenced by our time constraints and priority to develop the core features without being concerned with the technical aspects of integrating and mapping database models.
+- We chose **Express.js** and **Node.js** to integrate back-end services to create GET and POST Endpoints so that we had the ability to save and store the user's Favorites.
+- We effectively used in-built React utilities to allow short term storage for data which allowed us to demonstrate the core functionality of CareBuddy.
+- We used **OpenAI** after comparing a sampling of popular AI APIs, such as Amazon Bedrock, Azure Cognitive Services, Meta's LLAMA2, BERT on HuggingFace.com, and Groc Cloud.
+	- OpenAI had the easiest integration documentation, simplest API schema, accurate responses, and affordable pricing options.
 
 
 ## User Manual
