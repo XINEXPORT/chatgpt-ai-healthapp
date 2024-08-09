@@ -29,7 +29,7 @@ Meet the team behind CareBuddy
         <br/>
         <img src="./docs/QR/hamna.png" alt="Alt text" width="200px"/> <br/>
         <sub><b>Hamna Tameez</b></sub>
-      </a><br />git 
+      </a><br />
     </td>
     <td align="center" width="200">
       <a href="https://www.linkedin.com/in/christine-hoang-profile/">
