@@ -25,7 +25,7 @@ Access the user manual [here](#).
   - We would like to deploy this website to AWS and implement a database, such as PostgreSQL.
   - We would like to expand this into a patient monitoring system that will complete the feedback loop to the provider.
     - We believe sending the patient’s data back to the practitioner will better inform the physician about what care to recommend to the patient.
-  - Create additional features, such as CareBuddy being able to schedule appointments for the patient and frequently send the patient's progress to the practitioner.
+  - Create additional features, such as CareBuddy being able to schedule appointments.
   - Refactor the codebase to utilize React Native, Swift, or Flutter to ensure a modern, scalable mobile architecture.
 
 - **Compliant Security**:
