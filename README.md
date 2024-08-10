@@ -54,14 +54,6 @@ Meet the team behind CareBuddy
         <sub><b>Eric Rubalcaba</b></sub>
       </a><br />
     </td>
-    <td align="center" width="200">
-      <a href="https://www.linkedin.com/in/perumalla-litesh/">
-        <img src="https://media.licdn.com/dms/image/D4D35AQHqnzK_nEhEPg/profile-framedphoto-shrink_800_800/0/1684505665712?e=1723658400&v=beta&t=9AnFe5QqcCLJ5E8aVEtsxglfzacDJvxvqwqPFwCmTVw" width="200px;" alt="Profile Picture"/><br />
-        <br/>
-        <img src="./docs/QR/litesh.jpg" alt="Alt text" width="200px"/> <br/>
-        <sub><b>Perumalla Litesh</b></sub>
-      </a><br />
-    </td>
   </tr>
 </table>
 
