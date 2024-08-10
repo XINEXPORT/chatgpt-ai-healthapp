@@ -22,7 +22,7 @@
 
 
 ## User Manual
-Access the user manual [here](docs/USERMANUAL.md).
+Access the user manual [here](/USERMANUAL.md).
 
 ## Future Development
 - **Scalability & Optimization**: 
