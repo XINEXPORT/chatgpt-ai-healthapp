@@ -91,10 +91,6 @@ Design and Project Management Tools:
     Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
     Github: Used for version control to assist with code management, increase collaboration, and reduce errors by using branching strategy and performing Pull Request reviews
 ~~~
-
-## User Manual
-Access the user manual [here](/USERMANUAL.md).
-
 ## Developer Instructions
 
 - Clone the repository to your directory:
