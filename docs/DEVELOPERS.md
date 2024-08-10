@@ -1,4 +1,4 @@
-## Developer Instructions
+# Developer Instructions
 
 - Clone the repository to your directory:
 
