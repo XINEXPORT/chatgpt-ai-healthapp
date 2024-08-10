@@ -20,10 +20,6 @@
 - We used **OpenAI** after comparing a sampling of popular AI APIs, such as Amazon Bedrock, Azure Cognitive Services, Meta's LLAMA2, BERT on HuggingFace.com, and Groc Cloud.
 	- OpenAI had the easiest integration documentation, simplest API schema, accurate responses, and affordable pricing options.
 
-
-## User Manual
-Access the user manual [here](/USERMANUAL.md).
-
 ## Future Development
 - **Scalability & Optimization**: 
   - We would like to deploy this website to AWS and implement a PostgreSQL database.

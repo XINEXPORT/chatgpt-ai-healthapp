@@ -13,6 +13,7 @@ CareBuddy tailors its responses by analyzing a user's personal information, crea
 - [Contributors](#contributors)
 - [Technologies](#technologies)
 - [About CareBuddy](./docs/ABOUT.md)
+- [User Manual](./docs/USERMANUAL.md)
 - [Developer Instructions](#developer-instructions)
   - [Committing Changes](#committing-changes)
   - [Publish Your Changes](#publish-your-changes)
@@ -90,6 +91,9 @@ Design and Project Management Tools:
     Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
     Github: Used for version control to assist with code management, increase collaboration, and reduce errors by using branching strategy and performing Pull Request reviews
 ~~~
+
+## User Manual
+Access the user manual [here](/USERMANUAL.md).
 
 ## Developer Instructions
 
