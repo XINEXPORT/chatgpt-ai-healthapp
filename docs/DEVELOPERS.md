@@ -24,4 +24,4 @@
 
 - In your terminal, type `npm run deploy` to push your changes to GitHub Pages.
   - You can validate this by going to the Actions tab in the repository. You should see your build processing.
-- View your changes here: [CareBuddy Live Site](https://xinexport.github.io/chatgpt-ai-healthapp/)
+<!--- View your changes here: [CareBuddy Live Site](https://xinexport.github.io/chatgpt-ai-healthapp/)-->
