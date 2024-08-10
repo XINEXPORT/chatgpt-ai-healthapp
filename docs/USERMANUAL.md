@@ -14,6 +14,10 @@
 ## Home Page
 ![Homepage](https://github.com/user-attachments/assets/6a66ba8a-e768-4946-890d-bf265723ee82)
 
+## CareBuddy Conversation
+![Conversation](https://github.com/user-attachments/assets/41c88d3f-2c56-41a6-9c03-4a727785c65a)
+
+
 
 ## Navigation Bar
 ![Navigation](https://github.com/user-attachments/assets/5db41c2e-d797-42fe-bb3d-0cb20a49ee35)
