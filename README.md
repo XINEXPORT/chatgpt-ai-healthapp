@@ -89,5 +89,7 @@ Design and Project Management Tools:
     Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
     Github: Used for version control to assist with code management, increase collaboration, and reduce errors by using branching strategy and performing Pull Request reviews
 ~~~
+![dallasai-removebg-preview-removebg-preview](https://github.com/user-attachments/assets/68a02ae1-7403-4a2e-aca7-95ef722b4ced)
+
 
 
