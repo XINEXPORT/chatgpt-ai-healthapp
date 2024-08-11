@@ -2,7 +2,7 @@ export const questions = [
     { id: "name", question: "What is your name?", type: "text" },
     { id: "age", question: "What is your age?", type: "number" },
     { id: "gender", question: "What is your gender?", type: "select", options: ["Female", "Male", "Prefer not to say"] },
-    { id: "weight", question: "What is your weight?", type: "number" },
+    { id: "weight", question: "What is your weight in pounds?", type: "number" },
     { id: "height", question: "What is your height in ft?", type: "text" },
     { id: "ethnicity", question: "What is your ethnicity?", type: "select", options: [
       "Indigenous American/Native Alaskan",
@@ -19,5 +19,8 @@ export const questions = [
       "Prefer to describe"
     ] },
     { id: "medications", question: "What are your current medications?", type: "text" },
+    { id: "health conditions", question: "What are your current health conditions?", type: "text" },
+    { id: "family health history", question: "Please enter your family health history.", type: "text" },
+    { id: "meals per day", question: "How many meals do you eat per day?", type: "select", options: ["0-1", "1-3", "4+", "Prefer small snacks throughout the day", "Prefer not to say"] },
+    { id: "health goals", question: "What are your current health goals (ex: Lose 10 pounds, increase stamina, etc.)?", type: "text" },
   ];
-  
