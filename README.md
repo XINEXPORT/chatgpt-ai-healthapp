@@ -58,7 +58,7 @@ Meet the team behind CareBuddy
       <a href="https://www.linkedin.com/in/perumalla-litesh/">
         <img src="https://media.licdn.com/dms/image/D5603AQHTxAV4aDNfoQ/profile-displayphoto-shrink_800_800/0/1722981888880?e=1728518400&v=beta&t=n2UDf__26q6uf6W1t92Ef4ZX7RbPBLhDDya7-QxZNk4" width="200px;" alt="Profile Picture"/><br />
         <br/>
-        <img src="./docs/QR/aryan.jpg" alt="Alt text" width="200px"/> <br/>
+        <img src="./docs/QR/litesh.jpg" alt="Alt text" width="200px"/> <br/>
         <sub><b>Perumalla Litesh</b></sub>
       </a><br />
     </td>
