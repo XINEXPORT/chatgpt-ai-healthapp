@@ -2,9 +2,9 @@
 
 # CareBuddy, an AI Healthcare Chat Companion
 
-CareBuddy is an AI Healthcare chat companion that can recommend lifestyle tips and nutrition recommendations for individuals seeking a healthier lifestyle.
+CareBuddy is an AI Healthcare chat companion that can recommend lifestyle tips and nutrition recommendations for individuals seeking a healthier lifestyle. 
 
-CareBuddy tailors its responses by analyzing a user's personal information, creating a more personalized interaction. It offers a conversation-like patient evaluation form to gather detailed information about the user, a chat page for seamless interaction, and a Favorites list feature that allows users to save their favorite responses.
+CareBuddy tailors its responses through a conversation-like patient evaluation form to gather detailed information about the user, a chat page for seamless interaction, and a Favorites list feature that allows users to save their favorite responses.
 
 <!--## Watch our video to learn about the development process and see CareBuddy in action!-->
 
