@@ -13,9 +13,15 @@ body {
   margin: 0;
 }
 
+
+
 .chatContainer {
     display: flex;
     flex-direction: column;
+
+    .header {
+      font-size: 30px;
+    }
 }
 
 .chatHistory {

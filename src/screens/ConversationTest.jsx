@@ -7,14 +7,16 @@ import styles from './ConversationTest.module.scss';
 import ChatBubble from '../components/ChatBubble/ChatBubble.jsx';
 import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
 import SmallSpinner from '../components/SmallSpinner/SmallSpinner.jsx';
-import axios from 'axios'; // Import axios
-
+import axios from 'axios';
 
 const ConversationTest = () => {
     const location = useLocation();
     const { queryResponse, setQueryResponse } = useQueryContext();
-    const [chatHistory, setChatHistory] = useState(location.state?.chatHistory || []);
     const chatHistoryRef = useRef(null);
+
+    // Retrieve chat history from localStorage or initialize an empty array
+    const initialChatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    const [chatHistory, setChatHistory] = useState(initialChatHistory);
 
     useEffect(() => {
         if (queryResponse) {
@@ -25,19 +27,22 @@ const ConversationTest = () => {
                     return prevHistory; // Do not update if the last message is the same response
                 }
                 return [...prevHistory, { message: queryResponse, isUser: false }];
-
             });
-            setQueryResponse(''); // Reset queryResponse to prevent duplicate handling
+            setQueryResponse('');
         }
     }, [queryResponse, setQueryResponse]);
 
+    // Save chat history to localStorage whenever it updates
+    useEffect(() => {
+        localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    }, [chatHistory]);
 
     useEffect(() => {
         chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }, [chatHistory]);
 
     const handleUserMessage = (userMessage) => {
-        setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true, isBookmarked: false }]);
+        setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true }]);
     };
 
     const toggleBookmark = (index) => {
@@ -66,7 +71,6 @@ const ConversationTest = () => {
         <div className={styles.ConversationTest}>
             <Helmet>
                 <title>CareBuddy - Conversation</title>
-
             </Helmet>
             <div className={styles.chatContainer}>
                 <h1 className={styles.header}>Conversation</h1>
@@ -95,6 +99,7 @@ const ConversationTest = () => {
                     <CustomTextarea
                         handleUserMessage={handleUserMessage}
                         setQueryResponse={setQueryResponse}
+                        chatHistory={chatHistory} // Pass chat history to CustomTextarea
                     />
                 </div>
             </div>

@@ -1,24 +1,30 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions } from "./questionsConfig"; // Import the questions from the configuration file
+import { questions } from "./questionsConfig";
 import { usePatientInfoContext } from "../../PatientInfoContext";
-import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx"; // Import your ChatBubble component
+import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx";
 import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
-import styles from './PatientInformation.module.scss'; // Import your styles
+import Tutorial from "../TutorialTest/TutorialTest.jsx"; // Import the Tutorial component
+import styles from './PatientInformation.module.scss';
 
 const PatientInformation = () => {
     const { patientInfo, setPatientInfo } = usePatientInfoContext();
     const [chatHistory, setChatHistory] = useState([
         { message: "Hi there! I'm going to ask you a few questions to get to know you better.", isUser: false }
     ]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1); // Start with -1 to handle intro message
-    const [responses, setResponses] = useState(patientInfo);
-    const [questionsFinished, setQuestionsFinished] = useState(false); // Track if all questions are finished
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
+    const [responses, setResponses] = useState({});
+    const [questionsFinished, setQuestionsFinished] = useState(false);
+    const [startTutorial, setStartTutorial] = useState(false); // New state to trigger tutorial
     const chatContainerRef = useRef(null);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        setResponses({});
+    }, []);
+
     const handleClick = () => {
-        navigate("/chatgpt-ai-healthapp/home");
+        setStartTutorial(true); // Start the tutorial
     };
 
     const handleInputChange = (e) => {
@@ -36,7 +42,6 @@ const PatientInformation = () => {
 
     const processAnswerAndMoveToNextQuestion = (skip = false) => {
         if (currentQuestionIndex === -1) {
-            // After intro message, move to the first question
             setChatHistory((prevHistory) => [
                 ...prevHistory,
                 { message: questions[0].question, isUser: false }
@@ -71,15 +76,15 @@ const PatientInformation = () => {
                 ]);
                 setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
             } else {
-                setCurrentQuestionIndex(questions.length); // Move index out of bounds to hide the input
-                setQuestionsFinished(true); // Mark questions as finished
+                setCurrentQuestionIndex(questions.length);
+                setQuestionsFinished(true);
             }
         }
     };
 
     const calculateBMI = (weight, height) => {
-        const weightInKg = convertPoundsToKg(weight); // Convert weight to kilograms
-        const heightInMeters = convertHeightToMeters(height); // Convert height to meters
+        const weightInKg = convertPoundsToKg(weight);
+        const heightInMeters = convertHeightToMeters(height);
         return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
     };
 
@@ -88,7 +93,7 @@ const PatientInformation = () => {
     };
 
     const convertHeightToMeters = (height) => {
-        const regex = /^(\d+)'(\d+)?["']?$/; // Updated regex to handle different formats
+        const regex = /^(\d+)'(\d+)?["']?$/;
         const match = height.match(regex);
         if (match) {
             const feet = parseInt(match[1], 10);
@@ -143,6 +148,7 @@ const PatientInformation = () => {
 
     return (
         <div className={styles.PatientInformation}>
+            {startTutorial && <Tutorial />} {/* Conditionally render the tutorial */}
             <div className={styles.chatContainer} ref={chatContainerRef}>
                 {chatHistory.map((chat, index) => (
                     <ChatBubble key={index} message={chat.message} isUser={chat.isUser} />
