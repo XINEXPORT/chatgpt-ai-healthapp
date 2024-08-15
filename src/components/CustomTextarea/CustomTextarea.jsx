@@ -11,7 +11,7 @@ import axios from "axios";
 
 const MODEL_NAME = "gpt-4-1106-preview";
 
-const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleTyping }) => {
+const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleTyping, chatHistory }) => {
   const [userInput, setUserInput] = useState('');
   const [isArrowVisible, setIsArrowVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,21 +24,29 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
 
   const queryAPI = async (input) => {
     console.log("Patient Info in API call: ", patientInfo); // Log the patient info
+
+    // Construct the message history with roles
+    const messages = [
+      {
+        role: "system",
+        content: `Your name is CareBuddy. You are a personal healthcare assistant. The user's information is as follows: ${JSON.stringify(patientInfo)}. Make sure to inform your responses based on the user's information. Make sure not to be repetitive, and use the previous responses as context for the conversation. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.`,
+      },
+      ...chatHistory.map(chat => ({
+        role: chat.isUser ? "user" : "assistant",
+        content: chat.message,
+      })),
+      {
+        role: "user",
+        content: input,
+      }
+    ];
+
     try {
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
         {
           model: MODEL_NAME,
-          messages: [
-            {
-              role: "system",
-              content: `Your name is CareBuddy. You are a personal healthcare assistant. The user's information is as follows: ${JSON.stringify(patientInfo)}. Make sure to inform your responses based on the user's information. Make sure not to be repetitive, and use the previous responses as context for the conversation. Please provide concise and specific responses that will fit 100 tokens and that no sentences or thoughts are cut off.`,
-            },
-            {
-              role: "user",
-              content: input,
-            },
-          ],
+          messages: messages,
           max_tokens: 300,
         },
         {
@@ -69,12 +77,10 @@ const CustomTextarea = ({ setQueryResponse, handleUserMessage, navigate, handleT
     try {
       handleUserMessage(userInput);
       const newResponse = await queryAPI(userInput);
-      if (location.pathname === '/chatgpt-ai-healthapp/home') {
-        handleTyping(false);
-      }
       setQueryResponse(newResponse);
       if (location.pathname === '/chatgpt-ai-healthapp/home') {
-        navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [{ message: userInput, isUser: true }] } });
+        handleTyping(false);
+        navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [...chatHistory, { message: userInput, isUser: true }] } });
       }
     } catch (error) {
       setErrorMessage('Failed to fetch response.');
@@ -166,6 +172,7 @@ CustomTextarea.propTypes = {
   setQueryResponse: PropTypes.func.isRequired,
   handleUserMessage: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
+  chatHistory: PropTypes.array.isRequired, // Add this prop to pass chat history
 };
 
 export default CustomTextarea;

@@ -7,16 +7,12 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Form from "./screens/Form/Form.jsx";
 import ErrorPage from "./screens/ErrorPage.jsx";
-import Conversation from "./screens/Conversation.jsx";
 import Welcome from "./screens/Welcome.jsx";
 import Tutorial from "./screens/Tutorial/Tutorial.jsx";
-import Form2 from "./screens/Form2/Form2.jsx";
 import Home from "./screens/Home/Home.jsx";
 import Favorites from "./screens/Favorites/Favorites.jsx";
 import ConversationTest from "./screens/ConversationTest.jsx";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import PatientInformation from "./screens/PatientInformation/PatientInformation.jsx";
 import EditPatientInfo from "./screens/EditPatientInfo/EditPatientInfo.jsx";
 

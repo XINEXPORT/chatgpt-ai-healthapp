@@ -1,143 +1,155 @@
-@keyframes slideLeft {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 .PatientInformation {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100%; // Ensure it takes full width of the parent
     box-sizing: border-box; // Include padding and border in the element's total width and height
-}
 
-.chatContainer {
-    flex: 1;
-    overflow-y: auto;
-    padding: 45px;
-    display: flex;
-    flex-direction: column;
-    max-height: 70vh;
+    .chatContainer {
+        flex: 1;
+        overflow-y: auto;
+        padding: 45px;
+        display: flex;
+        flex-direction: column;
+        max-height: 70vh;
 
-    .chatBubble {
-        margin-bottom: 100px;
+        .chatBubble {
+            margin-bottom: 100px;
+        }
     }
-}
 
-/* Custom scrollbar styles */
-.chatContainer::-webkit-scrollbar {
-    width: 6px; // Adjust width of the scrollbar
-    height: 5px;
-}
+    /* Custom scrollbar styles */
+    .chatContainer::-webkit-scrollbar {
+        width: 6px; // Adjust width of the scrollbar
+        height: 5px;
+    }
 
-.chatContainer::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 10px;
-}
+    .chatContainer::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
 
-.chatContainer::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
+    .chatContainer::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
 
-.chatContainer::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    cursor: pointer;
-}
+    .chatContainer::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        cursor: pointer;
+    }
 
-.chatBubbleContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; // Align items to the start
-    margin-top: 10px;
-    box-sizing: border-box;
-    width: 100%; // Ensure it takes full width of the parent
-}
+    .chatBubbleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; // Align items to the start
+        margin-top: 10px;
+        box-sizing: border-box;
+        width: 100%; // Ensure it takes full width of the parent
+    }
 
-.inputContainer {
-    display: flex;
-    width: fit-content;
-    max-width: fit-content;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 10px;
-    margin-left: auto; // Align to the right
-    box-sizing: border-box;
-    position: relative;
-    left: 30px;
-}
+    .inputContainer {
+        display: flex;
+        max-width: fit-content;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 10px;
+        margin-left: auto; // Align to the right
+        box-sizing: border-box;
+        position: relative;
+        left: 30px;
+    }
 
-.formControl,
-.formSelect {
-    margin-top: 10px;
-    color: white;
-    font-size: 14px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    width: 100%; // Ensure input fields take full width of the parent
-    box-sizing: border-box;
-    border-radius: 20px;
-    background-color: #00446e;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .formControl,
+    .formSelect {
+        margin-top: 10px;
+        color: white;
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 100%; // Ensure input fields take full width of the parent
+        box-sizing: border-box;
+        border-radius: 20px;
+        background-color: #00446e;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-.buttonsContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 10px;
-}
+    /* Target specific IDs for different widths */
+    #name {
+        width: 1px;  // Set the width for the input with id "name"
+    }
+    
+    #age {
+        width: 100px;  // Set the width for the input with id "age"
+    }
+    
+    #weight {
+        width: 150px;  // Set the width for the input with id "weight"
+    }
+    
+    #height {
+        width: 200px;  // Set the width for the input with id "height"
+    }
+    
+    .buttonsContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 10px;
+    }
 
-.skipButton {
-    margin-right: 10px; /* Add margin to the right of the Skip button */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .skipButton {
+        margin-right: 10px;
+        /* Add margin to the right of the Skip button */
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        background-color: #1D5B8F;
+        color: white;
 
-.submitButton {
-    padding: 10px 15px;
-    background-color: #65A844;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        &:hover {
+            background-color: #3b74a2; // Background color on hover
+        }
+    }
 
-.submitButton:hover {
-    background-color: #84c266;
-}
+    .submitButton {
+        padding: 10px 15px;
+        background-color: #65A844;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-.buttonContainer {
-    display: flex;
-    animation: slideLeft 1s forwards;
-    position: relative;
-    flex-shrink: 0;
-    top: 100px;
-    left: 70px;
-}
+    .submitButton:hover {
+        background-color: #84c266;
+    }
 
-.arrowButton {
-    position: absolute;
-    top: -95px;
-    left: 230px;
-}
+    .buttonContainer {
+        display: flex;
+        animation: slideLeft 1s forwards;
+        position: relative;
+        flex-shrink: 0;
+        top: 100px;
+        left: 70px;
+    }
 
-.continueMessage {
-    position: relative;
-    top: -84px;
-    left: 110px;
-    font-size: 13px;
-    text-shadow: 5px 3px 6px rgb(0, 0, 0);
-    font-family: "Inter Regular";
+    .arrowButton {
+        position: absolute;
+        top: -95px;
+        left: 230px;
+    }
+
+    .continueMessage {
+        position: relative;
+        top: -84px;
+        left: 110px;
+        font-size: 13px;
+        text-shadow: 5px 3px 6px rgb(0, 0, 0);
+        font-family: "Inter Regular";
+    }
+
 }

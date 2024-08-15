@@ -24,7 +24,7 @@ const EditPatientInfo = () => {
 
   return (
     <div className={styles.editInformation}>
-      <h1>Edit Your Information</h1>
+      <h1 className={styles.header}>Edit Your Information</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label htmlFor="name">Name:</label>
