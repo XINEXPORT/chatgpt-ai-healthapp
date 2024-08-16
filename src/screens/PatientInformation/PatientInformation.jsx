@@ -24,7 +24,7 @@ const PatientInformation = () => {
     }, []);
 
     const handleClick = () => {
-        setStartTutorial(true); // Start the tutorial
+        navigate("/chatgpt-ai-healthapp/home")
     };
 
     const handleInputChange = (e) => {
