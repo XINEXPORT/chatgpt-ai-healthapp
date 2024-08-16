@@ -1,23 +1,30 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions } from "./questionsConfig"; // Import the questions from the configuration file
-import { usePatientInfoContext } from "../../PatientInfoContext";;
-import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx"; // Import your ChatBubble component
+import { questions } from "./questionsConfig";
+import { usePatientInfoContext } from "../../PatientInfoContext";
+import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx";
 import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
-import CustomTextarea from "../../components/CustomTextarea/CustomTextarea.jsx"; // Import your CustomTextarea component
-import styles from './PatientInformation.module.scss'; // Import your styles
-
+import Tutorial from "../TutorialTest/TutorialTest.jsx"; // Import the Tutorial component
+import styles from './PatientInformation.module.scss';
 
 const PatientInformation = () => {
     const { patientInfo, setPatientInfo } = usePatientInfoContext();
-    const [chatHistory, setChatHistory] = useState([{ message: questions[0].question, isUser: false }]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [responses, setResponses] = useState(patientInfo);
+    const [chatHistory, setChatHistory] = useState([
+        { message: "Hi there! I'm going to ask you a few questions to get to know you better.", isUser: false }
+    ]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
+    const [responses, setResponses] = useState({});
+    const [questionsFinished, setQuestionsFinished] = useState(false);
+    const [startTutorial, setStartTutorial] = useState(false); // New state to trigger tutorial
     const chatContainerRef = useRef(null);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        setResponses({});
+    }, []);
+
     const handleClick = () => {
-      navigate("/chatgpt-ai-healthapp/home");
+        setStartTutorial(true); // Start the tutorial
     };
 
     const handleInputChange = (e) => {
@@ -26,8 +33,25 @@ const PatientInformation = () => {
     };
 
     const handleNextClick = () => {
+        processAnswerAndMoveToNextQuestion();
+    };
+
+    const handleSkipClick = () => {
+        processAnswerAndMoveToNextQuestion(true);
+    };
+
+    const processAnswerAndMoveToNextQuestion = (skip = false) => {
+        if (currentQuestionIndex === -1) {
+            setChatHistory((prevHistory) => [
+                ...prevHistory,
+                { message: questions[0].question, isUser: false }
+            ]);
+            setCurrentQuestionIndex(0);
+            return;
+        }
+
         const currentQuestion = questions[currentQuestionIndex];
-        const currentAnswer = responses[currentQuestion.id];
+        const currentAnswer = skip ? "Skipped" : responses[currentQuestion.id];
 
         if (currentAnswer) {
             setChatHistory((prevHistory) => [
@@ -35,7 +59,14 @@ const PatientInformation = () => {
                 { message: currentAnswer, isUser: true },
             ]);
 
-            setPatientInfo((prevInfo) => ({ ...prevInfo, [currentQuestion.id]: currentAnswer }));
+            const updatedInfo = { ...patientInfo, [currentQuestion.id]: currentAnswer };
+
+            if (updatedInfo.weight && updatedInfo.height) {
+                const bmi = calculateBMI(updatedInfo.weight, updatedInfo.height);
+                updatedInfo.bmi = bmi;
+            }
+
+            setPatientInfo(updatedInfo);
 
             if (currentQuestionIndex < questions.length - 1) {
                 const nextQuestion = questions[currentQuestionIndex + 1].question;
@@ -43,9 +74,35 @@ const PatientInformation = () => {
                     ...prevHistory,
                     { message: nextQuestion, isUser: false },
                 ]);
+                setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+            } else {
+                setCurrentQuestionIndex(questions.length);
+                setQuestionsFinished(true);
             }
+        }
+    };
 
-            setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    const calculateBMI = (weight, height) => {
+        const weightInKg = convertPoundsToKg(weight);
+        const heightInMeters = convertHeightToMeters(height);
+        return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
+    };
+
+    const convertPoundsToKg = (weight) => {
+        return weight * 0.453592;
+    };
+
+    const convertHeightToMeters = (height) => {
+        const regex = /^(\d+)'(\d+)?["']?$/;
+        const match = height.match(regex);
+        if (match) {
+            const feet = parseInt(match[1], 10);
+            const inches = match[2] ? parseInt(match[2], 10) : 0;
+            const totalInches = (feet * 12) + inches;
+            const heightInMeters = totalInches * 0.0254;
+            return heightInMeters;
+        } else {
+            throw new Error("Invalid height format");
         }
     };
 
@@ -91,6 +148,7 @@ const PatientInformation = () => {
 
     return (
         <div className={styles.PatientInformation}>
+            {startTutorial && <Tutorial />} {/* Conditionally render the tutorial */}
             <div className={styles.chatContainer} ref={chatContainerRef}>
                 {chatHistory.map((chat, index) => (
                     <ChatBubble key={index} message={chat.message} isUser={chat.isUser} />
@@ -98,26 +156,39 @@ const PatientInformation = () => {
                 {currentQuestionIndex < questions.length && (
                     <div className={styles.chatBubbleContainer}>
                         <div className={styles.inputContainer}>
-                            {renderInput(questions[currentQuestionIndex])}
-                            <button
-                                type="button"
-                                className={styles.submitButton}
-                                onClick={handleNextClick}
-                            >
-                                Submit
-                            </button>
+                            {currentQuestionIndex >= 0 && renderInput(questions[currentQuestionIndex])}
+                            <div className={styles.buttonsContainer}>
+                                {currentQuestionIndex >= 6 && (
+                                    <button
+                                        type="button"
+                                        className={styles.skipButton}
+                                        onClick={handleSkipClick}
+                                    >
+                                        Skip
+                                    </button>
+                                )}
+                                <button
+                                    type="button"
+                                    className={styles.submitButton}
+                                    onClick={handleNextClick}
+                                >
+                                    {currentQuestionIndex === -1 ? "Start" : "Submit"}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
             </div>
-            <div className={styles.buttonContainer}>
-                <div className={styles.arrowButton}>
-                    <ArrowButton onClick={handleClick}></ArrowButton>
+            {questionsFinished && (
+                <div className={styles.buttonContainer}>
+                    <div className={styles.arrowButton}>
+                        <ArrowButton onClick={handleClick}></ArrowButton>
+                    </div>
+                    <span className={styles.continueMessage}>
+                        Continue to Home
+                    </span>
                 </div>
-                <span className={styles.continueMessage}>
-                    Continue to Home
-                </span>
-            </div>
+            )}
         </div>
     );
 };

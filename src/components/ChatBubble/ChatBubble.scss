@@ -9,7 +9,7 @@
 }
 
 .chatBubble {
-  width: 260px;
+  width: 250px;
   max-width: fit-content;
   margin: 8px;
   padding: 7px;
@@ -46,6 +46,6 @@
     right: unset; // Remove any right positioning
     left: 0; // Ensure it's aligned to the left
     position: relative;
-    left: -40px;
+    left: -50px;
   }
 }

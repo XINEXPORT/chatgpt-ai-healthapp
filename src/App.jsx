@@ -3,9 +3,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Loading from "./screens/Loading.jsx";
 import NavBar from './components/NavBar/NavBar.jsx';
-import "./index.scss";
 import "./effects/CrossFadeScreens.scss";
 import { PatientInfoProvider } from './PatientInfoContext';
+import TutorialTest from './screens/TutorialTest/TutorialTest.jsx';
+import "./index.scss";
 
 // Create a context for managing query responses
 const QueryContext = createContext();

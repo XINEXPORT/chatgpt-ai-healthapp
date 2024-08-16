@@ -22,20 +22,14 @@
 }
 
 .icon {
-  width: 30px; 
-  height: 30px;
+  transition: transform 0.3s, filter 0.3s;
+  cursor: pointer;
 }
 
-
-.icons {
-  display: flex;
-  justify-content: space-evenly; /* Distribute the icons evenly */
-  align-items: center;
-  width: 100%; /* Ensure the container takes full width of the nav bar */
+.active {
 }
 
-.icon {
-  width: 30px; 
-  height: 30px;
+.inactive {
+  filter: grayscale(100%); /* Make the icon grayscale */
 }
 
