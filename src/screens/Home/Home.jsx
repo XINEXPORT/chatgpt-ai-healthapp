@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useQueryContext } from '../../App';
@@ -11,10 +11,18 @@ const Home = () => {
   const { setQueryResponse } = useQueryContext();
   const { patientInfo } = usePatientInfoContext();
   const navigate = useNavigate();
-  const [chatHistory, setChatHistory] = useState([]);
+  const chatHistoryRef = useRef(null);
+
+  // Retrieve chat history from localStorage or initialize an empty array
+  const initialChatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+  const [chatHistory, setChatHistory] = useState(initialChatHistory);
 
   const handleUserMessage = (userMessage) => {
-    setChatHistory((prevHistory) => [...prevHistory, { message: userMessage, isUser: true }]);
+    // Clear chat history before adding new message
+    setChatHistory([{ message: userMessage, isUser: true }]);
+    localStorage.setItem('chatHistory', JSON.stringify([{ message: userMessage, isUser: true }]));
+
+    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [{ message: userMessage, isUser: true }] } });
   };
 
   const [isTyping, setIsTyping] = useState(false);
@@ -22,6 +30,11 @@ const Home = () => {
   const handleTyping = (typing) => {
     setIsTyping(typing);
   };
+
+  // Save chat history to localStorage whenever it updates
+  useEffect(() => {
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+  }, [chatHistory]);
 
   // Ensure patientInfo is an object and handle the case where patientInfo.name might be undefined
   const patientName = patientInfo?.name || 'Guest';
@@ -77,6 +90,7 @@ const Home = () => {
             handleUserMessage={handleUserMessage}
             navigate={navigate}
             handleTyping={handleTyping}
+            chatHistory={chatHistory} // Pass chat history to CustomTextarea
           />
         </div>
       </div>
