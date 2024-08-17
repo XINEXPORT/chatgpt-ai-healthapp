@@ -84,6 +84,57 @@ const EditPatientInfo = () => {
             <option value="Prefer to describe">Prefer to describe</option>
           </select>
         </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="medications">Current Medications:</label>
+          <input
+            type="text"
+            id="medications"
+            value={formData.medications || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="health conditions">Current Health Conditions:</label>
+          <input
+            type="text"
+            id="healthConditions"
+            value={formData.healthConditions || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="health history">Family Health History:</label>
+          <input
+            type="text"
+            id="healthHistory"
+            value={formData.healthHistory || ""}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="mealsPerDay">Meals Per Day:</label>
+          <select
+            id="mealsPerDay"
+            value={formData.mealsPerDay || ""}
+            onChange={handleChange}
+          >
+            <option value="">Select an option</option>
+            <option value="0-1">0-1</option>
+            <option value="1-3">1-3</option>
+            <option value="4+">4+</option>
+            <option value="Prefer small snacks throughout the day">Prefer small snacks throughout the day</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="healthGoals">Current Health Goals:</label>
+          <input
+            type="text"
+            id="healthGoals"
+            value={formData.healthGoals || ""}
+            onChange={handleChange}
+          />
+        </div>
         <button type="submit">Save</button>
       </form>
     </div>

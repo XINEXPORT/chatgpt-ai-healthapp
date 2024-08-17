@@ -15,6 +15,8 @@
     max-width: 500px;
     padding-right: 8px;
     padding-top: 20px;
+    max-height: 69vh;
+    overflow-y: auto;
   }
 
   .formGroup {
@@ -52,6 +54,9 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    position: fixed;
+    bottom: 150px;
+    margin-left: 250px;
   }
 
   button:hover {
