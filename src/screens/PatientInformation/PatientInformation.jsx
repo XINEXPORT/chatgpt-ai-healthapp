@@ -1,30 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions } from "./questionsConfig";
+import { questions } from "./questionsConfig"; // Import the questions from the configuration file
 import { usePatientInfoContext } from "../../PatientInfoContext";
-import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx";
+import ChatBubble from "../../components/ChatBubble/ChatBubble.jsx"; // Import your ChatBubble component
 import ArrowButton from "../../components/ArrowButton/ArrowButton.jsx";
-import Tutorial from "../TutorialTest/TutorialTest.jsx"; // Import the Tutorial component
-import styles from './PatientInformation.module.scss';
+import styles from './PatientInformation.module.scss'; // Import your styles
 
 const PatientInformation = () => {
     const { patientInfo, setPatientInfo } = usePatientInfoContext();
     const [chatHistory, setChatHistory] = useState([
         { message: "Hi there! I'm going to ask you a few questions to get to know you better.", isUser: false }
     ]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
-    const [responses, setResponses] = useState({});
-    const [questionsFinished, setQuestionsFinished] = useState(false);
-    const [startTutorial, setStartTutorial] = useState(false); // New state to trigger tutorial
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1); // Start with -1 to handle intro message
+    const [responses, setResponses] = useState({}); // Start with an empty object to avoid autofill
+    const [questionsFinished, setQuestionsFinished] = useState(false); // Track if all questions are finished
     const chatContainerRef = useRef(null);
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Clear previous responses when the component mounts
         setResponses({});
     }, []);
 
     const handleClick = () => {
-        setStartTutorial(true); // Start the tutorial
+        navigate("/chatgpt-ai-healthapp/home");
     };
 
     const handleInputChange = (e) => {
@@ -42,6 +41,7 @@ const PatientInformation = () => {
 
     const processAnswerAndMoveToNextQuestion = (skip = false) => {
         if (currentQuestionIndex === -1) {
+            // After intro message, move to the first question
             setChatHistory((prevHistory) => [
                 ...prevHistory,
                 { message: questions[0].question, isUser: false }
@@ -76,15 +76,15 @@ const PatientInformation = () => {
                 ]);
                 setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
             } else {
-                setCurrentQuestionIndex(questions.length);
-                setQuestionsFinished(true);
+                setCurrentQuestionIndex(questions.length); // Move index out of bounds to hide the input
+                setQuestionsFinished(true); // Mark questions as finished
             }
         }
     };
 
     const calculateBMI = (weight, height) => {
-        const weightInKg = convertPoundsToKg(weight);
-        const heightInMeters = convertHeightToMeters(height);
+        const weightInKg = convertPoundsToKg(weight); // Convert weight to kilograms
+        const heightInMeters = convertHeightToMeters(height); // Convert height to meters
         return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
     };
 
@@ -93,7 +93,7 @@ const PatientInformation = () => {
     };
 
     const convertHeightToMeters = (height) => {
-        const regex = /^(\d+)'(\d+)?["']?$/;
+        const regex = /^(\d+)'(\d+)?["']?$/; // Updated regex to handle different formats
         const match = height.match(regex);
         if (match) {
             const feet = parseInt(match[1], 10);
@@ -148,7 +148,6 @@ const PatientInformation = () => {
 
     return (
         <div className={styles.PatientInformation}>
-            {startTutorial && <Tutorial />} {/* Conditionally render the tutorial */}
             <div className={styles.chatContainer} ref={chatContainerRef}>
                 {chatHistory.map((chat, index) => (
                     <ChatBubble key={index} message={chat.message} isUser={chat.isUser} />

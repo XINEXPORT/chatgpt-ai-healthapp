@@ -6,7 +6,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/chatgpt-ai-healthapp/tutorial");
+    navigate("/chatgpt-ai-healthapp/patient-info");
   };
 
   return (
@@ -46,7 +46,7 @@ const Welcome = () => {
           <ArrowButton onClick={handleClick}></ArrowButton>
         </div>
         <p id="continue-tutorial " className="continue-tutorial-message">
-          Continue to tutorial
+          Continue to Form
         </p>
       </div>
       <div className="glow"></div>
