@@ -3,7 +3,7 @@
 
 ## UI/UX
 - Our design was inspired by the movie Big Hero 6, a story about a young boy befriending a healthcare robot.
-- We chose a premade mobile app template from Figma to expedite the development process.
+- Using a template from Figma, we customized the design by adding a mascot for our app. We made sure to use uniform button designs such as an arrow button for transitioning between screens and sending messages. Once the preliminary design was finalized, we used TeleportHQ’s Figma plugin to convert the design to HTML and CSS. Lastly, we altered the design to fit our CSS layout.
 
 ## Front-End
 - React was our chosen front-end framework because of the team's familiarity with Javascript.
