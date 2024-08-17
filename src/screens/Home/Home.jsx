@@ -19,10 +19,11 @@ const Home = () => {
 
   const handleUserMessage = (userMessage) => {
     // Clear chat history before adding new message
-    setChatHistory([{ message: userMessage, isUser: true }]);
-    localStorage.setItem('chatHistory', JSON.stringify([{ message: userMessage, isUser: true }]));
+    const newChatHistory = [{ message: userMessage, isUser: true }];
+    setChatHistory(newChatHistory);
+    localStorage.setItem('chatHistory', JSON.stringify(newChatHistory));
 
-    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: [{ message: userMessage, isUser: true }] } });
+    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: newChatHistory } });
   };
 
   const [isTyping, setIsTyping] = useState(false);
