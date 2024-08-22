@@ -6,7 +6,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/chatgpt-ai-healthapp/patient-info");
+    navigate("/chatgpt-ai-healthapp/tutorial");
   };
 
   return (

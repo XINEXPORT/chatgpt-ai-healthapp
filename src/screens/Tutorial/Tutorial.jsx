@@ -19,7 +19,7 @@ const Tutorial = () => {
       </h1>
       <div className={styles.videoTutorialContainer}>
         <iframe
-          src="https://www.youtube.com/embed/uEeBXUUOBiI?autoplay=1"
+          src="https://www.youtube.com/embed/Y253UFw9eD8?si=7EkzMPedewa7nTyn?autoplay=1"
           allow="autoplay"
           title="YouTube video tutorial"
           className={styles.tutorialVideo}

@@ -98,9 +98,7 @@ const Home = () => {
                 <span className={styles.differentFont}>
                   Personalized Assistance
                 </span>{" "}
-                are
-                <br />
-                assured by me.
+                are assured by me.
               </span>
             </span>
             <span className={styles.text4}>
