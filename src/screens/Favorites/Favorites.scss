@@ -21,38 +21,38 @@
   padding: 15px;
   border-radius: 1rem;
   width: 340px;
-  max-height: 550px; 
-  overflow-y: auto; 
-  
+  max-height: 550px;
+  overflow-y: auto;
+
   li {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      border-bottom: 1px solid #555;
-  
-      span {
-          font-size: 16px;
-      }
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #555;
+
+    span {
+      font-size: 16px;
+    }
   }
 
   /* Custom scrollbar styles */
   &::-webkit-scrollbar {
-      width: 7px; 
-      height: 20px;
+    width: 7px;
+    height: 20px;
   }
 
   &::-webkit-scrollbar-track {
-      background: transparent; 
-      border-radius: 10px; 
+    background: transparent;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-      background: #888; 
-      border-radius: 10px; 
+    background: #888;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-      background: #555; 
-      cursor: pointer;
+    background: #555;
+    cursor: pointer;
   }
 }

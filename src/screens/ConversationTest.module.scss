@@ -13,96 +13,92 @@ body {
   margin: 0;
 }
 
-
-
 .chatContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    .header {
-      font-size: 30px;
-    }
+  .header {
+    font-size: 30px;
+  }
 }
 
 .chatHistory {
-    flex: 1;
-    overflow-y: auto;
-    padding: 45px;
-    display: flex;
-    flex-direction: column;
-    max-height: 58vh;
+  flex: 1;
+  overflow-y: auto;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  max-height: 58vh;
 
-    .chatBubble {
-        margin-bottom: 100px;
-    }
+  .chatBubble {
+    margin-bottom: 100px;
+  }
 }
 
 /* Custom scrollbar styles */
 .chatHistory::-webkit-scrollbar {
-    width: 7px;
-    /* Width of the scrollbar */
-    height: 20px;
+  width: 7px;
+  /* Width of the scrollbar */
+  height: 20px;
 }
 
 .chatHistory::-webkit-scrollbar-track {
-    background: transparent;
-    /* Color of the track */
-    border-radius: 10px;
-    /* Rounded corners of the track */
+  background: transparent;
+  /* Color of the track */
+  border-radius: 10px;
+  /* Rounded corners of the track */
 }
 
 .chatHistory::-webkit-scrollbar-thumb {
-    background: #888;
-    /* Color of the thumb */
-    border-radius: 10px;
-    /* Rounded corners of the thumb */
+  background: #888;
+  /* Color of the thumb */
+  border-radius: 10px;
+  /* Rounded corners of the thumb */
 }
 
 .chatHistory::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    /* Color of the thumb on hover */
-    cursor: pointer;
+  background: #555;
+  /* Color of the thumb on hover */
+  cursor: pointer;
 }
 
 .messageBox {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    box-sizing: border-box;
-    padding-left: 28px;
-    flex-shrink: 0;
-    bottom: 115px; /* Height of the navbar */
-    z-index: 1000; /* Ensure it stays above other content */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-47.3%); /* Adjust for centering */
-  }
+  display: flex;
+  position: fixed;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 28px;
+  flex-shrink: 0;
+  bottom: 115px; /* Height of the navbar */
+  z-index: 1000; /* Ensure it stays above other content */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-47.3%); /* Adjust for centering */
+}
 
 .saveButton {
-    position: absolute;
-    left: 220px;
-    width: fit-content;
-    height: fit-content;
-    font-size: 12px;
+  position: absolute;
+  left: 220px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 12px;
 }
 
 .spinner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Change this to fixed or absolute as needed */
-    padding-top: 500px;
-    left: 415px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Change this to fixed or absolute as needed */
+  padding-top: 500px;
+  left: 415px;
+}
 
-  .baymaxBlinking {
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-    height: 20px;
-    position: absolute;
-    top: 550px;
-    left: -120px;
-  }
-  
-
+.baymaxBlinking {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 20px;
+  position: absolute;
+  top: 550px;
+  left: -120px;
+}

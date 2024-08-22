@@ -1,19 +1,19 @@
-.form-container { /* Adjust this class name based on your actual HTML structure */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
+.form-container {
+  /* Adjust this class name based on your actual HTML structure */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+  margin: 2px auto;
+}
+
+@media (max-width: 900px) {
   .form-control {
-    width: 100%; 
-    margin: 2px auto; 
+    width: 95%;
   }
-  
-  @media (max-width: 900px) {
-    .form-control {
-      width: 95%; 
-    }
-  }
-  
+}

@@ -1,10 +1,16 @@
-import React, { useState, useEffect, createContext, useContext, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  useRef,
+} from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Loading from "./screens/Loading.jsx";
-import NavBar from './components/NavBar/NavBar.jsx';
+import NavBar from "./components/NavBar/NavBar.jsx";
 import "./effects/CrossFadeScreens.scss";
-import { PatientInfoProvider } from './PatientInfoContext';
+import { PatientInfoProvider } from "./PatientInfoContext";
 import "./index.scss";
 
 // Create a context for managing query responses
@@ -16,7 +22,7 @@ export const useQueryContext = () => {
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [queryResponse, setQueryResponse] = useState('');
+  const [queryResponse, setQueryResponse] = useState("");
   const location = useLocation();
   const nodeRef = useRef(null); // Create a ref for CSSTransition
 
@@ -34,9 +40,9 @@ const App = () => {
 
   // Define routes where the NavBar should not be displayed
   const noNavBarRoutes = [
-    '/chatgpt-ai-healthapp/',
-    '/chatgpt-ai-healthapp/tutorial',
-    '/chatgpt-ai-healthapp/patient-info'
+    "/chatgpt-ai-healthapp/",
+    "/chatgpt-ai-healthapp/tutorial",
+    "/chatgpt-ai-healthapp/patient-info",
   ];
 
   return (

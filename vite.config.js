@@ -16,10 +16,10 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         // Proxy API requests to the Express server
-        '/chatgpt-ai-healthapp/api': {
-          target: 'http://localhost:8000', // URL of your Express server
+        "/chatgpt-ai-healthapp/api": {
+          target: "http://localhost:8000", // URL of your Express server
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/chatgpt-ai-healthapp/, '')
+          rewrite: (path) => path.replace(/^\/chatgpt-ai-healthapp/, ""),
         },
       },
     },

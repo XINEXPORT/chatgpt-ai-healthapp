@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { usePatientInfoContext } from '../../PatientInfoContext';
+import { usePatientInfoContext } from "../../PatientInfoContext";
 import "./Favorites.scss";
 
 const Favorites = () => {
@@ -8,14 +8,14 @@ const Favorites = () => {
   const [error, setError] = useState(null);
   const { patientInfo } = usePatientInfoContext();
 
-  const patientName = patientInfo?.name || 'Guest';
-  const firstName = patientName.split(' ')[0]; // Get the first name
+  const patientName = patientInfo?.name || "Guest";
+  const firstName = patientName.split(" ")[0]; // Get the first name
 
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
         const response = await axios.get("/chatgpt-ai-healthapp/api/favorite");
-        
+
         if (Array.isArray(response.data)) {
           setFavorites(response.data);
         } else {
@@ -33,8 +33,7 @@ const Favorites = () => {
 
   return (
     <div>
-      <div className="profile-section">
-      </div>
+      <div className="profile-section"></div>
       <div className="favorites">
         <h2>{firstName}'s Favorites</h2>
         {error && <div className="error-message">{error}</div>}

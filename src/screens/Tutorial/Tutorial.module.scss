@@ -1,48 +1,48 @@
 @keyframes slideLeft {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 #tutorialHeading {
-    font-family: "Poppins Regular";
-    text-align: center;
-    position: absolute;
-    font-size: 30px;
+  font-family: "Poppins Regular";
+  text-align: center;
+  position: absolute;
+  font-size: 30px;
 }
 
 .videoTutorialContainer {
-    position: absolute;
-    top: 250px;
+  position: absolute;
+  top: 250px;
 }
 
 .buttonContainer {
-    display: flex;
-    margin-top: auto;
-    animation: slideLeft 1s forwards;
-    position: relative;
-    flex-shrink: 0;
-    bottom: -600px;
-    left: -10px;
+  display: flex;
+  margin-top: auto;
+  animation: slideLeft 1s forwards;
+  position: relative;
+  flex-shrink: 0;
+  bottom: -600px;
+  left: -10px;
 }
 
 .arrowButton {
-    position: absolute;
-    top: -95px;
-    left: 230px;
+  position: absolute;
+  top: -95px;
+  left: 230px;
 }
 
 .continueFormMessage {
-    position: relative;
-    top: -84px;
-    left: 30px;
-    font-size: 13px;
-    text-shadow: 5px 3px 6px rgb(0, 0, 0);
-    font-family: "Inter Regular";
+  position: relative;
+  top: -84px;
+  left: 30px;
+  font-size: 13px;
+  text-shadow: 5px 3px 6px rgb(0, 0, 0);
+  font-family: "Inter Regular";
 }

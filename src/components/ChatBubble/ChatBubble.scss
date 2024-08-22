@@ -14,12 +14,11 @@
   margin: 8px;
   padding: 7px;
   border-radius: 20px;
-  background-color: #3389BB;
+  background-color: #3389bb;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow-wrap: break-word;
   display: inline-block;
   animation: fadeIn 1s forwards;
-  
 
   p {
     margin: 5px;
@@ -40,7 +39,7 @@
   }
 
   &.assistant {
-    background-color: #1D5B8F; // Background for assistant messages
+    background-color: #1d5b8f; // Background for assistant messages
     align-self: flex-start;
     margin-right: auto; // Align to the left
     right: unset; // Remove any right positioning

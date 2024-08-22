@@ -29,14 +29,22 @@ const router = createBrowserRouter(
 
       <Route path="/chatgpt-ai-healthapp/home" element={<Home />} />
 
-      <Route path="/chatgpt-ai-healthapp/conversation" element={<ConversationTest />} />
-      
-      <Route path="/chatgpt-ai-healthapp/patient-info" element={<PatientInformation />} />
+      <Route
+        path="/chatgpt-ai-healthapp/conversation"
+        element={<ConversationTest />}
+      />
+
+      <Route
+        path="/chatgpt-ai-healthapp/patient-info"
+        element={<PatientInformation />}
+      />
 
       <Route path="/chatgpt-ai-healthapp/favorites" element={<Favorites />} />
 
-      <Route path="/chatgpt-ai-healthapp/edit-patient-info" element={<EditPatientInfo />} />
-
+      <Route
+        path="/chatgpt-ai-healthapp/edit-patient-info"
+        element={<EditPatientInfo />}
+      />
     </Route>,
   ),
 );

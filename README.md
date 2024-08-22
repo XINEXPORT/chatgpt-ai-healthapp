@@ -2,7 +2,7 @@
 
 # CareBuddy, an AI Healthcare Chat Companion
 
-CareBuddy is an AI Healthcare chat companion that can recommend lifestyle tips and nutrition recommendations for individuals seeking a healthier lifestyle. 
+CareBuddy is an AI Healthcare chat companion that can recommend lifestyle tips and nutrition recommendations for individuals seeking a healthier lifestyle.
 
 CareBuddy tailors its responses through a conversation-like patient evaluation form to gather detailed information about the user, a chat page for seamless interaction, and a Favorites list feature that allows users to save their favorite responses.
 
@@ -65,9 +65,9 @@ Meet the team behind CareBuddy
   </tr>
 </table>
 
-
 ## Technologies
-~~~
+
+```
 Frontend Development:
     React (Javascript): Enables fast web application development while ensuring high-quality user experience
     Sass Stylesheets
@@ -88,7 +88,6 @@ Design and Project Management Tools:
     NotionDB: For agile project management and ticket tracking ensuring transparent work responsibiltiies and smooth development
     Prettier: Allowed for organized and structured code to improve readability and prevent merge conflicts
     Github: Used for version control to assist with code management, increase collaboration, and reduce errors by using branching strategy and performing Pull Request reviews
-~~~
+```
+
 ![Dallas-AI_-Logo_Color](https://github.com/user-attachments/assets/d7abc172-29e5-4170-9b4a-7dca65742389)
-
-

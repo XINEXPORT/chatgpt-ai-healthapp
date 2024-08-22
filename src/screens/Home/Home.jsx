@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
-import { useQueryContext } from '../../App';
-import { usePatientInfoContext } from '../../PatientInfoContext';
-import styles from './Home.module.scss';
+import React, { useState, useEffect, useRef } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+import { useQueryContext } from "../../App";
+import { usePatientInfoContext } from "../../PatientInfoContext";
+import styles from "./Home.module.scss";
 import "../../effects/FadeInFadeOut.scss";
-import CustomTextarea from '../../components/CustomTextarea/CustomTextarea.jsx';
+import CustomTextarea from "../../components/CustomTextarea/CustomTextarea.jsx";
 
 const Home = () => {
   const { setQueryResponse } = useQueryContext();
@@ -14,16 +14,19 @@ const Home = () => {
   const chatHistoryRef = useRef(null);
 
   // Retrieve chat history from localStorage or initialize an empty array
-  const initialChatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+  const initialChatHistory =
+    JSON.parse(localStorage.getItem("chatHistory")) || [];
   const [chatHistory, setChatHistory] = useState(initialChatHistory);
 
   const handleUserMessage = (userMessage) => {
     // Clear chat history before adding new message
     const newChatHistory = [{ message: userMessage, isUser: true }];
     setChatHistory(newChatHistory);
-    localStorage.setItem('chatHistory', JSON.stringify(newChatHistory));
+    localStorage.setItem("chatHistory", JSON.stringify(newChatHistory));
 
-    navigate('/chatgpt-ai-healthapp/conversation', { state: { chatHistory: newChatHistory } });
+    navigate("/chatgpt-ai-healthapp/conversation", {
+      state: { chatHistory: newChatHistory },
+    });
   };
 
   const [isTyping, setIsTyping] = useState(false);
@@ -34,12 +37,12 @@ const Home = () => {
 
   // Save chat history to localStorage whenever it updates
   useEffect(() => {
-    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
   }, [chatHistory]);
 
   // Ensure patientInfo is an object and handle the case where patientInfo.name might be undefined
-  const patientName = patientInfo?.name || 'Guest';
-  const firstName = patientName.split(' ')[0]; // Get the first name
+  const patientName = patientInfo?.name || "Guest";
+  const firstName = patientName.split(" ")[0]; // Get the first name
 
   return (
     <HelmetProvider>
@@ -48,7 +51,9 @@ const Home = () => {
           <title>CareBuddy</title>
         </Helmet>
         <div className={styles.homeContainer}>
-          <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>
+          <div
+            className={`styles.aboveMessageBox fadingContent ${isTyping ? "fadeOut" : "fadeIn"}`}
+          >
             <img
               src="src/assets/Home/Rectangle11.png"
               alt="Rectangle111235"
@@ -73,14 +78,30 @@ const Home = () => {
               className={styles.friendlyrobotassistantwaving}
             />
             <span className={styles.text5}>
-              <span>Hi <span className={styles.differentFont}>{firstName}</span>,<br />
-                Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
+              <span>
+                Hi <span className={styles.differentFont}>{firstName}</span>,
+                <br />
+                Your{" "}
+                <span className={styles.differentColorAndFont}>
+                  Personal Healthcare{" "}
+                </span>
                 Companion is Here!
-                <span className={styles.differentFont}> Informed answers,
-                <br />Friendly<br />Conversation <br /></span>
-                and <span className={styles.differentFont}>Personalized
-                  Assistance</span> are<br />
-                assured by me.</span>
+                <span className={styles.differentFont}>
+                  {" "}
+                  Informed answers,
+                  <br />
+                  Friendly
+                  <br />
+                  Conversation <br />
+                </span>
+                and{" "}
+                <span className={styles.differentFont}>
+                  Personalized Assistance
+                </span>{" "}
+                are
+                <br />
+                assured by me.
+              </span>
             </span>
             <span className={styles.text4}>
               <span>How can I help you?</span>

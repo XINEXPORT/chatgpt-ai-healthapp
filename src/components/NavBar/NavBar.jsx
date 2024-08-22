@@ -33,25 +33,41 @@ const NavBar = () => {
     <div className={styles.navBar}>
       <div className={styles.icons}>
         <img
-          src={isActive("/chatgpt-ai-healthapp/home") ? "src/assets/NavBar/activeHomeIcon.png" : "src/assets/NavBar/inactiveHomeIcon.png"}
+          src={
+            isActive("/chatgpt-ai-healthapp/home")
+              ? "src/assets/NavBar/activeHomeIcon.png"
+              : "src/assets/NavBar/inactiveHomeIcon.png"
+          }
           className={`${styles.icon} ${isActive("/chatgpt-ai-healthapp/home") ? styles.active : styles.inactive}`}
           onClick={handleClickHome}
           alt="Home"
         />
         <img
-          src={isActive("/chatgpt-ai-healthapp/conversation") ? "src/assets/NavBar/activeConversationIcon.png" : "src/assets/NavBar/inactiveConversationIcon.png"}
+          src={
+            isActive("/chatgpt-ai-healthapp/conversation")
+              ? "src/assets/NavBar/activeConversationIcon.png"
+              : "src/assets/NavBar/inactiveConversationIcon.png"
+          }
           className={`${styles.icon} ${isActive("/chatgpt-ai-healthapp/conversation") ? styles.active : styles.inactive} ${styles.conversationIcon}`}
           onClick={handleClickConversation}
           alt="Conversation"
         />
         <img
-          src={isActive("/chatgpt-ai-healthapp/favorites") ? "src/assets/NavBar/activeBookmarkIcon.png" : "src/assets/NavBar/inactiveBookmarkIcon.png"}
+          src={
+            isActive("/chatgpt-ai-healthapp/favorites")
+              ? "src/assets/NavBar/activeBookmarkIcon.png"
+              : "src/assets/NavBar/inactiveBookmarkIcon.png"
+          }
           className={`${styles.icon} ${isActive("/chatgpt-ai-healthapp/favorites") ? styles.active : styles.inactive}`}
           onClick={handleClickFavorites}
           alt="Favorites"
         />
         <img
-          src={isActive("/chatgpt-ai-healthapp/edit-patient-info") ? "src/assets/NavBar/activeEditFormIcon.png" : "src/assets/NavBar/inactiveEditFormIcon.png"}
+          src={
+            isActive("/chatgpt-ai-healthapp/edit-patient-info")
+              ? "src/assets/NavBar/activeEditFormIcon.png"
+              : "src/assets/NavBar/inactiveEditFormIcon.png"
+          }
           className={`${styles.icon} ${isActive("/chatgpt-ai-healthapp/favorites") ? styles.active : styles.inactive}`}
           onClick={handleClickEditForm}
           alt="Favorites"

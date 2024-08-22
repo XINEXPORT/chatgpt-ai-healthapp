@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const PatientInfoContext = createContext();
 
@@ -16,17 +16,17 @@ const safeJSONParse = (value, defaultValue) => {
 
 export const PatientInfoProvider = ({ children }) => {
   const [patientInfo, setPatientInfoState] = useState(() => {
-    const storedPatientInfo = localStorage.getItem('patientInfo');
+    const storedPatientInfo = localStorage.getItem("patientInfo");
     return storedPatientInfo ? safeJSONParse(storedPatientInfo, {}) : {};
   });
 
   const setPatientInfo = (info) => {
     setPatientInfoState(info);
-    localStorage.setItem('patientInfo', JSON.stringify(info));
+    localStorage.setItem("patientInfo", JSON.stringify(info));
   };
 
   useEffect(() => {
-    const storedPatientInfo = localStorage.getItem('patientInfo');
+    const storedPatientInfo = localStorage.getItem("patientInfo");
     if (storedPatientInfo) {
       setPatientInfoState(safeJSONParse(storedPatientInfo, {}));
     }
@@ -34,14 +34,16 @@ export const PatientInfoProvider = ({ children }) => {
 
   useEffect(() => {
     const handleStorageChange = () => {
-      const storedPatientInfo = localStorage.getItem('patientInfo');
-      setPatientInfoState(storedPatientInfo ? safeJSONParse(storedPatientInfo, {}) : {});
+      const storedPatientInfo = localStorage.getItem("patientInfo");
+      setPatientInfoState(
+        storedPatientInfo ? safeJSONParse(storedPatientInfo, {}) : {},
+      );
     };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
