@@ -113,7 +113,7 @@ const PatientInformation = () => {
     }, [chatHistory]);
 
     useEffect(() => {
-        console.log("Patient Info Updated: ", patientInfo);
+        // console.log("Patient Info Updated: ", patientInfo);
     }, [patientInfo]);
 
     const renderInput = (question) => {

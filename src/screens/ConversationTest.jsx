@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useQueryContext } from '../App';
 import '../index.scss';
 import { Helmet } from 'react-helmet';
 import styles from './ConversationTest.module.scss';
 import ChatBubble from '../components/ChatBubble/ChatBubble.jsx';
 import CustomTextarea from '../components/CustomTextarea/CustomTextarea.jsx';
-import SmallSpinner from '../components/SmallSpinner/SmallSpinner.jsx';
 import axios from 'axios';
 
 const ConversationTest = () => {
     const location = useLocation();
+    const navigate = useNavigate(); // Get the navigate function from useNavigate
     const { queryResponse, setQueryResponse } = useQueryContext();
     const chatHistoryRef = useRef(null);
 
@@ -100,6 +100,7 @@ const ConversationTest = () => {
                         handleUserMessage={handleUserMessage}
                         setQueryResponse={setQueryResponse}
                         chatHistory={chatHistory} // Pass chat history to CustomTextarea
+                        navigate={navigate} // Pass navigate prop to CustomTextarea
                     />
                 </div>
             </div>
