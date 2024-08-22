@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { useQueryContext } from '../../App';
 import { usePatientInfoContext } from '../../PatientInfoContext';
@@ -42,60 +42,62 @@ const Home = () => {
   const firstName = patientName.split(' ')[0]; // Get the first name
 
   return (
-    <div className={styles.Home}>
-      <Helmet>
-        <title>CareBuddy</title>
-      </Helmet>
-      <div className={styles.homeContainer}>
-        <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>
-          <img
-            src="src/assets/Home/Rectangle11.png"
-            alt="Rectangle111235"
-            className={styles.rectangle11}
-          />
-          <img
-            src="src/assets/Home/Ellipse4.png"
-            alt="Ellipse4113"
-            className={styles.ellipse4}
-          />
-          <div className={styles.group3}>
-            <span className={styles.text}>
-              <span>Welcome Back,</span>
+    <HelmetProvider>
+      <div className={styles.Home}>
+        <Helmet>
+          <title>CareBuddy</title>
+        </Helmet>
+        <div className={styles.homeContainer}>
+          <div className={`styles.aboveMessageBox fadingContent ${isTyping ? 'fadeOut' : 'fadeIn'}`}>
+            <img
+              src="src/assets/Home/Rectangle11.png"
+              alt="Rectangle111235"
+              className={styles.rectangle11}
+            />
+            <img
+              src="src/assets/Home/Ellipse4.png"
+              alt="Ellipse4113"
+              className={styles.ellipse4}
+            />
+            <div className={styles.group3}>
+              <span className={styles.text}>
+                <span>Welcome Back,</span>
+              </span>
+              <span className={styles.text2}>
+                <span>{patientName}</span>
+              </span>
+            </div>
+            <img
+              src="src/assets/Home/friendly robot assistant waving.png"
+              alt="friendlyrobotassistantwaving1132"
+              className={styles.friendlyrobotassistantwaving}
+            />
+            <span className={styles.text5}>
+              <span>Hi <span className={styles.differentFont}>{firstName}</span>,<br />
+                Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
+                Companion is Here!
+                <span className={styles.differentFont}> Informed answers,
+                <br />Friendly<br />Conversation <br /></span>
+                and <span className={styles.differentFont}>Personalized
+                  Assistance</span> are<br />
+                assured by me.</span>
             </span>
-            <span className={styles.text2}>
-              <span>{patientName}</span>
+            <span className={styles.text4}>
+              <span>How can I help you?</span>
             </span>
           </div>
-          <img
-            src="src/assets/Home/friendly robot assistant waving.png"
-            alt="friendlyrobotassistantwaving1132"
-            className={styles.friendlyrobotassistantwaving}
-          />
-          <span className={styles.text5}>
-            <span>Hi <span className={styles.differentFont}>{firstName}</span>,<br />
-              Your <span className={styles.differentColorAndFont}>Personal Healthcare </span>
-              Companion is Here!
-              <span className={styles.differentFont}> Informed answers,
-              <br />Friendly<br />Conversation <br /></span>
-              and <span className={styles.differentFont}>Personalized
-                Assistance</span> are<br />
-              assured by me.</span>
-          </span>
-          <span className={styles.text4}>
-            <span>How can I help you?</span>
-          </span>
-        </div>
-        <div className={styles.messageBox}>
-          <CustomTextarea
-            setQueryResponse={setQueryResponse}
-            handleUserMessage={handleUserMessage}
-            navigate={navigate}
-            handleTyping={handleTyping}
-            chatHistory={chatHistory} // Pass chat history to CustomTextarea
-          />
+          <div className={styles.messageBox}>
+            <CustomTextarea
+              setQueryResponse={setQueryResponse}
+              handleUserMessage={handleUserMessage}
+              navigate={navigate}
+              handleTyping={handleTyping}
+              chatHistory={chatHistory} // Pass chat history to CustomTextarea
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 

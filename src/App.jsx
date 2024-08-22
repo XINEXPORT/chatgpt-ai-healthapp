@@ -1,11 +1,10 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Loading from "./screens/Loading.jsx";
 import NavBar from './components/NavBar/NavBar.jsx';
 import "./effects/CrossFadeScreens.scss";
 import { PatientInfoProvider } from './PatientInfoContext';
-import TutorialTest from './screens/TutorialTest/TutorialTest.jsx';
 import "./index.scss";
 
 // Create a context for managing query responses
@@ -19,6 +18,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [queryResponse, setQueryResponse] = useState('');
   const location = useLocation();
+  const nodeRef = useRef(null); // Create a ref for CSSTransition
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -51,11 +51,14 @@ const App = () => {
                 <div className="content">
                   <TransitionGroup>
                     <CSSTransition
+                      nodeRef={nodeRef} // Pass the ref to CSSTransition
                       key={location.key}
                       timeout={500}
                       classNames="fade"
                     >
-                      <Outlet />
+                      <div ref={nodeRef}>
+                        <Outlet />
+                      </div>
                     </CSSTransition>
                   </TransitionGroup>
                 </div>
@@ -74,4 +77,3 @@ const App = () => {
 };
 
 export default App;
-
