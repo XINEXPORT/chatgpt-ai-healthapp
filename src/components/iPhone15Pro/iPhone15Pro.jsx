@@ -1,24 +1,24 @@
 import React from "react";
-
-import { Helmet } from "react-helmet";
-
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./iPhone15Pro.module.scss";
 
 const IPhone15Pro = ({ children }) => {
   return (
-    <div className="i-phone15-pro-container">
-      <Helmet>
-        <title>exported project</title>
-      </Helmet>
-      <div className="i-phone15-pro-i-phone15-pro">
-        <img
-          src="public/iphone-frame.png"
-          alt="iPhone15ProBlackTitaniumPortraitI318"
-          className="i-phone15-pro-i-phone15-pro-black-titanium-portrait"
-        />
-        {children}
+    <HelmetProvider>
+      <div className="i-phone15-pro-container">
+        <Helmet>
+          <title>exported project</title>
+        </Helmet>
+        <div className="i-phone15-pro-i-phone15-pro">
+          <img
+            src="public/iphone-frame.png"
+            alt="iPhone15ProBlackTitaniumPortraitI318"
+            className="i-phone15-pro-i-phone15-pro-black-titanium-portrait"
+          />
+          {children}
+        </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 
