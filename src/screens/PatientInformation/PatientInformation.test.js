@@ -42,9 +42,9 @@ describe("PatientInformation Component", () => {
     // Click the Start button
     fireEvent.click(screen.getByText("Start"));
 
-    // Check if the first question is rendered
+    // Check if the first question is rendered (update this to match the actual text)
     expect(
-      screen.getByText(/Your first question text here/),
+      screen.getByText(/What is your name?/i),
     ).toBeInTheDocument();
   });
 
@@ -59,16 +59,16 @@ describe("PatientInformation Component", () => {
     fireEvent.click(screen.getByText("Start"));
 
     // Simulate user input for the first question
-    fireEvent.change(screen.getByRole("textbox"), {
+    fireEvent.change(screen.getByRole("textbox", { name: /name/i }), {
       target: { value: "User answer" },
     });
 
     // Submit the answer
     fireEvent.click(screen.getByText("Submit"));
 
-    // Check if the next question is rendered
+    // Check if the next question is rendered (update this to match the actual text)
     expect(
-      screen.getByText(/Your next question text here/),
+      screen.getByText(/What is your age?/i),
     ).toBeInTheDocument();
   });
 
@@ -90,10 +90,10 @@ describe("PatientInformation Component", () => {
     fireEvent.click(screen.getByText("Start"));
 
     // Simulate user input for weight and height
-    fireEvent.change(screen.getByLabelText("Weight"), {
+    fireEvent.change(screen.getByLabelText(/Weight/i), {
       target: { value: "150" },
     });
-    fireEvent.change(screen.getByLabelText("Height"), {
+    fireEvent.change(screen.getByLabelText(/Height/i), {
       target: { value: `5'10"` },
     });
 
