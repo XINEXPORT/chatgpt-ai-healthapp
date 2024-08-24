@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import { usePatientInfoContext } from "../../PatientInfoContext";
 import PatientInformation from "./PatientInformation";
-import { questions } from "./questionsConfig"; // Import the questions from the config
+import { questions } from "./questionsConfig"; 
 
 // Mock the usePatientInfoContext hook
 jest.mock("../../PatientInfoContext", () => ({
