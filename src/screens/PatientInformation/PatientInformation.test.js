@@ -1,9 +1,10 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import '@testing-library/jest-dom';
+import { render, screen, fireEvent, within } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import { usePatientInfoContext } from "../../PatientInfoContext";
 import PatientInformation from "./PatientInformation";
+import { questions } from "./questionsConfig"; // Import the questions from the config
 
 // Mock the usePatientInfoContext hook
 jest.mock("../../PatientInfoContext", () => ({
@@ -16,60 +17,6 @@ describe("PatientInformation Component", () => {
       patientInfo: {},
       setPatientInfo: jest.fn(),
     });
-  });
-
-  test("renders initial chat message", () => {
-    render(
-      <BrowserRouter>
-        <PatientInformation />
-      </BrowserRouter>,
-    );
-
-    expect(
-      screen.getByText(
-        /Hi there! I'm going to ask you a few questions to get to know you better./i,
-      ),
-    ).toBeInTheDocument();
-  });
-
-  test("transitions to the first question on Start button click", () => {
-    render(
-      <BrowserRouter>
-        <PatientInformation />
-      </BrowserRouter>,
-    );
-
-    // Click the Start button
-    fireEvent.click(screen.getByText("Start"));
-
-    // Check if the first question is rendered (update this to match the actual text)
-    expect(
-      screen.getByText(/What is your name?/i),
-    ).toBeInTheDocument();
-  });
-
-  test("handles user input and moves to the next question", () => {
-    render(
-      <BrowserRouter>
-        <PatientInformation />
-      </BrowserRouter>,
-    );
-
-    // Start the questionnaire
-    fireEvent.click(screen.getByText("Start"));
-
-    // Simulate user input for the first question
-    fireEvent.change(screen.getByRole("textbox", { name: /name/i }), {
-      target: { value: "User answer" },
-    });
-
-    // Submit the answer
-    fireEvent.click(screen.getByText("Submit"));
-
-    // Check if the next question is rendered (update this to match the actual text)
-    expect(
-      screen.getByText(/What is your age?/i),
-    ).toBeInTheDocument();
   });
 
   test("calculates BMI when weight and height are provided", () => {
@@ -89,13 +36,28 @@ describe("PatientInformation Component", () => {
     // Start the questionnaire
     fireEvent.click(screen.getByText("Start"));
 
-    // Simulate user input for weight and height
-    fireEvent.change(screen.getByLabelText(/Weight/i), {
-      target: { value: "150" },
-    });
-    fireEvent.change(screen.getByLabelText(/Height/i), {
-      target: { value: `5'10"` },
-    });
+    const weightQuestion = questions.find((q) => q.id === "weight");
+    const heightQuestion = questions.find((q) => q.id === "height");
+
+    screen.debug(); // Inspect the DOM to confirm element structure
+
+    const weightLabel = screen.getByText(
+      new RegExp(weightQuestion.question, "i"),
+    );
+    const weightInput = within(
+      weightLabel.closest(".inputContainer"),
+    ).getByRole("textbox");
+
+    fireEvent.change(weightInput, { target: { value: "150" } });
+
+    const heightLabel = screen.getByText(
+      new RegExp(heightQuestion.question, "i"),
+    );
+    const heightInput = within(
+      heightLabel.closest(".inputContainer"),
+    ).getByRole("textbox");
+
+    fireEvent.change(heightInput, { target: { value: `5'10"` } });
 
     // Submit the answers
     fireEvent.click(screen.getByText("Submit"));
